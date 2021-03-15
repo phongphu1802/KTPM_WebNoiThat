@@ -258,7 +258,7 @@
       </div>
     </div>
 
-    <div class="d-flex justify-content-center custom-nav position-relative" style="padding-top: 5px;background-color: white;" id="menu">
+    <div class="d-flex justify-content-center custom-nav position-relative" style="padding-top: 5px;background-color: white; z-index:999;" id="menu">
 		<div class="position-absolute" id="sidebar">
 			<div class="button-hamburger" id="btn">
 				<div class="bar top"></div>
