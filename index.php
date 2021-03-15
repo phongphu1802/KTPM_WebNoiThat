@@ -41,9 +41,9 @@
   <div class="bx-wrapper" style="max-width: 100%; border: 0px;">
 	  <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 863.062px;">
 		  <ul class="bxslider" style="width: auto; position: relative;">
-			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 0; display: none;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="anh/banner/1.jpg"></a></li>
-			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 0; display: none;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="anh/banner/2.jpg"></a></li>
-			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 50;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="anh/banner/3.jpg"></a></li>
+			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 0; display: none;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="image/banner/1.jpg"></a></li>
+			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 0; display: none;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="image/banner/2.jpg"></a></li>
+			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 50;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="image/banner/3.jpg"></a></li>
 		  </ul>
 	  </div>
 	  <div class="bx-controls bx-has-pager bx-has-controls-direction">

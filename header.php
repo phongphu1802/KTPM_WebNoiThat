@@ -222,13 +222,13 @@
     <div class="float-right" style="margin: 15px;">
 		<span>
 			<a style="text-decoration:none;color:#51473e;" href="http://nhaxinh.com/en/index.php">
-				<img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/EN.jpg">
+				<img src="./image/EN.jpg">
     		</a>
     	</span>
     </div>
   </div>
   <div style="position: absolute; width: 100%; text-align: center;top:60px;">
-    <a href="http://nhaxinh.com/index.php"><img src="anh/logo.png" alt="Nhà Xinh" width="135px" height="135px"></a>
+    <a href="http://nhaxinh.com/index.php"><img src="image/logo.png" alt="Nhà Xinh" width="135px" height="135px"></a>
   </div>
   <div class="container-fluid">
     <div class="header py-3 d-flex justify-content-between" style="height: 150px;">
