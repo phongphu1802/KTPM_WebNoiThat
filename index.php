@@ -18,9 +18,9 @@
 }
 </style>
 <!-- slick slider -->
-<link rel="stylesheet" type="text/css" href="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/slick.css">
-<link rel="stylesheet" type="text/css" href="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/slick-theme.css">
-<script type="text/javascript" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/slick.min.js.download"></script>
+<link rel="stylesheet" type="text/css" href="./css/slick.css">
+<link rel="stylesheet" type="text/css" href="./css/slick-theme.css">
+<script type="text/javascript" src="./js/slick.min.js.download"></script>
 
 <div id="home_banner" style="clear: both; height: 943.062px;">
   <div class="bx-wrapper" style="max-width: 100%; border: 0px;">
@@ -33,11 +33,13 @@
 	  </div>
 	  <div class="bx-controls bx-has-pager bx-has-controls-direction">
 		  <div class="bx-pager bx-default-pager">
-			  <div class="bx-pager-item"><a href="http://localhost/KTPM_WebNoiThat/index.php" data-slide-index="0" class="bx-pager-link">1</a></div>
-			  <div class="bx-pager-item"><a href="http://localhost/KTPM_WebNoiThat/index.php" data-slide-index="1" class="bx-pager-link">2</a></div>
-			  <div class="bx-pager-item"><a href="http://localhost/KTPM_WebNoiThat/index.php" data-slide-index="2" class="bx-pager-link active">3</a></div>
+			  <div class="bx-pager-item"><a href="#" data-slide-index="0" class="bx-pager-link">1</a></div>
+			  <div class="bx-pager-item"><a href="#" data-slide-index="1" class="bx-pager-link">2</a></div>
+			  <div class="bx-pager-item"><a href="#" data-slide-index="2" class="bx-pager-link active">3</a></div>
 		  </div>
-		  <div class="bx-controls-direction"><a class="bx-prev" href="http://localhost/KTPM_WebNoiThat/index.php">Prev</a><a class="bx-next" href="http://localhost/KTPM_WebNoiThat/index.php">Next</a></div>
+		  <div class="bx-controls-direction" style="z-index: 999;">
+			  <a class="bx-prev" href="#"><img src="./image/icon/icons8_chevron_left_32px.png" alt="Nhà Xinh" ></a>
+			  <a class="bx-next" href="#"><img src="./image/icon/icons8_chevron_right_32px.png" alt="Nhà Xinh" ></a></div>
 	  </div>
 	</div>
 </div>
