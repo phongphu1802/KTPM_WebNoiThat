@@ -2,27 +2,43 @@
 <!-- saved from url=(0019)http://nhaxinh.com/ -->
 <html lang="vi" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!--<base href="/">--><base href=".">
-	<title>Nội thất Nhà Xinh | Nội thất cao cấp | Đồ gỗ cao cấp</title>
-<?php
-    include 'import.php';
-?>
+	<head>
+    <meta charset="UTF-8">
+    <title>Nội thất Nhà Xinh | Nội thất cao cấp | Đồ gỗ cao cấp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+      include "./import.php";
+    ?>
+    <link rel="stylesheet" type="text/css" href="./css/slick.css">
+    <link rel="stylesheet" type="text/css" href="./css/slick-theme.css">
+    <script type="text/javascript" src="./js/slick.min.js.download"></script>
+    <script src="./OwlCarousel2-2.3.4/dist/owl.carousel.js"></script>
+    <link rel="stylesheet" type="text/css" href="./OwlCarousel2-2.3.4/dist/assets/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="./OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
+    
+  </head>
+
 <body>
   <?php
     include 'header.php';
   ?>
+  
+  <div class="owl-carousel owl-theme">
+    <div class="item"><img style="height=500px !important;" src="./image/banner/1.jpg" alt=""></div>
+    <div class="item"><img style="height=500px !important;" src="./image/banner/3.jpg" alt=""></div>
+    <div class="item"><img style="height=500px !important;" src="./image/banner/2.jpg" alt=""></div>
 
-<div class="container-fluid" id="cpage">
+</div>
+<!-- <div class="container-fluid" id="cpage">
 <style>
 .navbar-toggler {
 	display: block;
 }
-</style>
+</style> -->
 <!-- slick slider -->
-<link rel="stylesheet" type="text/css" href="./css/slick.css">
-<link rel="stylesheet" type="text/css" href="./css/slick-theme.css">
-<script type="text/javascript" src="./js/slick.min.js.download"></script>
 
-<div id="home_banner" style="clear: both; height: 943.062px;">
+
+<!-- <div id="home_banner" style="clear: both; height: 943.062px;">
   <div class="bx-wrapper" style="max-width: 100%; border: 0px;">
 	  <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 863.062px;">
 		  <ul class="bxslider" style="width: auto; position: relative;">
@@ -58,7 +74,7 @@
   });
 </script>
 
-<div style="clear: both;"></div>
+<div style="clear: both;"></div> -->
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 <!--content-->
 
@@ -605,4 +621,17 @@
       include './footer.php';
     ?>
 </body>
+<script>
+    $('.owl-carousel').owlCarousel({
+    loop:true,
+    items:1,
+    margin:10,
+    autoplay:true,
+    autoplayTimeout:3000,
+    autoplayHoverPause:true,
+    nav: true,
+    rewindNav : true,
+    navText: ["<img src='./image/icon/icons8_chevron_left_32px.png'>","<img src='./image/icon/icons8_chevron_right_32px.png'>"]
+    })
+    </script>
 </html>

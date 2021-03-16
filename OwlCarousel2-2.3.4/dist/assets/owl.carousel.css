@@ -184,3 +184,20 @@
   z-index: 1;
   height: 100%;
   width: 100%; }
+
+  /* ............................ */
+  .owl-theme .owl-nav [class*=owl-]{
+    background: transparent;
+  }
+  .owl-theme .owl-nav{
+    position: relative;
+    bottom: 140px;
+  }
+  .owl-prev{
+    position: absolute;
+    left: 50px;
+  }
+  .owl-next{
+    position: absolute;
+    right: 50px;
+  }

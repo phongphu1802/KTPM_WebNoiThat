@@ -289,7 +289,7 @@
   </div>
 </div>
 <!-- Start of akasupportcenter Zendesk Widget script -->
-<script id="ze-snippet" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/snippet.js.download"></script>
+<script id="ze-snippet" src="./js/snippet.js.download"></script>
 <!-- End of akasupportcenter Zendesk Widget script -->
 <!-- Load Facebook SDK for JavaScript -->
 <div id="fb-root"></div>
@@ -313,4 +313,3 @@
 <div class="fb-customerchat" attribution="setup_tool" page_id="242481079174652" theme_color="#0A7CFF" logged_in_greeting="Chào bạn! Hãy chat với Nhà Xinh ngay nhé." logged_out_greeting="Chào bạn! Hãy chat với Nhà Xinh ngay nhé.">
 </div>
 
-<iframe data-product="web_widget" title="No content" tabindex="-1" aria-hidden="true" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/saved_resource.html" style="width: 0px; height: 0px; border: 0px; position: absolute; top: -9999px;"></iframe>
