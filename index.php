@@ -3,35 +3,20 @@
 <html lang="vi" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <!--<base href="/">--><base href=".">
 	<title>Nội thất Nhà Xinh | Nội thất cao cấp | Đồ gỗ cao cấp</title>
-	<link rel="alternate" href="http://www.nhaxinh.com/" hreflang="vi-vn">
-	<link rel="shortcut icon" href="http://nhaxinh.com/favicon.ico" type="image/x-icon">
-	<link rel="stylesheet" href="css/font.css" type="text/css" charset="utf-8">
-	<script async="" src="js/analytics.js.download"></script>
-	<script type="text/javascript" async="" src="txt/f.txt"></script>
-	<script id="facebook-jssdk" src="js/sdk.js(1).download"></script>
-	<script async="" src="js/fbevents.js.download"></script>
-	<script async="" src="js/gtm.js.download"></script>
-	<script src="js/jquery-3.3.1.min.js.download"></script>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-	<link rel="stylesheet" href="css/fontawesome-all.min.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/style4.0.1.css">
-	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css">
-	<script src="js/bootstrap.bundle.min.js.download"></script>
+<?php
+    include 'import.php';
+?>
 <body>
   <?php
     include 'header.php';
   ?>
 
 <div class="container-fluid" id="cpage">
-  <!--<link rel="stylesheet" type="text/css" media="screen" href="css/product.css"/> -->
-    <style>.navbar-toggler {
-  display: block;
-}</style>
-<!-- bxSlider Javascript file -->
-<script src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/jquery.bxslider.min.js.download"></script>
-<!-- bxSlider CSS file -->
-<link href="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/jquery.bxslider.css" rel="stylesheet">
-
+<style>
+.navbar-toggler {
+	display: block;
+}
+</style>
 <!-- slick slider -->
 <link rel="stylesheet" type="text/css" href="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/slick.css">
 <link rel="stylesheet" type="text/css" href="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/slick-theme.css">
@@ -75,6 +60,7 @@
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 <!--content-->
 
+<!--
 <div id="new_product" style="margin: 10px 0px 10px 0px;">
   <div class="page_header">
     Sản Phẩm Mới
@@ -610,6 +596,7 @@
   </div>
 </div>
   </div>
+-->
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 <!--footer-->
     <?php
