@@ -142,9 +142,9 @@
       <div class="position-absolute" style="right: 75px; top: 10px;background: white; width: 300px; height: 250px;">
         <div class="pt-2 pl-3" style="color:#4B4E51">Follow us on social networks!</div>
         <div class="pl-3 pt-3">
-          <a href="https://www.facebook.com/nhaxinhvn"><img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/facebook.png"></a>
-          <a href="https://www.instagram.com/nha_xinh/"><img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/instagram.png"></a>
-          <a href="https://www.youtube.com/channel/UCF7xHSOGR-IW18A5OUjaFzw"><img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/youtube.png"></a>
+          <a href="https://www.facebook.com/nhaxinhvn"><img src="./image/icon/facebook.png"></a>
+          <a href="https://www.instagram.com/nha_xinh/"><img src="./image/icon/instagram.png"></a>
+          <a href="https://www.youtube.com/channel/UCF7xHSOGR-IW18A5OUjaFzw"><img src="./image/icon/youtube.png"></a>
         </div>
         <div class="pt-3 pl-3 pb-3" style="color:#4B4E51;line-height: 1.5;">Hãy để lại email của bạn để nhận
           được những ý tưởng trang trí mới và những thông tin, ưu đãi từ Nhà Xinh
@@ -241,25 +241,24 @@
   <div class="clearfix" style="position: relative; display: flex">
     <div class="lgo-left-2" style="position: relative;padding: 0 !important;width: 20%;border-right: 1px solid #BBBDC0;">
       <a target="_blank" href="http://www.akafurniture.com.vn/">
-        <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/0.akafurnituregroup.png" style="max-width: 65%;position: relative">
+        <img src="./image/partner/0.akafurnituregroup.png" style="max-width: 65%;position: relative">
       </a>
     </div>
     <div class="lgo-right-2" style="position:relative; width: 80%">
       <div style="position: absolute; width:100%; padding-left: 30px;display: flex; top:0; justify-content: space-between;align-items: center;">
-        <a target="_blank" href="https://www.nhaxinh.com/"><img style="max-height: 50px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh_2.png"></a>
-        <a target="_blank" href="https://www.boconcept.com/vi-vn/"><img style="max-height: 33px" wr="" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/boconcept_2.png"></a>
-        <a target="_blank" href="https://www.calligaris.com/en_gb"><img style="max-height: 33px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/calligaris.png"></a>
-        <a target="_blank" href="http://bellavitaluxury.com/"><img style="height: 67px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/bella.png"></a>
-        <a target="_blank" href="http://bellavitaluxury.com/brands/baxter-vi/"><img style="height: 67px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/baxter.png"></a>
-        <a target="_blank" href="http://bellavitaluxury.com/brands/arclinea-vi/"><img style="max-height: 33px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/arclinea.png"></a>
+        <a target="_blank" href="https://www.nhaxinh.com/"><img style="max-height: 50px" src="./image/partner/nhaxinh_2.png"></a>
+        <a target="_blank" href="https://www.boconcept.com/vi-vn/"><img style="max-height: 33px" wr="" src="./image/partner/boconcept_2.png"></a>
+        <a target="_blank" href="https://www.calligaris.com/en_gb"><img style="max-height: 33px" src="./image/partner/calligaris.png"></a>
+        <a target="_blank" href="http://bellavitaluxury.com/"><img style="height: 67px" src="./image/partner/bella.png"></a>
+        <a target="_blank" href="http://bellavitaluxury.com/brands/baxter-vi/"><img style="height: 67px" src="./image/partner/baxter.png"></a>
+        <a target="_blank" href="http://bellavitaluxury.com/brands/arclinea-vi/"><img style="max-height: 33px" src="./image/partner/arclinea.png"></a>
       </div>
       <div style="position: absolute; width:100%; padding-left: 30px;display: flex; bottom:0; justify-content: space-between;align-items: center;">
-        <a target="_blank" href="http://bellavitaluxury.com/brands/ceccotti-collezioni/"><img style="max-height: 33px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/ceccotti.png"></a>
-        <a target="_blank" href="http://bellavitaluxury.com/brands/walter-knoll-vi/"><img style="max-height: 33px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/walterknoll.png"></a>
-        <a target="_blank" href="http://bellavitaluxury.com/brands/dimensione-chi-wing-lo-vi/"><img style="max-height: 50px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/dimensione.png"></a>
-
-        <a target="_blank" href="https://www.ligne-roset.com/vn/"><img style="height: 33px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/logo-ligne.png"></a>
-        <a target="_blank" href="https://www.lago.it/en/"><img style="max-height: 50px" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/lago.png"></a>
+        <a target="_blank" href="http://bellavitaluxury.com/brands/ceccotti-collezioni/"><img style="max-height: 33px" src="./image/partner/ceccotti.png"></a>
+        <a target="_blank" href="http://bellavitaluxury.com/brands/walter-knoll-vi/"><img style="max-height: 33px" src="./image/partner/walterknoll.png"></a>
+        <a target="_blank" href="http://bellavitaluxury.com/brands/dimensione-chi-wing-lo-vi/"><img style="max-height: 50px" src="./image/partner/dimensione.png"></a>
+        <a target="_blank" href="https://www.ligne-roset.com/vn/"><img style="height: 33px" src="./image/partner/logo-ligne.png"></a>
+        <a target="_blank" href="https://www.lago.it/en/"><img style="max-height: 50px" src="./image/partner/lago.png"></a>
       </div>
     </div>
   </div>
