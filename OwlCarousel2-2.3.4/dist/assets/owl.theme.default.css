@@ -7,10 +7,15 @@
  * 	Default theme - Owl Carousel CSS File
  */
 .owl-theme .owl-nav {
+  /* width: ; */
+  width: 100%;
+  position: absolute;
+  top: 40%;
   margin-top: 10px;
   text-align: center;
   -webkit-tap-highlight-color: transparent; }
   .owl-theme .owl-nav [class*='owl-'] {
+    background: transparent;
     color: #FFF;
     font-size: 14px;
     margin: 5px;
@@ -29,7 +34,14 @@
 
 .owl-theme .owl-nav.disabled + .owl-dots {
   margin-top: 10px; }
-
+.owl-nav .owl-prev{
+  position: absolute;
+   left: 10px;
+}
+.owl-nav .owl-next{
+  position: absolute;
+  right: 10px;
+}
 .owl-theme .owl-dots {
   text-align: center;
   -webkit-tap-highlight-color: transparent; }
@@ -48,3 +60,5 @@
       border-radius: 30px; }
     .owl-theme .owl-dots .owl-dot.active span, .owl-theme .owl-dots .owl-dot:hover span {
       background: #869791; }
+      
+      

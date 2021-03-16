@@ -17,18 +17,19 @@
     <link rel="stylesheet" type="text/css" href="./OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
     
   </head>
-
+ 
 <body>
   <?php
     include 'header.php';
   ?>
   
   <div class="owl-carousel owl-theme">
+  
     <div class="item"><img style="height=500px !important;" src="./image/banner/1.jpg" alt=""></div>
     <div class="item"><img style="height=500px !important;" src="./image/banner/3.jpg" alt=""></div>
     <div class="item"><img style="height=500px !important;" src="./image/banner/2.jpg" alt=""></div>
 
-</div>
+  </div>
 <!-- <div class="container-fluid" id="cpage">
 <style>
 .navbar-toggler {
