@@ -4,6 +4,7 @@
 	<!-- <script async="" src="./js/bootstrap.bundle.js.map"></script>
 	<script async="" src="./js/bootstrap.bundle.min.js"></script>
 	<script async="" src="./js/bootstrap.bundle.min.js.download"></script>
+<<<<<<< Updated upstream
 	<script async="" src="./js/bootstrap.bundle.min.js.map"></script> -->
 	<script src="./bootstrap-5.0.0-beta2-dist/js/bootstrap.js"></script>
 	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -12,6 +13,14 @@
 	<!-- <script async="" src="./js/fbevents.js.download"></script>
 	<script async="" src="./js/gtm.js.download"></script> -->
 	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>	 -->
+=======
+	<script async="" src="./js/bootstrap.bundle.min.js.map"></script>
+	<script async="" src="./js/bootstrap.js"></script>
+	<script async="" src="./js/bootstrap.js.map"></script>
+	<script async="" src="./js/fbevents.js.download"></script>
+	<script async="" src="./js/gtm.js.download"></script>
+	<script async="" src="./js/jquery-3.3.1.min.js"></script>
+>>>>>>> Stashed changes
 	<script async="" src="./js/jquery.bxslider.min.js.download"></script>
 	<!-- <script async="" src="./js/sdk.js(1).download"></script> -->
 	<!-- <script async="" src="./js/sdk.js.download"></script>
