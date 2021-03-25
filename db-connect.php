@@ -12,3 +12,11 @@ echo "Failed to connect to MySQL: " . mysqli_connect_error();
 else
 { echo "Success to connect to MySQL"; }
 ?>
+<?php
+$host = "127.0.0.1";
+$user = "root";
+$pass = "";
+$data = "csdlwebnoithat";
+
+$con = mysqli_connect($host, $user, $pass, $data) or die("Ket noi khong thanh cong");
+?>
