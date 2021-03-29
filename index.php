@@ -1,636 +1,202 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<!-- saved from url=(0019)http://nhaxinh.com/ -->
-<html lang="vi" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <!--<base href="/">--><base href=".">
-	<head>
-    <meta charset="UTF-8">
-    <title>Nội thất Nhà Xinh | Nội thất cao cấp | Đồ gỗ cao cấp</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php
-      include "./import.php";
-    ?>
-    <link rel="stylesheet" type="text/css" href="./css/slick.css">
-    <link rel="stylesheet" type="text/css" href="./css/slick-theme.css">
-    <script type="text/javascript" src="./js/slick.min.js.download"></script>
-    <script src="./OwlCarousel2-2.3.4/dist/owl.carousel.js"></script>
-    <link rel="stylesheet" type="text/css" href="./OwlCarousel2-2.3.4/dist/assets/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="./OwlCarousel2-2.3.4/dist/assets/owl.theme.default.css">
-    
-  </head>
- 
+<?php
+	include('connect.php');
+	include('kiemtrasession.php');
+	if(isset($_SESSION['useradmin']))
+	{
+		header("LOCATION: admin/index.php");
+	}
+?>
+<?php if(isset($_SESSION['success'])){ ?>
+			<script>alert(<?php echo $_SESSION['success']?>);</script>
+<?php }?>
+<html>
+<head>
+	<!-- Đường dẫn JS vs CSS -->
+	<?php include('ajax_phantrang_vs_onclick.php') ?>	
+</head>
 <body>
-  <?php
-    include 'header.php';
-  ?>
-  
-  <div class="owl-carousel owl-theme">
-    <div class="item"><img style="height=500px !important;" src="./image/banner/1.jpg" alt=""></div>
-    <div class="item"><img style="height=500px !important;" src="./image/banner/3.jpg" alt=""></div>
-    <div class="item"><img style="height=500px !important;" src="./image/banner/2.jpg" alt=""></div>
-  </div>
-<!-- <div class="container-fluid" id="cpage">
-<style>
-.navbar-toggler {
-	display: block;
-}
-</style> -->
-<!-- slick slider -->
-
-
-<!-- <div id="home_banner" style="clear: both; height: 943.062px;">
-  <div class="bx-wrapper" style="max-width: 100%; border: 0px;">
-	  <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 863.062px;">
-		  <ul class="bxslider" style="width: auto; position: relative;">
-			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 0; display: none;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="image/banner/1.jpg"></a></li>
-			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 0; display: none;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="image/banner/2.jpg"></a></li>
-			  <li style="float: none; list-style: none; position: absolute; width: 1870px; z-index: 50;"><a href="http://localhost/KTPM_WebNoiThat/index.php"><img src="image/banner/3.jpg"></a></li>
-		  </ul>
-	  </div>
-	  <div class="bx-controls bx-has-pager bx-has-controls-direction">
-		  <div class="bx-pager bx-default-pager">
-			  <div class="bx-pager-item"><a href="#" data-slide-index="0" class="bx-pager-link">1</a></div>
-			  <div class="bx-pager-item"><a href="#" data-slide-index="1" class="bx-pager-link">2</a></div>
-			  <div class="bx-pager-item"><a href="#" data-slide-index="2" class="bx-pager-link active">3</a></div>
-		  </div>
-		  <div class="bx-controls-direction" style="z-index: 999;">
-			  <a class="bx-prev" href="#"><img src="./image/icon/icons8_chevron_left_32px.png" alt="Nhà Xinh" ></a>
-			  <a class="bx-next" href="#"><img src="./image/icon/icons8_chevron_right_32px.png" alt="Nhà Xinh" ></a></div>
-	  </div>
-	</div>
-</div>
-
-<script>
-  $('.bxslider').bxSlider({
-    mode: 'fade',
-    captions: false,
-    auto: true,
-    onSliderLoad: function () {
-      var h = $('div.bx-wrapper img').height();
-      h += 60;
-      $('#home_banner').height(h);
-      $('div.bx-wrapper').css('border', '0');
-    }
-  });
-</script>
-
-<div style="clear: both;"></div> -->
-<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!--content-->
-
-<!--
-<div id="new_product" style="margin: 10px 0px 10px 0px;">
-  <div class="page_header">
-    Sản Phẩm Mới
-  </div>
-  <div class="page_header_container"><span class="fas fa-caret-down" style="font-size: 24px;"></span></div>
-  <div class="page_header_container" style="padding-top: 10px;"><a href="http://nhaxinh.com/san-pham-moi_m311.html" class="link_box">Xem
-    tất cả</a></div>
-
-  <div class="new_product slick-initialized slick-slider" style="width: 90%;margin: auto;padding-top: 25px;">
-    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 1683px; transform: translate3d(0px, 0px, 0px);"><div style="height: 500px; width: 561px;" class="slick-slide slick-current slick-active" data-slick-index="0" aria-hidden="false" tabindex="0">
-      
-      
-      <a href="http://nhaxinh.com/Ke-sach-Porto_m311_p6970.html" tabindex="0">
-        <div style="width: 100%;height: 40%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/ke-sach-porto.jpg" alt="Phối cảnh Kệ sách Porto" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:10%; text-align: center;">Kệ sách Porto</div>
-      </a>
-      <a href="http://nhaxinh.com/Ban-nuoc-Maxine-hinh-chu-nhat_m311_p6805.html" tabindex="0">
-        <div style="width: 100%;height: 40%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/ban_nuoc_vuong_maxine_1_-_copy.jpg" alt="Phối cảnh Bàn nước Maxine hình chữ nhật" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:10%; text-align: center;">Bàn nước Maxine hình chữ nhật</div>
-      </a>
-    </div><div style="height: 500px; width: 561px;" class="slick-slide slick-active" data-slick-index="1" aria-hidden="false" tabindex="0">
-      
-      
-      <a href="http://nhaxinh.com/Ban-trang-diem-May-Mau-2_m311_p6760.html" tabindex="0">
-        <div style="width: 100%;height: 40%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/ban_trang_diem_may_1.jpg" alt="Phối cảnh Bàn trang điểm Mây - Mẫu 2" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:10%; text-align: center;">Bàn trang điểm Mây - Mẫu 2</div>
-      </a>
-      <a href="http://nhaxinh.com/Ban-an-May-8-cho-mau-2_m311_p6754.html" tabindex="0">
-        <div style="width: 100%;height: 40%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/ban_an_may_1_-_copy.jpg" alt="Phối cảnh Bàn ăn Mây 8 chỗ - mẫu 2" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:10%; text-align: center;">Bàn ăn Mây 8 chỗ - mẫu 2</div>
-      </a>
-    </div><div style="height: 500px; width: 561px;" class="slick-slide slick-active" data-slick-index="2" aria-hidden="false" tabindex="0">
-      
-      
-      <a href="http://nhaxinh.com/Giuong-ngu-boc-da-May-1m6-Fango_m311_p6759.html" tabindex="0">
-        <div style="width: 100%;height: 40%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/giuong_may_1.jpg" alt="Phối cảnh Giường ngủ bọc da Mây 1m6 Fango" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:10%; text-align: center;">Giường ngủ bọc da Mây 1m6 Fango</div>
-      </a>
-      <a href="http://nhaxinh.com/Ban-nuoc-Alex_m311_p7039.html" tabindex="0">
-        <div style="width: 100%;height: 40%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/ban-nuoc-alex_-_copy.jpg" alt="Phối cảnh Bàn nước Alex" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:10%; text-align: center;">Bàn nước Alex</div>
-      </a>
-    </div></div></div>
-  </div>
-
-  <script>
-    $(document).ready(function () {
-      $('.new_product').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-      });
-    });
-  </script>
-</div>
-
-<div style="clear: both;"></div>
-
-<div id="best_seller_product" style="margin: 10px 0px 10px 0px;padding-top: 50px;">
-  <div class="page_header">
-    Sản phẩm bán chạy
-  </div>
-  <div class="page_header_container"><span class="fas fa-caret-down" style="font-size: 24px;"></span></div>
-  <div class="page_header_container" style="padding-top: 10px;"><a href="http://nhaxinh.com/san-pham-ban-chay_m418.html" class="link_box">Xem tất cả</a></div>
-
-  <div class="best_seller_product slick-initialized slick-slider" style="width: 90%;margin: auto;padding-top: 25px;"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="background-color: lightgrey;">Previous</button>
-    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 11781px; transform: translate3d(-3366px, 0px, 0px);"><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Giuong-ngu-go-Maxine-1m6_m418_p5201.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/3_91088_(1).jpg" alt="Phối cảnh Giường ngủ gỗ Maxine 1m6" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Giường ngủ gỗ Maxine 1m6</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Sofa-Bridge-3-cho-hien-dai-da-cognac_m418_p3580.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/2.jpg" alt="Phối cảnh Sofa Bridge 3 chỗ hiện đại da cognac" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Sofa Bridge 3 chỗ hiện đại da cognac</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Sofa-Jazz-3-cho-hien-dai-da-cognac_m418_p3929.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/1.jpg" alt="Phối cảnh Sofa Jazz 3 chỗ hiện đại da cognac" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Sofa Jazz 3 chỗ hiện đại da cognac</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Ban-nuoc-Pio_m418_p5448.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/line-pio_dining-table_02(3).jpg" alt="Phối cảnh Bàn nước Pio" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Bàn nước Pio</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Ban-lam-viec-Maxine_m418_p5182.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/1000-san-pham-nha-xinh_(11).jpg" alt="Phối cảnh Bàn làm việc Maxine" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Bàn làm việc Maxine</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide" data-slick-index="2" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Sofa-Miami-2-cho-hien-dai-vai-xanh_m418_p5503.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/16.jpg" alt="Phối cảnh Sofa Miami 2 chỗ hiện đại vải xanh" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Sofa Miami 2 chỗ hiện đại vải xanh</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-current slick-active" data-slick-index="3" aria-hidden="false" tabindex="0">
-      
-      <a href="http://nhaxinh.com/Armchair-co-tay-Maxine_m418_p5119.html" tabindex="0">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/500-armchair-maxine-co-tay(2).jpg" alt="Phối cảnh Armchair có tay Maxine" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Armchair có tay Maxine</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" tabindex="0">
-      
-      <a href="http://nhaxinh.com/Giuong-ngu-boc-vai-Miami-1m6-hien-dai-mau-AM696_m418_p5767.html" tabindex="0">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/giuong-miami-2.jpg" alt="Phối cảnh Giường ngủ bọc vải Miami 1m6 hiện đại màu AM696" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Giường ngủ bọc vải Miami 1m6 hiện đại màu AM696</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-active" data-slick-index="5" aria-hidden="false" tabindex="0">
-      
-      <a href="http://nhaxinh.com/Ghe-Lazboy-Pinnacle-10T512-Fern_m418_p6540.html" tabindex="0">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/lazboy-10t512-pinnacle-sl714890-fern.jpg" alt="Phối cảnh Ghế Lazboy Pinnacle 10T512 - Fern" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Ghế Lazboy Pinnacle 10T512 - Fern</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide" data-slick-index="6" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Giuong-ngu-go-Maxine-1m6_m418_p5201.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/3_91088_(1).jpg" alt="Phối cảnh Giường ngủ gỗ Maxine 1m6" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Giường ngủ gỗ Maxine 1m6</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide" data-slick-index="7" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Sofa-Bridge-3-cho-hien-dai-da-cognac_m418_p3580.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/2.jpg" alt="Phối cảnh Sofa Bridge 3 chỗ hiện đại da cognac" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Sofa Bridge 3 chỗ hiện đại da cognac</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide" data-slick-index="8" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Sofa-Jazz-3-cho-hien-dai-da-cognac_m418_p3929.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/1.jpg" alt="Phối cảnh Sofa Jazz 3 chỗ hiện đại da cognac" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Sofa Jazz 3 chỗ hiện đại da cognac</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Ban-nuoc-Pio_m418_p5448.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/line-pio_dining-table_02(3).jpg" alt="Phối cảnh Bàn nước Pio" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Bàn nước Pio</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="10" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Ban-lam-viec-Maxine_m418_p5182.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/1000-san-pham-nha-xinh_(11).jpg" alt="Phối cảnh Bàn làm việc Maxine" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Bàn làm việc Maxine</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="11" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Sofa-Miami-2-cho-hien-dai-vai-xanh_m418_p5503.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/16.jpg" alt="Phối cảnh Sofa Miami 2 chỗ hiện đại vải xanh" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Sofa Miami 2 chỗ hiện đại vải xanh</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="12" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Armchair-co-tay-Maxine_m418_p5119.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/500-armchair-maxine-co-tay(2).jpg" alt="Phối cảnh Armchair có tay Maxine" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Armchair có tay Maxine</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="13" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Giuong-ngu-boc-vai-Miami-1m6-hien-dai-mau-AM696_m418_p5767.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/giuong-miami-2.jpg" alt="Phối cảnh Giường ngủ bọc vải Miami 1m6 hiện đại màu AM696" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Giường ngủ bọc vải Miami 1m6 hiện đại màu AM696</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="14" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Ghe-Lazboy-Pinnacle-10T512-Fern_m418_p6540.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/lazboy-10t512-pinnacle-sl714890-fern.jpg" alt="Phối cảnh Ghế Lazboy Pinnacle 10T512 - Fern" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Ghế Lazboy Pinnacle 10T512 - Fern</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="15" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Giuong-ngu-go-Maxine-1m6_m418_p5201.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/3_91088_(1).jpg" alt="Phối cảnh Giường ngủ gỗ Maxine 1m6" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Giường ngủ gỗ Maxine 1m6</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="16" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Sofa-Bridge-3-cho-hien-dai-da-cognac_m418_p3580.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/2.jpg" alt="Phối cảnh Sofa Bridge 3 chỗ hiện đại da cognac" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Sofa Bridge 3 chỗ hiện đại da cognac</div>
-      </a>
-
-    </div><div style="height: 250px; width: 561px;" class="slick-slide slick-cloned" data-slick-index="17" aria-hidden="true" tabindex="-1">
-      
-      <a href="http://nhaxinh.com/Sofa-Jazz-3-cho-hien-dai-da-cognac_m418_p3929.html" tabindex="-1">
-        <div style="width: 100%;height: 80%">
-          <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/1.jpg" alt="Phối cảnh Sofa Jazz 3 chỗ hiện đại da cognac" style="margin: auto;max-height: 100%;">
-        </div>
-        <div style="width: 100%;height:20%; text-align: center;">Sofa Jazz 3 chỗ hiện đại da cognac</div>
-      </a>
-
-    </div></div></div>
-  <button class="slick-next slick-arrow" aria-label="Next" type="button" style="background-color: lightgrey;">Next</button></div>
-
-  <script>
-    $(document).ready(function () {
-      $('.best_seller_product').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-      });
-
-      $('button.slick-prev').css('background-color', 'lightgrey');
-      $('button.slick-next').css('background-color', 'lightgrey');
-      $('#new_product a,#best_seller_product a').hover(function () {
-        $(this).children('div').css('color', 'orange');
-      }, function () {
-        $(this).children('div').css('color', '');
-      })
-    });
-  </script>
-</div>
-
-<div style="clear: both;"></div>
-
-<div id="home_sub_banner" style="padding-top: 50px;">
-  <div class="sub_banner">
-    <a href="http://nhaxinh.com/Khong_gian_phong_khach_m312_op1.html">
-      <div class="sub_banner_image" style="background-image: url(&quot;photo/sub_banner/nhaxinh-phong-khach-hien-dai-200902.jpg&quot;); height: 613.903px;"></div>
-      <div class="sub_banner_text"></div>
-    </a>
-  </div>
-  <div class="sub_banner">
-    <a href="http://nhaxinh.com/Khong_gian_phong_an_m313_op1.html">
-      <div class="sub_banner_image" style="background-image: url(&quot;photo/sub_banner/nhaxinh-phong-an-hien-dai-200902.jpg&quot;); height: 613.903px;"></div>
-      <div class="sub_banner_text"></div>
-    </a>
-  </div>
-  <div style="clear:both;"></div>
-  <div class="sub_banner">
-    <a href="http://nhaxinh.com/hang-trang-tri-da-dang-tinh-te_m142.html">
-      <div class="sub_banner_image" style="background-image: url(&quot;photo/sub_banner/nhaxinh-hang-trang-tri-200828.jpg&quot;); height: 613.903px;"></div>
-      <div class="sub_banner_text"></div>
-    </a>
-  </div>
-  <div class="sub_banner">
-    <a href="http://nhaxinh.com/Khong_gian_phong_ngu_m314_op1.html">
-      <div class="sub_banner_image" style="background-image: url(&quot;photo/sub_banner/nhaxinh-mau-phong-ngu-201224.jpg&quot;); height: 613.903px;"></div>
-      <div class="sub_banner_text"></div>
-    </a>
-  </div>
-  <script>
-    i = 0;
-    $('.sub_banner_image').each(function () {
-      var h = $('.sub_banner_image').width() * 0.6213;
-      $(this).height(h + 'px');
-    })
-  </script>
-</div>
-<div style="clear: both;"></div>
-
-<div class="clearfix" style="padding-top: 25px;;">
-  <div class="panel_left w-50 float-left" style="padding-right: 25px;">
-    <a href="http://nhaxinh.com/he-thong-cua-hang-sieu-thi-noi-that-nha-xinh_m413_n71.html"><img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/he-thong-cua-hang-hai-ba-trung-200529.jpg" width="100%"></a>
-    <a href="http://nhaxinh.com/tu-van-thiet-ke-noi-that_m219.html">
-      <div class="page_header float-right text-right w-50" style="margin-top: 35px;margin-bottom: 35px;">thiết kế nội thất<span class="fas fa-caret-right" style="padding-left: 25px; font-size: 24px;"></span></div>
-    </a>
-  </div>
-  <div class="panel_right w-50 float-left" style="padding-left: 25px;">
-    <a href="http://nhaxinh.com/he-thong-cua-hang-sieu-thi-noi-that-nha-xinh_m413_n71.html">
-      <div class="page_header float-left text-left w-50" style="margin-top: 35px;margin-bottom: 35px;"><span class="fas fa-caret-left" style="padding-right: 25px; font-size: 24px;"></span>Hệ thống cửa hàng
-      </div>
-    </a>
-    <a href="http://nhaxinh.com/tu-van-thiet-ke-noi-that_m219.html"><img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-tu-van-thiet-ke-noi-that-201210.png" width="100%"></a>
-  </div>
-</div>
-
-<div style="clear: both;"></div>
-
-
-<div id="support" class="py-5">
-  <div class="panel_left float-left" style="width: 55%;">
-    <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/banner-ban-can-ho-tro-201215.jpg" width="100%">
-  </div>
-  <div class="panel_middle float-left" style="padding-left: 75px;width: 45%;">
-    <div class="page_header text-center" style="border-top: none; width: 85%;">Bạn cần hỗ trợ</div>
-    <div style="width: 85%;margin: auto; padding-top: 25px;">
-      <form action="http://nhaxinh.com/" method="post" name="order" id="order">
-        <span class="text-left" style="padding-bottom: 10px; display: block;">Họ và tên</span>
-        <input name="fstr_fullname" type="text" class="w-100" style="margin-bottom: 15px;">
-
-        <span class="text-left" style="padding-bottom: 10px; display: block;">Điện Thoại</span>
-        <input name="fstr_telephone" type="text" class="w-100" style="margin-bottom: 15px;">
-
-        <span class="text-left" style="padding-bottom: 10px; display: block;">Email</span>
-        <input name="fmail_email" type="text" class="w-100" style="margin-bottom: 15px;">
-
-        <span class="text-left" style="padding-bottom: 10px; display: block;">Comments</span>
-        <textarea name="fstr_comment" rows="3" class="w-100" style="margin-bottom: 15px;"></textarea>
-
-        <span class="text-left" style="padding-bottom: 10px; display: block;">Điền mã xác nhận</span>
-        <input type="text" class="w-100" name="fint_vercode" value="" style="margin-bottom: 15px;">
-        <br>
-        <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/verification.php" style="margin-bottom: 15px;">
-        <br>
-        <input onclick="javascript:SubmitForm(&#39;index.php?menu=219&amp;fa=1&#39;);" name="send" type="button" value="Gửi">
-        <input name="cancel" type="button" value="Hủy">
-      </form>
+	<?php include('modal_tacvu.php')?>
+<from action="" name="frmdangky" method="get">
+<div class="container-fluid">
+    <div class="row" style="background-color:#4d4848 ;">
+        <div class="search-box" >
+			<img src="picture/logot3.jpg" class="logo">
+			<input type="text" class="form-control" placeholder="Nhập để tìm sản phẩm..." id="search" value="">
+            <span class="input-group-text" id="searchclick"><i class="fa fa-search"></i></span> 
+		</div>
+		<div class="menu-bar">
+          	<?php
+					if(isset($_SESSION['username']))
+					{
+						//echo "<script>alert('abc');</script>";
+						echo('
+						<ul>
+							<li id="'.$_SESSION['username'].'" onClick="hienthilichsu(this)" title="Xem lịch sử mua hàng" ><a href="#"><h7>Chào '.$_SESSION['username'].'</h7></a></li>
+							<li onClick="hienthigiohang()"><a href="#"><i class="fa fa-shopping-cart"></i>Giỏ Hàng</a></li>
+							<li ><a href="xulydangxuat.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
+						</ul>
+							');
+					}else{
+						//echo $_SESSION['username'];
+						//echo "<script>alert('abc');</script>";
+						echo('
+						<ul>
+							<li onClick="hienthigiohang()"><a href="#"><i class="fa fa-shopping-cart"></i>Giỏ Hàng</a></li>
+						  	<li data-toggle="modal" data-target="#myModaldk"><a href="#" >Đăng ký</a></li>
+						  	<li data-toggle="modal" data-target="#myModaldn"><a href="#">Đăng nhập</a></li>
+						</ul>
+							');
+					}
+				?>
+				  
+		 </div>  
     </div>
-  </div>
-  <script>
-    function validate_required(field) {
-      with (field) {
-        if (value == null || value == "") {
-          return false;
-        } else {
-          return true;
+	
+	<div class="row" style="margin-top: 10px;">
+		<nav class="main-nav" class="col-md-2 col-sm-2 col-12">
+			<ul class="main-nav-ul">
+				<li><a href="index.php"><i class="fa fa-home"></i> Trang chủ</a></li>
+				<li><a href="index.php"><i class="fa fa-cube"></i> Sản phẩm<span class="sub-arrow"></span></a>
+					<ul>
+						<?php
+						$class=new Database();
+						$sqd=$class->connect();
+						$sql="Select * FROM catalog";
+						$datal=$class->query($sql);
+						foreach($datal as $key=>$val)
+						{
+							echo '<li style="list-style-type:none" id="LMN2'.$val['id'].'"><a href="#content">'.$val['name'].'</a></li>';
+						}
+						?>
+					</ul>
+				</li>
+				<li><a href="#a"><i class="fa fa-phone"></i> Liên hệ</a></li>
+			</ul>
+		</nav>
+		<div class="slider" class="col-md-10 col-sm-10" id="hinhanh1">
+			<div id="slider" class="carousel slide carousel-fade" data-ride="carousel">
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img src="picture/s3.jpg" class="d-block w-100">
+					</div>
+					<div class="carousel-item">
+						<img src="picture/s2.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="picture/s1.jpg" class="d-block w-100" alt="...">
+					</div>
+				</div>
+				<ol class="carousel-indicators">
+					<li data-target="#slider" data-slide-to="0" class="active"></li>
+					<li data-target="#slider" data-slide-to="1"></li>
+					<li data-target="#slider" data-slide-to="2"></li>
+				</ol>
+			</div>
+    	</div>
+	</div>
+	<!-----------------------------CONTENT-------------------------------------------->
+	<div class="row">
+		<div class="col-xl-1"></div>
+		<div class="col-xl-10">
+			<br>
+			<div id="content2" class="search-box">
+				<br>
+                    <label><h5>Loại sản phẩm</h5>
+                          <select name="types" id="loainc" value="" style="height:50%">
+                          <option value="">--Loại--</option>
+                          <?php
+                              $con=mysqli_connect("localhost", "root","","csdl_ban_hang");
+                              $query1="select * from catalog";
+                              $result1= mysqli_query($con,$query1);
+                              while($row=mysqli_fetch_array($result1))
+                              {
+                                  echo '<option value='.$row['id'].'>'.$row['name'].'</option>';
+                              }                      
+                              ?>
+                           </select>
+					</label>
+				<label style="margin-left: 2%"><h5>Giá thấp nhất:</h5>
+					<input type="text" value="" name="min" id="minnc" style="height:50%"></input>
+				</label>
+				<label style="margin-left: 2%"><h5>Giá cao nhất:</h5>
+					<input type="text" value="" name="max" id="maxnc" style="height:50%"></input>
+				</label>
+				<label style="margin-top: 22.5px;">
+					<span class="input-group-text" id="nangcao"><i class="fa fa-search"></i></span> 
+				</label>
+            </div>
+			<div id="content"></div>
+		</div>
+		<div class="col-xl-1"></div>
+	</div>
+    <!-----------------------------FOOTER--------------------------------------------->
+    <div class="row" style="height: 300px;">
+		<section id="a" class="footer">
+			<div class="container tex-center">
+				<div class="row">
+					<div class="col-md-6 col-sm-6">
+						<h1>LIÊN HỆ VỚI CHÚNG TÔI</h1>
+						<p><b>Đường dây nóng: </b> 092-669-9079</p>
+
+						<p><b>Thư điện tử: </b>noithat@gmail.com</p>
+
+						<p><b>Địa chỉ: </b>50 Thành Thái, quận 10, thành phố Hồ Chí Minh</p>
+
+					</div>
+
+					<div class="col-md-6 col-sm-6">
+						<h1>CHI NHÁNH CỬA HÀNG</h1>
+						<p><b>Chi nhánh 1: </b>18.02 An Dương Vương, phường 4, quận 5, thành phố Hồ Chí Minh</p>
+
+						<p><b>Chi nhánh 2: </b>24 Lê Đức Thọ, phường 17, quận Gò Vấp, thành phố Hồ Chí Minh</p>
+
+						<p><b>Chi nhánh 3: </b>50 Thành Thái, quận 10, thành phố Hồ Chí Minh</p>
+
+					</div>
+
+				</div>
+				<hr>
+				<p class="copyright" ><i class="fa fa-copyright"></i> Bản quyền thuộc về NNP Corp.</p>
+			</div>
+		</section>
+	</div>
+                     <!---BUTTON TO TOP---->
+    <a class="gotopbtn" href="#"><i class="fa fa-angle-double-up"></i> </a>
+	
+</div>
+</from>
+<?php
+	require('Login.php');
+	require('Signup.php');
+	//require('product-detail.php');
+
+?>
+    <script>
+        function openmenu() {
+            document.getElementById("side-menu").style.display = "block";
+            document.getElementById("menu-btn").style.display = "none";
+            document.getElementById("close-btn").style.display = "block";
+
         }
-      }
-    }
+        function closemenu() {
+            document.getElementById("side-menu").style.display = "none";
+            document.getElementById("menu-btn").style.display = "block";
+            document.getElementById("close-btn").style.display = "none";
+        }
+		
+		!function ($) {
+			$(document).on("click","ul.nav li.parent > a > span.icon", function(){		  
+				$(this).find('em:first').toggleClass("glyphicon-minus");	  
+			}); 
+			$(".sidebar span.icon").find('em:first').addClass("glyphicon-plus");
+		}(window.jQuery);
 
-    function echeck(str) {
-      var at = "@";
-      var dot = ".";
-      var lat = str.indexOf(at);
-      var lstr = str.length;
-      var ldot = str.indexOf(dot);
-      if (str.indexOf(at) == -1) {
-        return false;
-      }
-
-      if (str.indexOf(at) == -1 || str.indexOf(at) == 0 || str.indexOf(at) == lstr) {
-        return false;
-      }
-
-      if (str.indexOf(dot) == -1 || str.indexOf(dot) == 0 || str.indexOf(dot) == lstr) {
-        return false;
-      }
-
-      if (str.indexOf(at, (lat + 1)) != -1) {
-        return false;
-      }
-
-      if (str.substring(lat - 1, lat) == dot || str.substring(lat + 1, lat + 2) == dot) {
-        return false;
-      }
-
-      if (str.indexOf(dot, (lat + 2)) == -1) {
-        return false;
-      }
-
-      if (str.indexOf(" ") != -1) {
-        return false;
-      }
-      return true;
-    }
-
-    function ValidateForm() {
-      if (validate_required(document.order.fstr_fullname) == false) {
-        alert("Bạn chưa điền họ tên");
-        document.order.fstr_fullname.focus();
-        return false;
-      }
-      var emailID = document.order.fmail_email;
-      if ((emailID.value == null) || (emailID.value == "")) {
-        alert("Bạn chưa điền email");
-        emailID.focus();
-        return false;
-      }
-      if (echeck(emailID.value) == false) {
-        alert("Địa chỉ mail không hợp lệ");
-        emailID.focus();
-        return false;
-      }
-      if (validate_required(document.order.fstr_comment) == false) {
-        alert("Bạn chưa điền nội dung yêu cầu");
-        document.order.fstr_comment.focus();
-        return false;
-      }
-      if (validate_required(document.order.fint_vercode) == false) {
-        alert("Bạn chưa điền mã xác nhận");
-        document.order.fint_vercode.focus();
-        return false;
-      }
-      return true;
-    }
-
-    function SubmitForm(url) {
-      if (ValidateForm() == true) {
-        document.order.action = url;
-        document.order.submit();
-      }
-    }
-  </script>
-</div>
-
-<div style="clear: both;"></div>
-
-<div id="idea" style="padding-top: 50px;">
-  <div class="page_header">
-    Cảm hứng và Ý tưởng
-  </div>
-  <div class="page_header_container"><span class="fas fa-caret-down" style="font-size: 24px;"></span></div>
-  <div class="page_header_container" style="padding-top: 10px;"><a class="link_box" style="text-decoration: none;" href="http://nhaxinh.com/khong-gian-song_m411.html">Xem tất cả</a>
-  </div>
-
-  <div class="idea slick-initialized slick-slider" style="width: 98%;margin: auto;padding-top: 25px;"><button class="slick-prev slick-arrow" aria-label="Previous" type="button" style="background-color: lightgrey;">Previous</button>
-    <div class="slick-list draggable"><div class="slick-track" style="opacity: 1; width: 25000px; transform: translate3d(-230px, 0px, 0px);"><div style="height: 300px;" class="slick-slide slick-cloned" data-slick-index="-3" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-2.jpg">
-    </div><div style="height: 300px;" class="slick-slide slick-cloned" data-slick-index="-2" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-3.png">
-    </div><div style="height: 300px;" class="slick-slide slick-cloned" data-slick-index="-1" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-4.png">
-    </div><div style="height: 300px;" class="slick-slide" data-slick-index="0" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-0.jpg">
-    </div><div style="height: 300px;" class="slick-slide" data-slick-index="1" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-1.jpg">
-    </div><div style="height: 300px;" class="slick-slide slick-current slick-active" data-slick-index="2" aria-hidden="false" tabindex="0">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-2.jpg">
-    </div><div style="height: 300px;" class="slick-slide slick-active" data-slick-index="3" aria-hidden="false" tabindex="0">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-3.png">
-    </div><div style="height: 300px;" class="slick-slide slick-active" data-slick-index="4" aria-hidden="false" tabindex="0">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-4.png">
-    </div><div style="height: 300px;" class="slick-slide slick-cloned" data-slick-index="5" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-0.jpg">
-    </div><div style="height: 300px;" class="slick-slide slick-cloned" data-slick-index="6" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-1.jpg">
-    </div><div style="height: 300px;" class="slick-slide slick-cloned" data-slick-index="7" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-2.jpg">
-    </div><div style="height: 300px;" class="slick-slide slick-cloned" data-slick-index="8" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-3.png">
-    </div><div style="height: 300px;" class="slick-slide slick-cloned" data-slick-index="9" aria-hidden="true" tabindex="-1">
-      <img style="margin: auto;height: 100%;padding-left: 15px; padding-right: 15px;" src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nhaxinh-cam-hung-y-tuong-4.png">
-    </div></div></div>
-    
-    
-    
-    
-  <button class="slick-next slick-arrow" aria-label="Next" type="button" style="background-color: lightgrey;">Next</button></div>
-  <div style="width: 100%;text-align: center;"></div>
-  <script>
-    $(document).ready(function () {
-      $('.idea').slick({
-        slidesToShow: 3,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        variableWidth: true,
-      });
-
-      $('button.slick-prev').css('background-color', 'lightgrey');
-      $('button.slick-next').css('background-color', 'lightgrey');
-    });
-  </script>
-</div>
-
-<div style="clear: both;"></div>
-<div id="intro-section" style="padding-top: 50px;">
-  <img src="./Nội thất Nhà Xinh _ Nội thất cao cấp _ Đồ gỗ cao cấp_files/nha-xinh-gioi-thieu-mau.jpg" style="width: 100%;">
-  <div id="intro_text">
-    <div class="page_header" style="color: white;border: none;width: 100%;">TỔ ẤM CỦA NGƯỜI TINH TẾ</div>
-    Khởi nguồn từ 1999 với ý tưởng tạo ra sự khác biệt và gu thẩm mỹ Tinh Tế, Nhà Xinh đã trở thành và giữ vững vị trí thương hiệu nội thất hàng đầu Việt Nam. Một quá trình dài của sự tìm tòi và đầy cảm hứng, Nhà Xinh đã thiết kế và sản xuất ra những sản phẩm nội thất hợp thời và độc đáo, kết hợp với quá trình chọn lọc kỹ lưỡng những món đồ trang trí để tạo nên không gian sống hài hòa, Tinh Tế và sang trọng. Nội thất Nhà Xinh chính là sự lựa chọn của những người Tinh Tế.
-    <br><br>
-    <a class="link_box top5" href="http://nhaxinh.com/nha-xinh-online-video_m378.html">Xem chi tiết</a>
-  </div>
-</div>
-</div>
--->
-<!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!--footer-->
-    <?php
-      include './footer.php';
-    ?>
+		$(window).on('resize', function () {
+		  if ($(window).width() > 768) $('#hinhanh1').collapse('hide')
+		})
+		$(window).on('resize', function () {
+		  if ($(window).width() <= 1000) $("#hinhanh1").collapse('hide')
+		})
+    </script>
 </body>
-  <script>
-    $('.owl-carousel').owlCarousel({
-    loop:true,
-    items:1,
-    margin:10,
-    autoplay:true,
-    autoplayTimeout:3000,
-    autoplayHoverPause:true,
-    nav: true,
-    rewindNav : true,
-    navText: ["<img src='./image/icon/icons8_chevron_left_32px.png'>","<img src='./image/icon/icons8_chevron_right_32px.png'>"]
-    })
-  </script>
 </html>
