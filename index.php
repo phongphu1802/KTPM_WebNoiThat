@@ -20,7 +20,7 @@
 <div class="container-fluid">
     <div class="row" style="background-color:#4d4848 ;">
         <div class="search-box" >
-			<img src="picture/logot3.jpg" class="logo">
+			<img src="picture/logo.png" class="logo">
 			<input type="text" class="form-control" placeholder="Nhập để tìm sản phẩm..." id="search" value="">
             <span class="input-group-text" id="searchclick"><i class="fa fa-search"></i></span> 
 		</div>

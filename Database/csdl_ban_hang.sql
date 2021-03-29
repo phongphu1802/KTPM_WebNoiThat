@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Nov 27, 2020 at 06:49 AM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 7.4.6
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th3 29, 2021 lúc 04:39 PM
+-- Phiên bản máy phục vụ: 10.4.18-MariaDB
+-- Phiên bản PHP: 7.3.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `csdl_ban_hang`
+-- Cơ sở dữ liệu: `csdl_ban_hang`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart`
+-- Cấu trúc bảng cho bảng `cart`
 --
 
 CREATE TABLE `cart` (
@@ -37,7 +37,7 @@ CREATE TABLE `cart` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cart`
+-- Đang đổ dữ liệu cho bảng `cart`
 --
 
 INSERT INTO `cart` (`id`, `user_username`, `total_price`, `created`, `address`, `status`) VALUES
@@ -68,7 +68,7 @@ INSERT INTO `cart` (`id`, `user_username`, `total_price`, `created`, `address`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cart_details`
+-- Cấu trúc bảng cho bảng `cart_details`
 --
 
 CREATE TABLE `cart_details` (
@@ -79,7 +79,7 @@ CREATE TABLE `cart_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `cart_details`
+-- Đang đổ dữ liệu cho bảng `cart_details`
 --
 
 INSERT INTO `cart_details` (`cart_id`, `product_id`, `price`, `amout`) VALUES
@@ -139,7 +139,7 @@ INSERT INTO `cart_details` (`cart_id`, `product_id`, `price`, `amout`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `catalog`
+-- Cấu trúc bảng cho bảng `catalog`
 --
 
 CREATE TABLE `catalog` (
@@ -148,7 +148,7 @@ CREATE TABLE `catalog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `catalog`
+-- Đang đổ dữ liệu cho bảng `catalog`
 --
 
 INSERT INTO `catalog` (`id`, `name`) VALUES
@@ -162,7 +162,7 @@ INSERT INTO `catalog` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oder`
+-- Cấu trúc bảng cho bảng `oder`
 --
 
 CREATE TABLE `oder` (
@@ -175,7 +175,7 @@ CREATE TABLE `oder` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `oder`
+-- Đang đổ dữ liệu cho bảng `oder`
 --
 
 INSERT INTO `oder` (`id`, `user_username`, `total_price`, `created`, `address`, `status`) VALUES
@@ -206,7 +206,7 @@ INSERT INTO `oder` (`id`, `user_username`, `total_price`, `created`, `address`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `oder_details`
+-- Cấu trúc bảng cho bảng `oder_details`
 --
 
 CREATE TABLE `oder_details` (
@@ -217,7 +217,7 @@ CREATE TABLE `oder_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `oder_details`
+-- Đang đổ dữ liệu cho bảng `oder_details`
 --
 
 INSERT INTO `oder_details` (`oder_id`, `product_id`, `price`, `amout`) VALUES
@@ -267,7 +267,7 @@ INSERT INTO `oder_details` (`oder_id`, `product_id`, `price`, `amout`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `product`
+-- Cấu trúc bảng cho bảng `product`
 --
 
 CREATE TABLE `product` (
@@ -284,7 +284,7 @@ CREATE TABLE `product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `product`
+-- Đang đổ dữ liệu cho bảng `product`
 --
 
 INSERT INTO `product` (`id`, `catalog_id`, `name`, `price`, `amout`, `color`, `image`, `view`, `detail`, `status`) VALUES
@@ -296,7 +296,7 @@ INSERT INTO `product` (`id`, `catalog_id`, `name`, `price`, `amout`, `color`, `i
 (6, 1, 'Bàn cà phê 2', 3490000, 10, 'brown', 'picture/Bàn/6.jpg', 0, 'Bàn cà phê là món đồ dùng không thể thiếu trong bất kỳ phòng khách nào. Đến BAYA và mang về bàn cà phê GONZALES được làm từ chất liệu gỗ MDF cao cấp, bền chắc, phủ lớp sơn đen sang trọng. Chân bàn vững chắc với kết cấu lạ mắt cùng chất liệu kim loại không gỉ. Kết hợp bàn cùng các sản phẩm khác trong cùng bộ sưu tập để hoàn thiện nội thất gia đình bạn.', 1),
 (7, 1, 'Bàn ngoài trời 1', 590000, 10, 'yellow', 'picture/Bàn/7.jpg', 2, 'Bàn ăn PALERMO là lựa chọn hoàn hảo cho không gian phòng ăn trang nhã và hiện đại. Bàn làm từ gỗ thông bền nhẹ, vững chãi, chống mối mọt tốt. Sản phẩm được thiết kế đơn giản, phối mặt kính cao cấp khó trầy xước và dễ dàng vệ sinh. Kết hợp bàn ăn PALERMO với ghế ăn từ nội thất BAYA để hoàn thiện phòng ăn tiện nghi và đẹp mắt.', 1),
 (8, 1, 'Bàn cà phê 3', 3290000, 0, 'yellow', 'picture/Bàn/8.jpg', 5, 'Bàn cà phê là món đồ dùng không thể thiếu trong bất kỳ phòng khách nào. Đến BAYA và mang về bàn cà phê GONZALES được làm từ chất liệu gỗ MDF cao cấp, bền chắc, phủ lớp sơn đen sang trọng. Chân bàn vững chắc với kết cấu lạ mắt cùng chất liệu kim loại không gỉ. Kết hợp bàn cùng các sản phẩm khác trong cùng bộ sưu tập để hoàn thiện nội thất gia đình bạn.', 1),
-(9, 1, 'Bàn góc', 1190000, 10, 'yellow', 'picture/Bàn/9.jpg', 3, 'Bàn ăn PALERMO là lựa chọn hoàn hảo cho không gian phòng ăn trang nhã và hiện đại. Bàn làm từ gỗ thông bền nhẹ, vững chãi, chống mối mọt tốt. Sản phẩm được thiết kế đơn giản, phối mặt kính cao cấp khó trầy xước và dễ dàng vệ sinh. Kết hợp bàn ăn PALERMO với ghế ăn từ nội thất BAYA để hoàn thiện phòng ăn tiện nghi và đẹp mắt.', 1),
+(9, 1, 'Bàn góc', 1190000, 10, 'yellow', 'picture/Bàn/9.jpg', 4, 'Bàn ăn PALERMO là lựa chọn hoàn hảo cho không gian phòng ăn trang nhã và hiện đại. Bàn làm từ gỗ thông bền nhẹ, vững chãi, chống mối mọt tốt. Sản phẩm được thiết kế đơn giản, phối mặt kính cao cấp khó trầy xước và dễ dàng vệ sinh. Kết hợp bàn ăn PALERMO với ghế ăn từ nội thất BAYA để hoàn thiện phòng ăn tiện nghi và đẹp mắt.', 1),
 (10, 1, 'Bàn cà phê 4', 1190000, 10, 'yellow', 'picture/Bàn/10.jpg', 4, 'Bàn cà phê là món đồ dùng không thể thiếu trong bất kỳ phòng khách nào. Đến BAYA và mang về bàn cà phê GONZALES được làm từ chất liệu gỗ MDF cao cấp, bền chắc, phủ lớp sơn đen sang trọng. Chân bàn vững chắc với kết cấu lạ mắt cùng chất liệu kim loại không gỉ. Kết hợp bàn cùng các sản phẩm khác trong cùng bộ sưu tập để hoàn thiện nội thất gia đình bạn.', 1),
 (11, 1, 'Bàn cà phê 5', 1190000, 10, 'brown', 'picture/Bàn/11.jpg', 0, 'Bàn cà phê là món đồ dùng không thể thiếu trong bất kỳ phòng khách nào. Đến BAYA và mang về bàn cà phê GONZALES được làm từ chất liệu gỗ MDF cao cấp, bền chắc, phủ lớp sơn đen sang trọng. Chân bàn vững chắc với kết cấu lạ mắt cùng chất liệu kim loại không gỉ. Kết hợp bàn cùng các sản phẩm khác trong cùng bộ sưu tập để hoàn thiện nội thất gia đình bạn.', 1),
 (12, 1, 'Bàn ăn 5', 6490000, 9, 'brown', 'picture/Bàn/12.jpg', 1, 'Bàn ăn PALERMO là lựa chọn hoàn hảo cho không gian phòng ăn trang nhã và hiện đại. Bàn làm từ gỗ thông bền nhẹ, vững chãi, chống mối mọt tốt. Sản phẩm được thiết kế đơn giản, phối mặt kính cao cấp khó trầy xước và dễ dàng vệ sinh. Kết hợp bàn ăn PALERMO với ghế ăn từ nội thất BAYA để hoàn thiện phòng ăn tiện nghi và đẹp mắt.', 1),
@@ -424,7 +424,7 @@ INSERT INTO `product` (`id`, `catalog_id`, `name`, `price`, `amout`, `color`, `i
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Cấu trúc bảng cho bảng `user`
 --
 
 CREATE TABLE `user` (
@@ -436,103 +436,104 @@ CREATE TABLE `user` (
   `email` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `address` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `created` date NOT NULL,
-  `position` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'khachhang'
+  `position` varchar(50) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'khachhang',
+  `ngaysinh` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `user`
+-- Đang đổ dữ liệu cho bảng `user`
 --
 
-INSERT INTO `user` (`username`, `password`, `phonenumber`, `name`, `gioitinh`, `email`, `address`, `created`, `position`) VALUES
-('admin', 'admin', 367945523, 'Nguyễn Phong Phú', 'male', 'PhongPhuNguyen7575@gmail.com', 'A1/20Q', '2000-02-18', 'admin'),
-('hong123', '#Hongminh123', 773689235, 'Võ Thị Tuyết Hồng', 'female', 'huongvu2xxxxx@gmail.com', '273 An Dương Vương', '2020-11-26', 'Khách hàng'),
-('phongphu1822', 'Phu123456', 367945523, 'Nguyễn Phong Phú', 'male', 'phongphunguyen7575@gmail.com', 'A1/20', '2020-05-27', 'khách hàng'),
-('phongphu1826', 'Phu123456', 367945523, 'Nguyễn Phong Phú', 'female', 'phongphunguyen7575@gmail.com', 'A1/20', '2020-05-30', 'Khách hàng'),
-('phongphu1828', 'Phu123456', 367945523, 'Nguyễn Phong Phú', 'male', 'phongphunguyen7575@gmail.com', 'A1/20', '2020-06-15', 'Khách hàng');
+INSERT INTO `user` (`username`, `password`, `phonenumber`, `name`, `gioitinh`, `email`, `address`, `created`, `position`, `ngaysinh`) VALUES
+('admin', 'admin', 367945523, 'Nguyễn Phong Phú', 'male', 'PhongPhuNguyen7575@gmail.com', 'A1/20Q', '2000-02-18', 'admin', NULL),
+('hong123', '#Hongminh123', 773689235, 'Võ Thị Tuyết Hồng', 'female', 'huongvu2xxxxx@gmail.com', '273 An Dương Vương', '2020-11-26', 'Khách hàng', NULL),
+('phongphu1822', 'Phu123456', 367945523, 'Nguyễn Phong Phú', 'male', 'phongphunguyen7575@gmail.com', 'A1/20', '2020-05-27', 'khách hàng', NULL),
+('phongphu1826', 'Phu123456', 367945523, 'Nguyễn Phong Phú', 'female', 'phongphunguyen7575@gmail.com', 'A1/20', '2020-05-30', 'Khách hàng', NULL),
+('phongphu1828', 'Phu123456', 367945523, 'Nguyễn Phong Phú', 'male', 'phongphunguyen7575@gmail.com', 'A1/20', '2020-06-15', 'Khách hàng', NULL);
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `cart`
+-- Chỉ mục cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_username` (`user_username`);
 
 --
--- Indexes for table `cart_details`
+-- Chỉ mục cho bảng `cart_details`
 --
 ALTER TABLE `cart_details`
   ADD KEY `cart_id` (`cart_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `catalog`
+-- Chỉ mục cho bảng `catalog`
 --
 ALTER TABLE `catalog`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `oder`
+-- Chỉ mục cho bảng `oder`
 --
 ALTER TABLE `oder`
   ADD PRIMARY KEY (`id`),
   ADD KEY `user_name` (`user_username`);
 
 --
--- Indexes for table `oder_details`
+-- Chỉ mục cho bảng `oder_details`
 --
 ALTER TABLE `oder_details`
   ADD KEY `oder_id` (`oder_id`),
   ADD KEY `product_id` (`product_id`);
 
 --
--- Indexes for table `product`
+-- Chỉ mục cho bảng `product`
 --
 ALTER TABLE `product`
   ADD PRIMARY KEY (`id`),
   ADD KEY `catalog_id` (`catalog_id`);
 
 --
--- Indexes for table `user`
+-- Chỉ mục cho bảng `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`username`);
 
 --
--- Constraints for dumped tables
+-- Các ràng buộc cho các bảng đã đổ
 --
 
 --
--- Constraints for table `cart`
+-- Các ràng buộc cho bảng `cart`
 --
 ALTER TABLE `cart`
   ADD CONSTRAINT `user_username` FOREIGN KEY (`user_username`) REFERENCES `user` (`username`);
 
 --
--- Constraints for table `cart_details`
+-- Các ràng buộc cho bảng `cart_details`
 --
 ALTER TABLE `cart_details`
   ADD CONSTRAINT `cart_id` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`),
   ADD CONSTRAINT `product_id` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`);
 
 --
--- Constraints for table `oder`
+-- Các ràng buộc cho bảng `oder`
 --
 ALTER TABLE `oder`
   ADD CONSTRAINT `user_name` FOREIGN KEY (`user_username`) REFERENCES `user` (`username`);
 
 --
--- Constraints for table `oder_details`
+-- Các ràng buộc cho bảng `oder_details`
 --
 ALTER TABLE `oder_details`
   ADD CONSTRAINT `oder_details_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`),
   ADD CONSTRAINT `oder_id` FOREIGN KEY (`oder_id`) REFERENCES `oder` (`id`);
 
 --
--- Constraints for table `product`
+-- Các ràng buộc cho bảng `product`
 --
 ALTER TABLE `product`
   ADD CONSTRAINT `catalog_id` FOREIGN KEY (`catalog_id`) REFERENCES `catalog` (`id`);
