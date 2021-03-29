@@ -238,7 +238,7 @@
 
 <body>
 	<div class="modal" id="myModaldk" role="dialog" >
-         <div class="modal-dialog modal-lg">
+         <div class="modal-dialog modal-lg" style="font-family:'Times New Roman'">
             <div class="modal-content">
                <!-- Modal Header -->
                <!-- Modal body -->
