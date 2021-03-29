@@ -24,11 +24,9 @@
   ?>
   
   <div class="owl-carousel owl-theme">
-  
     <div class="item"><img style="height=500px !important;" src="./image/banner/1.jpg" alt=""></div>
     <div class="item"><img style="height=500px !important;" src="./image/banner/3.jpg" alt=""></div>
     <div class="item"><img style="height=500px !important;" src="./image/banner/2.jpg" alt=""></div>
-
   </div>
 <!-- <div class="container-fluid" id="cpage">
 <style>
@@ -614,7 +612,7 @@
     <a class="link_box top5" href="http://nhaxinh.com/nha-xinh-online-video_m378.html">Xem chi tiết</a>
   </div>
 </div>
-  </div>
+</div>
 -->
 <!------------------------------------------------------------------------------------------------------------------------------------------------------------------------------>
 <!--footer-->
@@ -622,7 +620,7 @@
       include './footer.php';
     ?>
 </body>
-<script>
+  <script>
     $('.owl-carousel').owlCarousel({
     loop:true,
     items:1,
@@ -634,5 +632,5 @@
     rewindNav : true,
     navText: ["<img src='./image/icon/icons8_chevron_left_32px.png'>","<img src='./image/icon/icons8_chevron_right_32px.png'>"]
     })
-    </script>
+  </script>
 </html>

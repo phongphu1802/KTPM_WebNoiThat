@@ -1,9 +1,9 @@
 <!--footer-->
 <div style="clear: both;"></div>
-	<div id="footer" style="background-color: #4B4E51;">
+  <div id="footer" style="background-color: #4B4E51;">
     <div id="home_sub_banner"></div>
     <div class="footer-menu-left" style="padding-left: 35px;">
-		<div class="clearfix">
+		  <div class="clearfix">
 			<div class="footerMenu" style="width:175px;">
 				<h3>VỀ NHÀ XINH</h3>
 				<ul style="padding-top: 10px;">
@@ -162,7 +162,7 @@
     </div>
   </div>
   <!-- end footer -->
-</div>
+
 <div class="clearfix"></div>
 <div id="home_showroom">
   <div class="location">
