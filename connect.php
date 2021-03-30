@@ -86,6 +86,7 @@
 				$values .=',"' . mysqli_real_escape_string($this->link, $value).'"';
 			}
 			$sql='INSERT INTO ' .$table. ' ('.trim($keys,',').') VALUES ('. trim($values,',').')';
+			echo($sql);
 			return mysqli_query($this->link,$sql);
 		}
 		

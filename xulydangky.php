@@ -27,7 +27,8 @@ xulythemtaikhoan();
 								'address'=> $_POST['address'],
 								'created'=> date('y-m-d'),
 								'position'=>$_POST['position'],
-								'ngaysinh'=>$_POST['date']
+								'ngaysinh'=>$_POST['date'],
+								'chucvu'=>'cv0'
 								);
 					$table='user';
 					$class->insert($table,$data);
