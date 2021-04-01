@@ -13,7 +13,7 @@ function kiemtradangnhap()
 			exit;
 		}
 		include('connect.php');
-		$sql="SELECT username, password, position FROM user WHERE username='$user'";
+		$sql="SELECT username, password, position, chucvu FROM user WHERE username='$user'";
 		$class=new Database();
 		$sq=$class->connect();
 		$query=mysqli_query($sq,$sql);
@@ -32,6 +32,7 @@ function kiemtradangnhap()
 		if($row['position']=='admin'){
 			echo "Xin chào quản lý ".$user.". Bạn đã đăng nhập thành công.";
 			$_SESSION['useradmin']=$user;
+			$_SESSION['quyenuser']=$row['chucvu'];
 			exit;
 			
 		}else{

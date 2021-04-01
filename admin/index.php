@@ -6,7 +6,7 @@
 			?>
 				<script>
 				<?php
-				echo("alert('Xin chào '.$useradmin.'. Bạn đã đăng nhập thành công.');");
+					echo("alert('Xin chào '.$useradmin.'. Bạn đã đăng nhập thành công.');");
 				?>
 				</script>
 			<?php
@@ -28,20 +28,44 @@
 <script>
 $(document).ready(function(){
 	$("#content").load("danhsachdathang.php");
-	$("#lmn1").click(function(){
+	$("#q1").click(function(){
 		$("#content").load("thongke.php");
 	});
-	$("#lmn2").click(function(){
-		$("#content").load("danhsachsanpham.php");
+	$("#q2").click(function(){
+		
 	});
-	$("#lmn3").click(function(){
-		$("#content").load("danhsachtaikhoan.php");
-	});
-	$("#lmn4").click(function(){
+	$("#q3").click(function(){
 		$("#content").load("danhsachdathang.php");
 	});
-	$("#lmn5").click(function(){
+	$("#q4").click(function(){
+		$("#content").load("danhsachsanpham.php");
+	});
+	$("#q5").click(function(){
+		$("#content").load("danhsachtaikhoan.php");
+	});
+	$("#q6").click(function(){
+
+	});
+	$("#q7").click(function(){
 		$("#content").load("danhsachhoadon.php");
+	});
+	$("#q8").click(function(){
+		
+	});
+	$("#q9").click(function(){
+		
+	});
+	$("#q10").click(function(){
+		
+	});
+	$("#q11").click(function(){
+		
+	});
+	$("#q12").click(function(){
+		
+	});
+	$("#q13").click(function(){
+		
 	});
 });
 </script>
@@ -74,11 +98,16 @@ $(document).ready(function(){
 			</div>
 		</form>
 		<ul class="nav menu">
+<!--
 			<li id="lmn1"><a href="#"><span class="glyphicon glyphicon-stats"></span> Thống kê tình hình kinh doanh</a></li>
 			<li id="lmn2"><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Danh sách sản phẩm</a></li>
 			<li id="lmn3"><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Danh sách tài khoản</a></li>
 			<li id="lmn4"><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Danh sách đặt hàng</a></li>
 			<li id="lmn5"><a href="#"><span class="glyphicon glyphicon-list-alt"></span> Danh sách hóa đơn</a></li>
+-->
+			<?php
+				include('menuadmin.php');
+			?>
 		</ul>
 	</div><!--/.sidebar-->
 		
