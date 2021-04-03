@@ -62,7 +62,7 @@ $(document).ready(function(){
 		
 	});
 	$("#q12").click(function(){
-		
+		$("#content").load("quanlyquyen.php");
 	});
 	$("#q13").click(function(){
 		

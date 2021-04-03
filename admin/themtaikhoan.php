@@ -22,7 +22,7 @@
 		{
 			var name = document.getElementById("idname").value;
 			var namepattern = /[A-Z][a-zA-Z][^#&<>\"~;$^%{}?\d]{1,}$/;
-			result = namepattern.test(name);
+			var result = namepattern.test(name);
 			if(result == false)
 			{
 				document.getElementById("invalid-name").innerHTML="*Tên hợp lệ không có số, kí tự đặc biệt, viết hoa đầu từ";
@@ -38,7 +38,7 @@
 		{
 			var username = document.getElementById("iduser").value;
 			var patt = /^[a-zA-Z\d]+$/;
-			result = patt.test(username);
+			var result = patt.test(username);
 			if(result == false)
 			{
 				document.getElementById("invalid-username").innerHTML="*Tên tài khoản hợp lệ không có khoảng trắng, kí tự đặc biệt";

@@ -120,6 +120,18 @@
 			return mysqli_query($this->link,$sql);
 		}
 		//-----------------------------------------------------------------------------------------------------------
+		public function updatequyen($table = '',$data = [], $maq ='')
+		{
+			$content = '';
+				$where = "maq = '$maq'";
+			foreach ($data as $key => $value) {
+				$content .= ", $key ='$value'";
+			}
+			$sql = 'UPDATE ' .$table .' SET '.trim($content,',') . ' WHERE ' . $where ;
+			echo($sql);
+			return mysqli_query($this->link,$sql);
+		}
+		//-----------------------------------------------------------------------------------------------------------
 		public function updateOrder($table = '',$data = '', $id ='')
 		{
 			$content = '';
