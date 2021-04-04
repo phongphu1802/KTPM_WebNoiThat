@@ -30,7 +30,7 @@
 
 		function checkUsername(){
 			var username = document.getElementById("iduser").value;
-			var patt = /[a-zA-Z\d]$/;
+			var patt = /[A-Z][a-zA-Z\d]$/;
 			result = patt.test(username);
 			if(result == false)
 			{
@@ -248,47 +248,47 @@
 					<h1 style="font-weight:strong; padding:3px; text-align: center; background-color:#00A780; color:white;">ĐĂNG KÝ</h1>              
 					<div class="row">
 						<div class="col-xs-12 col-md-12 formdk"> <!--"col-xs-12 col-md-8"-->
-								<label>Họ tên<span style="color:red">*</span> </label>
+								<label id="namelbl">Họ tên<span style="color:red">*</span> </label>
 								<input  id="idname" name="name" value="" placeholder="Họ tên..." type="text" onchange="checkName()">
 								<div id="invalid-name" style="color:red; visibility:hidden;"></div>
 
-								<label>Tên tài khoản<span style="color:red">*</span> </label>
+								<label id="usernamelbl">Tên tài khoản<span style="color:red">*</span> </label>
 								<input  id="iduser" name="username" value="" placeholder="Tên tài khoản" type="text" onchange="checkUsername()">
 								<div id="invalid-username" style="color:red; visibility:hidden;"></div>
 
-								<label>Mật khẩu<span style="color:red">*</span> </label>
+								<label id="pwdlbl">Mật khẩu<span style="color:red">*</span> </label>
 								<input id="idpass" name="password" value="" placeholder="Mật khẩu" type="password" onchange="checkPass1()">
 								<div id="invalid-pass" style="color:red; visibility:hidden;"></div>
 
-								<label>Xác nhận lại mật khẩu<span style="color:red">*</span> </label>
+								<label id="confirmpwdlbl">Xác nhận lại mật khẩu<span style="color:red">*</span> </label>
 								<input  id="idpass2" name="repassword" value="" placeholder="Nhập lại mật khẩu" type="password" onchange="checkPassAgain()">
 								<div id="invalid-pass2" style="color:red; visibility:hidden;"></div>
-								<label>Giới tính</label>
+								<label id="genderlbl">Giới tính</label>
 								<select id="idsex">
 									<option value="male">Nam</option>
 									<option value="female">Nữ</option>
 								</select><br>
 								
-								<label>Ngày sinh <span style="color:red">*</span> </label>
+								<label id="doblbl">Ngày sinh<span style="color:red">*</span> </label>
 								<input type="date" name="date" id="date" value="2000-08-28" onchange="checkDate()">
 								<div id="invalid-birthday" style="color:red; visibility:hidden;"></div>
 								
-								<label>Thư điện tử</label>
+								<label id="emaillbl">Thư điện tử</label>
 								<input  id="idemail" name="email" value="" placeholder="Email" type="text" onchange="checkEmail()" />
 								<div id="invalid-email" style="color:red; visibility:hidden;"></div>
 
-								<label>Địa chỉ</label>
+								<label id="addresslbl">Địa chỉ</label>
 								<input id="idaddress" name="address" value="" placeholder="Địa chỉ" type="text" onchange="checkAddress()">
 								<div id="invalid-address" style="color:red; visibility:hidden;"></div>
 
-								<label>Số điện thoại</label>
+								<label id="phonelbl">Số điện thoại</label>
 								<input id="idphone" name="phone" value="" placeholder="Số điện thoại" type="text" onchange="checkPhone()">
 								<div id="invalid-phone" style="color:red; visibility:hidden;"></div>
 
 
 								<br>
-								<input type="checkbox" id="xacnhan" name="xacnhandk">Tôi đã đọc và chấp thuận mọi<u><a
-										href="provisions.html"> Điều khoản</a>.</u>
+								<input type="checkbox" id="xacnhan" name="xacnhandk">
+								<label id="accept_rules">Tôi đã đọc và chấp thuận mọi điều khoản</label>
 								<div style="text-align:right">
 									<button id="btnsubmit" name="signin"  class="nutdk">Đăng ký</button>
 									<input type="reset" name="reset" class="nuthuy" value="Hủy" data-dismiss="modal"/>
