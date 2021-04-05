@@ -1,6 +1,6 @@
 <?php
-xulythemquyen();
-	function xulythemquyen()
+xulyanquyen();
+	function xulyanquyen()
 	{
 		if(isset($_POST['quyen']))
 		{
@@ -8,9 +8,10 @@ xulythemquyen();
 			include('../connect.php');
 			$class=new Database();
 			$sq1=$class->connect();
-			$sql="select * from dsquyen where maq = '.$quyen.'";
+			$sql="select * from dsquyen where maq = '$quyen'";
+			echo($sql);
 			$query=mysqli_query($sq1,$sql);
-			foreach($countquyen as $key=>$value){
+			foreach($query as $key=>$value){
 				$data=array('maq' =>$value['maq'],
 							'tenq' => $value['tenq'],
 							'trangthai'=> '0'

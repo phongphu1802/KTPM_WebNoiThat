@@ -1,14 +1,20 @@
 <?php
-if(isset($_POST['maq'])){
+if(isset($_POST['macv'])){
 	include('../connect.php');
+	$macv=$_POST['macv'];
 	$class=new Database();
 	$sql="select * from dsquyen";
 	$dataldsquyen=$class->query($sql);
-	$datal=$class->query($sql);
-	foreach($datal as $key=>$value){
-		$maq=$value['maq'];
-		$tenq=$value['tenq'];
-		$trangthai=$value['trangthai'];
+//	$datal=$class->query($sql);
+//	foreach($datal as $key=>$value){
+//		$maq=$value['maq'];
+//		$tenq=$value['tenq'];
+//		$trangthai=$value['trangthai'];
+//	}
+	$sql1="select * from chucvu where macv='$macv'";
+	$datalchucvu=$class->query($sql1);
+	foreach($datalchucvu as $key=>$value){
+		$chucvu=$value['chucvu'];
 	}
 }
 ?>
@@ -46,7 +52,7 @@ if(isset($_POST['maq'])){
 				document.getElementById("invalid-chucvu").style.visibility="hidden";
 			} 
 		}
-		function xulysubmitthemchucvu(){
+		function xulysubmitsuachucvu(){
 			var chucvu = document.getElementById("idchucvu");
 			
 			if(chucvu.value == "") //Tên còn rỗng
@@ -72,19 +78,20 @@ if(isset($_POST['maq'])){
 			return chuoi;
 		}
 		$(document).ready(function() {
-			$("#btnsubmitthemchucvu").click(function(){
-				if(xulysubmitthemchucvu()==true){
+			$("#btnsubmitsuachucvu").click(function(){
+				if(xulysubmitsuachucvu()==true){
 					$.ajax({
 						type:"POST",
 						url: "xulythemchucvu.php",
 						dataType: 'html',
 						data:{
+							macv:$("#macv").val(),
 							tencv:$("#idchucvu").val(),
 							chucnang:batsukien()
 						},
 						success: function(data){
 							alert(data);
-							if(data!="Chức vụ đã tồn tại vui lòng thêm chức vụ khác."){
+							if(data!="Chức vụ đã tồn tại vui lòng sửa chức vụ khác."){
 								location.reload();
 							}
 						}
@@ -101,7 +108,7 @@ if(isset($_POST['maq'])){
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Thêm chức vụ</h1>
+				<h1 class="page-header">Cập nhật chức vụ</h1>
 			</div>
 		</div><!--/.row-->
 				
@@ -112,22 +119,32 @@ if(isset($_POST['maq'])){
 					<div class="panel-body">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Chức vụ cần thêm</label>
-								<input class="form-control" placeholder="Chức vụ cần thêm" id="idchucvu" name="chucvu" value="" onchange="checkChucvu()"></input>
+								<div id="macv" name="macv" value="<?php echo $macv; ?>"></div>
+								<label>Chức vụ cần cập nhật thêm</label>
+								<input class="form-control" placeholder="Chức vụ cần thêm" id="idchucvu" name="chucvu" value="<?php echo $chucvu; ?>" onchange="checkChucvu()"></input>
 								<div id="invalid-chucvu" style="color:red; visibility:hidden;"></div>
 							</div>
 							<div class="form-group">
 									<label>Quyền truy cập tài khoản</label>
 									<?php
+										$sq=$class->connect();
 										foreach($dataldsquyen as $key=>$value){
 											if($value['trangthai']==1&&$value['maq']!='q12'&&$value['maq']!='q13'){
-												print_r('<div class="pretty p-switch p-fill">
-												<input type="checkbox" id="'.$value['maq'].'" value="'.$value['maq'].'"> '.$value['tenq'].'</input></div>');
+												$maq1=$value['maq'];
+												$sql2="select * from nhomquyen where macv='$macv' and maq='$maq1'";
+												$query=mysqli_query($sq,$sql2);
+												if(mysqli_num_rows($query)!=0){
+													print_r('<div class="pretty p-switch p-fill">
+													<input type="checkbox" id="'.$value['maq'].'" value="'.$value['maq'].'" checked="checked"> '.$value['tenq'].'</input></div>');
+												}else{
+													print_r('<div class="pretty p-switch p-fill">
+													<input type="checkbox" id="'.$value['maq'].'" value="'.$value['maq'].'"> '.$value['tenq'].'</input></div>');
+												}
 											}
 										}
 									?>
 							</div>
-							<button id="btnsubmitthemchucvu" value="nut" class="btn btn-primary">Tạo chức vụ mới</button>
+							<button id="btnsubmitsuachucvu" value="nut" class="btn btn-primary">Lưu nội dung đã sửa</button>
 							<button type="reset" class="btn btn-default" onClick="reset()">Tạo lại</button>
 						</div>
 						

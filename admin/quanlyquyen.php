@@ -23,6 +23,17 @@
 				return false;
 			}                
 		}
+		function confirmbefore1()
+		{
+			if(confirm('Bạn có chắc muốn ẩn chức vụ này.'))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}                
+		}
 		function hidenquyen(user){
 			if(confirmbefore()){
 				$.ajax({
@@ -31,6 +42,22 @@
 					dataType: 'html',
 					data:{
 						quyen:user
+					},
+					success: function(data){
+						alert(data);
+						$("#content").load("quanlyquyen.php");
+					}
+				});
+			}
+		}
+		function hidenchucvu(chucvu){
+			if(confirmbefore1()){
+				$.ajax({
+					type:"POST",
+					url: "xulyanchucvu.php",
+					dataType: 'html',
+					data:{
+						macv:chucvu
 					},
 					success: function(data){
 						alert(data);
@@ -184,9 +211,11 @@
 									foreach($datalchucvu as $key=>$value){
 										$temp1++;
 										if($temp1>2){
-											print_r('<th data-sortable="true">'.$value['chucvu'].'
-											<button class="btn btn-info btn-sm" name="editchucvu" title="Chỉnh sửa thông tin chức vụ" id="'.$value['macv'].'" onClick="editchucvu(this)"><i class="fa fa-edit"></i></button>
-											<button class="btn btn-danger btn-sm" name="deletechucvu" title="Ẩn chức vụ" onClick="deletechucvu(\''.$value['macv'].'\')"><i class="fa fa-trash-o"></i></button></th>');
+											if($value['trangthai']==1){
+												print_r('<th data-sortable="true">'.$value['chucvu'].'
+												<button class="btn btn-info btn-sm" name="editchucvu" title="Chỉnh sửa thông tin chức vụ" id="'.$value['macv'].'" onClick="editchucvu(this)"><i class="fa fa-edit"></i></button>
+												<button class="btn btn-danger btn-sm" name="deletechucvu" title="Ẩn chức vụ" onClick="hidenchucvu(\''.$value['macv'].'\')"><i class="fa fa-trash-o"></i></button></th>');
+											}
 										}
 									}
 								?>
@@ -206,10 +235,9 @@
 											$temp2=1;
 											foreach($datalchucvu as $key=>$value2){
 												$temp2++;
-												if($temp2>2){
+												if($temp2>2&&$value2['trangthai']==1){
 													$bien2=$value2['macv'];
 													$sqlphanquyen="select * from nhomquyen,dsquyen where nhomquyen.maq = '$bien1' and nhomquyen.macv ='$bien2' and dsquyen.trangthai='1'";
-
 													$sq=$class1->connect();
 													$query=mysqli_query($sq,$sqlphanquyen);
 													if(mysqli_num_rows($query)!=0)

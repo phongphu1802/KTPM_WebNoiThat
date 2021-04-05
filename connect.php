@@ -86,7 +86,6 @@
 				$values .=',"' . mysqli_real_escape_string($this->link, $value).'"';
 			}
 			$sql='INSERT INTO ' .$table. ' ('.trim($keys,',').') VALUES ('. trim($values,',').')';
-			echo($sql);
 			return mysqli_query($this->link,$sql);
 		}
 		
@@ -128,7 +127,18 @@
 				$content .= ", $key ='$value'";
 			}
 			$sql = 'UPDATE ' .$table .' SET '.trim($content,',') . ' WHERE ' . $where ;
-			echo($sql);
+			echo $sql;
+			return mysqli_query($this->link,$sql);
+		}
+		//-----------------------------------------------------------------------------------------------------------
+		public function updatechucvu($table = '',$data = [], $macv ='')
+		{
+			$content = '';
+				$where = "macv = '$macv'";
+			foreach ($data as $key => $value) {
+				$content .= ", $key ='$value'";
+			}
+			$sql = 'UPDATE ' .$table .' SET '.trim($content,',') . ' WHERE ' . $where ;
 			return mysqli_query($this->link,$sql);
 		}
 		//-----------------------------------------------------------------------------------------------------------

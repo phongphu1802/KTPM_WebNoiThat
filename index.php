@@ -18,7 +18,7 @@
 	<?php include('modal_tacvu.php')?>
 <from action="" name="frmdangky" method="get">
 <div class="container-fluid">
-    <div class="row" style="background-color:#4d4848 ;">
+    <div class="row" style="background-color:#4d4848;">
         <div class="search-box" >
 			<img src="picture/logo.png" class="logo">
 			<input type="text" class="form-control" placeholder="Nhập để tìm sản phẩm..." id="search" value="">
@@ -30,7 +30,7 @@
 					{
 						//echo "<script>alert('abc');</script>";
 						echo('
-						<ul>
+						<ul style="height: 58px;backgroud-color:#CF373A">
 							<li id="'.$_SESSION['username'].'" onClick="hienthilichsu(this)" title="Xem lịch sử mua hàng" ><a href="#"><h7>Chào '.$_SESSION['username'].'</h7></a></li>
 							<li onClick="hienthigiohang()"><a href="#"><i class="fa fa-shopping-cart"></i>Giỏ Hàng</a></li>
 							<li ><a href="xulydangxuat.php"><span class="glyphicon glyphicon-log-out"></span> Đăng xuất</a></li>
@@ -40,10 +40,11 @@
 						//echo $_SESSION['username'];
 						//echo "<script>alert('abc');</script>";
 						echo('
-						<ul>
+						<ul style="height: 58px">
 							<li onClick="hienthigiohang()"><a href="#"><i class="fa fa-shopping-cart"></i>Giỏ Hàng</a></li>
 						  	<li data-toggle="modal" data-target="#myModaldk"><a href="#" >Đăng ký</a></li>
 						  	<li data-toggle="modal" data-target="#myModaldn"><a href="#">Đăng nhập</a></li>
+							
 						</ul>
 							');
 					}
