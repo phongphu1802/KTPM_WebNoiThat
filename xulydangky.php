@@ -1,4 +1,5 @@
 <?php
+include('kiemtrasession.php');
 xulythemtaikhoan();
 
 	function xulythemtaikhoan()
@@ -33,6 +34,7 @@ xulythemtaikhoan();
 					$table='user';
 					$class->insert($table,$data);
 					echo "Bạn đã đăng ký thành công.";
+					$_SESSION['username']=$user;
 					exit;
 				}
 			}		

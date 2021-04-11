@@ -13,33 +13,39 @@
 		//address: /^[a-zA-Z0-9\s][^#&<>\"~;$^%{}?]+$/
 		//password: /^[\w]{8,20}/ 
 		//password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$/ mật khẩu chứ ít nhất 1 kí tự thường, 1 kí tự INHOA, ít nhất 1 số ít nhất 8, nhiều nhất 20
+		
+		
 		function checkName(){
 			var name = document.getElementById("idname").value;
-			var namepattern = /[A-Z][a-zA-Z][^#&<>\"~;$^%{}?\d]{1,}$/;
+			var namepattern = /[A-Z][a-zA-Z][^#&*!<>\"~;$^%{}?\d]{1,}$/;
 			result = namepattern.test(name);
 			if(result == false)
 			{
 				document.getElementById("invalid-name").innerHTML="*Tên hợp lệ không có số, kí tự đặc biệt, viết hoa đầu từ";
 				document.getElementById("invalid-name").style.visibility="visible";
+				return false;
 			}
 			else
 			{
 				document.getElementById("invalid-name").style.visibility="hidden";
+				return true;
 			} 
 		}
 
 		function checkUsername(){
 			var username = document.getElementById("iduser").value;
-			var patt = /[A-Z][a-zA-Z\d]$/;
+			var patt = /^[a-zA-Z\d]+$/;
 			result = patt.test(username);
 			if(result == false)
 			{
 				document.getElementById("invalid-username").innerHTML="*Tên tài khoản hợp lệ không có khoảng trắng, kí tự đặc biệt";
 				document.getElementById("invalid-username").style.visibility="visible";
+				return false;
 			}
-			else
-			document.getElementById("invalid-username").style.visibility="hidden";
-
+			else{
+				document.getElementById("invalid-username").style.visibility="hidden";
+				return true;
+			}	
 		}
 
 		function checkPass1(){
@@ -48,12 +54,14 @@
 			var result =  patt.test(pass1);
 			if(result == false)
 			{
-				document.getElementById("invalid-pass").innerHTML="* Mật khẩu chứa ít nhất 1 kí tự thường, 1 kí tự INHOA, ít nhất 1 số,độ dài ít nhất 8,độ dài nhiều nhất 20";
+				document.getElementById("invalid-pass").innerHTML="* Mật khẩu chứa ít nhất 1 kí tự thường, 1 kí tự IN HOA, ít nhất 1 số, độ dài ít nhất 8,độ dài nhiều nhất 20";
 				document.getElementById("invalid-pass").style.visibility="visible";
+				return false;
 			}
-			else
+			else{
 				document.getElementById("invalid-pass").style.visibility="hidden";
-
+				return true;
+			}				
 		}
 
 		function checkPassAgain(){
@@ -64,17 +72,21 @@
 				alert("Mật khẩu chưa nhập");   
 				pass1.focus(); 
 				pass2.value="";  
+				return false;
 			}
 			else
 			{
 				if(pass2.value === pass1.value)
 				{
 					document.getElementById("invalid-pass2").style.visibility="hidden";
+					return true;
+					
 				}
 				else
 				{
 					document.getElementById("invalid-pass2").innerHTML="* Mật khẩu nhập lại chưa chính xác";
 					document.getElementById("invalid-pass2").style.visibility="visible";
+					return false;
 				}
 			}    
 		}
@@ -87,9 +99,12 @@
 			{
 				document.getElementById("invalid-email").innerHTML="* Email không hợp lệ";
 				document.getElementById("invalid-email").style.visibility="visible";
+				return false;
 			}
-			else
+			else{
 				document.getElementById("invalid-email").style.visibility="hidden";
+				return true;
+			}	
 		}
 
 		function checkAddress(){
@@ -100,9 +115,12 @@
 			{
 				document.getElementById("invalid-address").innerHTML="* Địa chỉ không được chứa các kí tự đặc biệt";
 				document.getElementById("invalid-address").style.visibility="visible";
+				return false;
 			}
-			else
+			else{
 				document.getElementById("invalid-address").style.visibility="hidden";
+				return true;
+			}
 		}
 
 		function checkPhone(){
@@ -113,9 +131,12 @@
 			{
 				document.getElementById("invalid-phone").innerHTML="* Số điện thoại không hợp lệ";
 				document.getElementById("invalid-phone").style.visibility="visible";
+				return false;
 			}     
-			else
+			else{
 				document.getElementById("invalid-phone").style.visibility="hidden";
+				return true;
+			}
 		}
 
 		function checkDate(){
@@ -126,12 +147,17 @@
 			if(age<18){
 				document.getElementById("invalid-birthday").innerHTML="* Khách hàng chưa đủ 18 tuổi";
 				document.getElementById("invalid-birthday").style.visibility="visible";
+				return false;
 			}
-			else
+			else{
 				document.getElementById("invalid-birthday").style.visibility="hidden";
+				return true;
+			}
 		}
 
 		function xulysubmit(){
+			
+		
 			var name = document.getElementById("idname");
 			var username = document.getElementById("iduser");
 			var pass1 = document.getElementById("idpass");
@@ -200,6 +226,9 @@
 			   alert("Bạn chưa chấp nhận điều khoản của cửa hàng");
 				return false;
 			}
+			
+			if(checkName()==false||checkUsername()==false||checkPass1()==false||checkPassAgain()==false||checkEmail()==false||checkAddress()==false||checkPhone()==false||checkDate()==false)
+				return false;
 			return true;
 		}
 	$(document).ready(function() {
