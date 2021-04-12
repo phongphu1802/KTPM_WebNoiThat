@@ -160,7 +160,15 @@
 			return mysqli_query($this->link,$sql);
 		}
 		//------------------------------------------------------------------------------------------------------------
-		
+		public function updateBinhluan($idsp ='', $trangthai='')
+		{
+			$where = 'idbinhluan = '.$idsp;
+			$data ='trangthaibl = '.$trangthai;
+			$sql = 'UPDATE binhluan SET '.$data.' WHERE ' . $where ;
+			echo($sql);
+			return mysqli_query($this->link,$sql);
+		}
+		//------------------------------------------------------------------------------------------------------------
 		 public function fetchuser($table , $user )
         {
             $sql = "SELECT * FROM {$table} WHERE username = '$user' ";

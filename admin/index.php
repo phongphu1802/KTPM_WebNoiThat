@@ -3,6 +3,7 @@
 	if(isset($_SESSION['useradmin']))
 	{
 		$useradmin=$_SESSION['useradmin'];
+		$chucvu=$_SESSION['quyenuser'];
 			?>
 				<script>
 				<?php
@@ -26,13 +27,14 @@
 <link href="css/bootstrap-table.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 <script>
+	
 $(document).ready(function(){
-	$("#content").load("danhsachdathang.php");
+	$("#content").load("thongke.php");
 	$("#q1").click(function(){
 		$("#content").load("thongke.php");
 	});
 	$("#q2").click(function(){
-		
+		$("#content").load("danhsachbinhluan.php");
 	});
 	$("#q3").click(function(){
 		$("#content").load("danhsachdathang.php");
@@ -41,10 +43,10 @@ $(document).ready(function(){
 		$("#content").load("danhsachsanpham.php");
 	});
 	$("#q5").click(function(){
-		$("#content").load("danhsachtaikhoan.php");
+		$("#content").load("danhsachnhanvien.php");
 	});
 	$("#q6").click(function(){
-
+		$("#content").load("danhsachthanhvien.php");
 	});
 	$("#q7").click(function(){
 		$("#content").load("danhsachhoadon.php");
@@ -65,7 +67,7 @@ $(document).ready(function(){
 		$("#content").load("quanlyquyen.php");
 	});
 	$("#q13").click(function(){
-		
+		$("#content").load("quanlytaikhoan.php");
 	});
 });
 </script>

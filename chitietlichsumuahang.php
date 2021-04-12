@@ -47,7 +47,6 @@
 				<h4>Địa chỉ giao hàng: <?php echo $value['address'] ?></h4>
 				<h4>Số điện thoại: 0<?php echo $sdt ?></h4>
 				<h5>-----------------------------------------------------------</h5>
-				<h4>Nhân viên kiểm đơn: <?php echo $value['employee'] ?> </h4>
 				<h4>Ngày giao hàng: <?php echo $day; ?></h4>
 				<?php
 			}

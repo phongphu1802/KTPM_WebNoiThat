@@ -14,7 +14,7 @@
 	<script>
 		function confirmbefore()
 		{
-			if(confirm('Bạn có chắc muốn lưu hóa đơn này'))
+			if(confirm('Bạn có chắc muốn xóa tài khoản này'))
 			{
 				return true;
 			}
@@ -23,55 +23,41 @@
 				return false;
 			}                
 		}
-		function save(obj){
+		function deleteuser(user){
 			if(confirmbefore()){
 				$.ajax({
 					type:"POST",
-					url: "luuhoadon.php",
+					url: "deleteuser.php",
 					dataType: 'html',
 					data:{
-						idcart:obj.id
+						user:user
 					},
 					success: function(data){
-						{ 
-							   if(data == 'false') 
-							   {
-								 	alert('Không có người dùng');
-							   }else{
-								 	alert(data);
-								   	$("#content").load("danhsachhoadon.php");
-							   }
-						  }
+						alert(data);
+						$("#content").load("danhsachtaikhoan.php");
 					}
-				})
+				});
 			}
 		}
-		function detail(obj){
+		function edituser(obj){
 			$.ajax({
-				type:"POST",
-				url: "hienthichitiethoadon.php",
-				dataType: 'html',
-				data:{
-					idcart:obj.id
-				},
-				success: function(data){
-					{ 
-						if(data == 'false') 
-						{
-							alert('Không có người dùng');
-						}else{
-							$("#themchitiethoadon").html(data);
-							$("#myModalchitiet").modal(options8);
-							var options8 = {
-							'backdrop' : 'static',
-							'keyboard' : true,
-							'show' :true,
-							'focus' : false
-							}
+					type:"POST",
+					url: "suataikhoan.php",
+					dataType: 'html',
+					data:{
+						username:obj.id
+					},
+					success: function(data){
+						$("#suataikhoan").html(data);
+						$("#myModalsua").modal(options2);
+						 var options2 = {
+						'backdrop' : 'static',
+						'keyboard' : true,
+						'show' :true,
+						'focus' : false
 						}
 					}
-				}
-			})
+				})
 		}
 		function adduser(){
 			$("#themtaikhoan").load("themtaikhoan.php");
@@ -86,13 +72,13 @@
 	</script>
 </head>
 <body>
-	<div class="modal " id="myModalchitiet" role="dialog" >
+	<div class="modal " id="myModalthem" role="dialog" >
          <div class="modal-dialog modal-lg">
             <div class="modal-content">
                <!-- Modal Header -->
                <!-- Modal body -->
                <div class="modal-body">
-				  <di id="themchitiethoadon"></di>
+				  <di id="themtaikhoan"></di>
                </div>
                <!-- Modal footer -->
             </div>
@@ -113,54 +99,62 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-				<li class="active">Bảng hóa đơn</li>
+				<li class="active">Danh sách thành viên</li>
 			</ol>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Bảng hóa đơn</h1>
+				<h1 class="page-header">Danh sách thành viên</h1>
 			</div>
 		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Bảng hóa đơn</div>
+					<div class="panel-heading">Danh sách thành viên</div>
 					<div class="panel-body">
+						<button type="button" class="btn btn-warning" id="adduser" onClick="adduser()">Thêm thành viên mới</button>
 						<table data-toggle="table" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
-								<th data-sortable="true">Mã hóa đơn</th>
-						        <th data-sortable="true">Tên tài khoản khách</th>
-						        <th data-sortable="true">Tổng tiền hóa đơn</th>
-								<th data-sortable="true">Ngày kiểm đơn</th>
-								<th data-sortable="true">Địa chỉ giao</th>
-								<th data-sortable="true"></th>
+								<th data-sortable="true">Tài khoản</th>
+						        <th data-sortable="true">Mật khẩu</th>
+						        <th data-sortable="true">Số điện thoại</th>
+						        <th data-sortable="true">Họ và Tên</th>
+								<th data-sortable="true">Giới tính</th>
+								<th data-sortable="true">Email</th>
+								<th data-sortable="true">Địa chỉ</th>
+								<th data-sortable="true">Ngày tạo</th>
+								<th data-sortable="true">Loại khách hàng</th>
 						    </tr>
 							</thead>
 								<?php
 									include('../connect.php');
-			  						$class2=new Database();
-									$sqlcart="select * from cart";
-									$datalcart=$class2->query($sqlcart);
-									foreach($datalcart as $key=>$value){
-										if($value['status']==1)
-										{
+			  						$class1=new Database();
+									$sqluser="select * from user where position='Khách hàng'";
+									$dataluser=$class1->query($sqluser);
+									foreach($dataluser as $key=>$value){
+											//Lấy thông tin loại thành viên
+											$matv=$value['username'];
+											$sqlloaikhachhang="select tenlkh from loaikhachhang,xephangthanhvien where matv='$matv' and loaikhachhang.malkh=xephangthanhvien.malkh";
+											$datalloaikhachhang=$class1->query($sqlloaikhachhang);
+											foreach($datalloaikhachhang as $key=>$value2){
+												$lkh=$value2['tenlkh'];
+											}
 											print_r('<tr>
-												<td data-sortable="true">'.$value['id'].'</td>
-												<td data-sortable="true">'.$value['user_username'].'</td>
-												<td data-sortable="true">'.number_format($value['total_price']).'</td>
-												<td data-sortable="true">'.$value['created'].'</td>
+												<td data-sortable="true">'.$value['username'].'</td>
+												<td data-sortable="true">'.md5($value['password']).'</td>
+												<td data-sortable="true">'.$value['phonenumber'].'</td>
+												<td data-sortable="true">'.$value['name'].'</td>
+												<td data-sortable="true">'.$value['gioitinh'].'</td>
+												<td data-sortable="true">'.$value['email'].'</td>
 												<td data-sortable="true">'.$value['address'].'</td>
-												<td data-sortable="true">
-												<button class="btn btn-info btn-sm" name="edit" title="Xem chi tiết hóa đơn" id="'.$value['id'].'" onClick="detail(this)"><i class="fa fa-list-ul"></i></button>
-												<button class="btn btn-danger btn-sm" id="'.$value['id'].'" name="print" title="In hóa đơn"><i class="fa fa-print"></i></button>
-												<button class="btn btn-danger btn-sm" name="save" title="Lưu hóa đơn" id="'.$value['id'].'" onClick="save(this)"><i class="fa fa-floppy-o"></i></button>
-												</td>
+												<td data-sortable="true">'.$value['created'].'</td>
+												<td data-sortable="true">'.$lkh.'</td>
 											</tr>');
-										}
 									}
+									
 								?>
 						    
 						</table>

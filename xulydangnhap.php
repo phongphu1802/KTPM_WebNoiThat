@@ -13,7 +13,7 @@ function kiemtradangnhap()
 			exit;
 		}
 		include('connect.php');
-		$sql="SELECT username, password, position, chucvu FROM user WHERE username='$user'";
+		$sql="SELECT * FROM user WHERE username='$user'";
 		$class=new Database();
 		$sq=$class->connect();
 		$query=mysqli_query($sq,$sql);
