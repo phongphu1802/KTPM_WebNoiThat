@@ -24,6 +24,7 @@
             ORDER BY SUM(oder_details.amout) DESC
             LIMIT 10"; 
 	   		$result3 = mysqli_query($connect,$query3);
+		echo($query3);
 			while($row3 = mysqli_fetch_array($result3))
 			{
 			echo '<tr>';			

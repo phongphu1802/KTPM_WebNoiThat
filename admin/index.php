@@ -29,9 +29,9 @@
 <script>
 	
 $(document).ready(function(){
-	$("#content").load("thongke.php");
+	$("#content").load("thongkemau.php");
 	$("#q1").click(function(){
-		$("#content").load("thongke.php");
+		$("#content").load("thongkemau.php");
 	});
 	$("#q2").click(function(){
 		$("#content").load("danhsachbinhluan.php");
