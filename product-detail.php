@@ -1,4 +1,12 @@
-
+<?php
+	include('kiemtrasession.php');
+	include('connect.php');
+	if(isset($_SESSION['useradmin']))
+	{
+		$useradmin=$_SESSION['useradmin'];
+		echo('<script>alert("ok");</script>');
+	}
+?>
 <script>
 	function themgiohang(obj)
 	{
@@ -29,16 +37,21 @@
 					}
 				});
 	}
+	function GuiBl(obk){
+		var makh = document.getElementById("makh123").value;
+		var binhluan = document.getElementById("binhluan").value;
+		alert(makh);
+		alert(binhluan);
+		alert(obk);
+	}
 </script>
 <?php 
 	
 	//$sqd=mysqli_connect("localhost","root","","csdl_ban_hang");
 	//$sql="SELECT * FROM product WHERE catalog_id ";
 	//$query=mysqli_query($sqd,$sql);
-	
 		if(isset($_REQUEST['id'])){
 		$Id=$_REQUEST['id'];
-		include('connect.php');
 		$class=new Database();
 		$sqd=$class->connect();
 		$sql="SELECT * FROM product WHERE id=$Id";
@@ -61,6 +74,41 @@
                         Số lượng: <input style="width: 10%" type="number" id="amount" name="quantity" class="form-control" value="1"/></br>
                         <div style="margin-left:5%;margin-right:5%;"><h2 >Chi tiết: </h2> <?php echo $value["detail"];?></div>
                         <button id="<?php echo $value['id']?>" onClick="themgiohang(this)" class="btn btn-default" style="background-color:#E25D33;margin-left:50%"> <i class="fa fa-shopping-basket"></i>Thêm vào giỏ hàng</button>
+						<div style="margin-left:5%;margin-right:5%; margin-top: 20px">
+							<div class="container" style=" border:1px solid #E25D33;height:100%; border-radius:15px;background-color:#fff;">
+								<input type="text" id="binhluan" name="binhluan" value="" style="width:95%; border: none; border-bottom: 2px solid purple; margin-top: 10px" placeholder="Mời bạn để lại bình luận..."><button class="btn btn-danger btn-sm" id="<?php echo $value['id']?>" name="Gui" style="background-color:#E25D33" title="Gửi" onClick="GuiBl(this)"><i class="fa fa-check-square-o"></i></button>
+							<?php	
+			  						$class2=new Database();
+									$sqlbl="select * from binhluan, user where binhluan.mauser=user.username";
+									$datalbl=$class2->query($sqlbl);//Dọc dữ liệu xuất ra phần bình luận
+									$count=count($datalbl);
+									print_r('<div style="margin-top: 10px; margin-left: 10px; font-size:20px"><b>Bình luận</b></div><div style="width:100%;height:200px;overflow-x:hidden;overflow-y:auto;">');
+									foreach($datalbl as $key=>$value1){
+										if($value['id']==$value1['masp']){
+											if($value1['trangthaibl']==0){
+												print_r('
+													<div style="border-top: 2px solid">
+													<div style="font-size:20px"><b>'.$value1['mauser'].'</b></div>
+													<div>'.$value1['noidung'].'</div>
+													</div>
+												');
+											}
+											else{
+												print_r('
+													<div style="border-top: 2px solid">
+													<div style="font-size:20px"><b>'.$value1['mauser'].'</b></div>
+													<div >'.$value1['noidung'].'</div>	
+													<div style="margin-left: 20px;"><b>Admin</b><i class="fa fa-flag" style="color: green"></i> Shop đã thông tin đến '.$value1['mauser'].' ạ. Mọi thắc mắc khách hàng có thể đến cửa hàng gần nhất để được hỗ trợ ạ.</div>
+													</div>
+												');
+											}
+										}
+									}
+			
+									print_r('</div><div style="margin-top: 20px"> </div>');
+								?>		
+							</div>		
+						</div>
                     </div>
 					<br>
                 </div>		

@@ -14,6 +14,7 @@
 	<link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="all" />
 	<link rel="stylesheet" href="css/bootstrap.min.css.map" type="text/css" media="all" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="/your-path-to-fontawesome/css/all.css" rel="stylesheet"> <!--load all styles -->
 	<script src="https://code.jquery.com/jquery-3.5.0.min.js" integrity="sha256-xNzN2a4ltkB44Mc/Jz3pT4iU1cmeR0FkXs4pru/JxaQ=" crossorigin="anonymous"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 	<script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>

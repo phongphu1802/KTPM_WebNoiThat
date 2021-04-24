@@ -100,19 +100,20 @@
 		<div class="col-xl-1"></div>
 		<div class="col-xl-10">
 			<br>
+<!--
 			<div id="content2" class="search-box">
 				<br>
                     <label><h5>Loại sản phẩm</h5>
                           <select name="types" id="loainc" value="" style="height:50%">
                           <option value="">--Loại--</option>
                           <?php
-                              $con=mysqli_connect("localhost", "root","","csdl_ban_hang");
-                              $query1="select * from catalog";
-                              $result1= mysqli_query($con,$query1);
-                              while($row=mysqli_fetch_array($result1))
-                              {
-                                  echo '<option value='.$row['id'].'>'.$row['name'].'</option>';
-                              }                      
+//                              $con=mysqli_connect("localhost", "root","","csdl_ban_hang");
+//                              $query1="select * from catalog";
+//                              $result1= mysqli_query($con,$query1);
+//                              while($row=mysqli_fetch_array($result1))
+//                              {
+//                                  echo '<option value='.$row['id'].'>'.$row['name'].'</option>';
+//                              }                      
                               ?>
                            </select>
 					</label>
@@ -126,6 +127,7 @@
 					<span class="input-group-text" id="nangcao"><i class="fa fa-search"></i></span> 
 				</label>
             </div>
+-->
 			<div id="content"></div>
 		</div>
 		<div class="col-xl-1"></div>
