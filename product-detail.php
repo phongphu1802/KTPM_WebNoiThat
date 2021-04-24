@@ -30,6 +30,7 @@
 				});
 	}
 </script>
+	<div></div>
 <?php 
 	
 	//$sqd=mysqli_connect("localhost","root","","csdl_ban_hang");
