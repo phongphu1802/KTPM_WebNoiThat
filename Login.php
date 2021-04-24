@@ -48,14 +48,14 @@
                <!-- Modal body -->
         <div class="modal-body">
 				<div style="margin: 0;">
-				  <div class="container">
-					<h1 style="font-weight:strong; padding:3px; text-align: center; background-color:#00A780; color:white;">ĐĂNG NHẬP</h1>              
+				  <div class="container" id="loginTittle">
+					<h1 id="login"style="font-weight:strong; padding:3px; text-align: center; background-color:#00A780; color:white;">ĐĂNG NHẬP</h1>              
 					<div class="row">
 					  <div class="col-xs-12 col-md-12 formdangnhap">
 						  <form name="dangnhap" method="post" action="">
-							<label>Tên người dùng</label>
+							<label id="userLabel">Tên người dùng</label>
 							<input type="text" id="iduserdn" name="txtuser" value="">         
-							<label>Mật khẩu</label>
+							<label id="pwdLabel">Mật khẩu</label>
 							<input type="password"  id="idpassdn" name="txtpass" value="" >
 							<button type="submit" id="btnsubmit1" class="nut">Đăng nhập</button>
 						  </form>
