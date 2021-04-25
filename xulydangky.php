@@ -19,6 +19,7 @@ xulythemtaikhoan();
 			else{
 				if(isset($_POST['username']))
 				{
+					//bảng user
 					$data=array('username' => $_POST['username'],
 								'password' => $_POST['password'],
 								'phonenumber'=> $_POST['phone'],
@@ -28,12 +29,17 @@ xulythemtaikhoan();
 								'address'=> $_POST['address'],
 								'created'=> date('y-m-d'),
 								'position'=>$_POST['position'],
-								'malkh'=>'lkh1',
 								'ngaysinh'=>$_POST['date'],
 								'chucvu'=>'cv0'
 								);
 					$table='user';
 					$class->insert($table,$data);
+					//bảng xephangthanhvien
+					$data2=array('matv' => $_POST['username'],
+								'malkh'=>'lkh1'
+								);
+					$table2='xephangthanhvien';
+					$class->insert($table2,$data2);
 					echo "Bạn đã đăng ký thành công.";
 					$_SESSION['username']=$user;
 					exit;

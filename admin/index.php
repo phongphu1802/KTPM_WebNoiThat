@@ -55,10 +55,10 @@ $(document).ready(function(){
 		
 	});
 	$("#q9").click(function(){
-		
+		$("#content").load("danhsachnhacungcap.php");
 	});
 	$("#q10").click(function(){
-		
+		$("#content").load("quanlyKhuyenMai.php");
 	});
 	$("#q11").click(function(){
 		

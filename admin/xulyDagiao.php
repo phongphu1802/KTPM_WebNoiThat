@@ -47,6 +47,35 @@
 			$data3="amout = amout - $amout";
 			$class->updateAmoutOfProduct($table3,$data3,$value['product_id']);
 		}
+		
+		
+		foreach($dataoder as $value){
+			$user=$value['user_username'];
+			$sqltotal="select sum(total_price) as total from cart where user_username='".$user."'";
+			$data3=$class->query($sqltotal);
+			foreach ($data3 as $k){
+				$total=$k['total'];
+				break;
+			}
+		}
+		//echo $total;
+		$loaikh=array("lkh4","lkh3","lkh2","lkh1");
+		foreach ($loaikh as $key){
+			$sqlloaikh="select dieukien from loaikhachhang where malkh='$key'";
+			$data4=$class->query($sqlloaikh);
+			foreach ($data4 as $value){
+				$dk=$value['dieukien'];
+				break;
+			}
+			if($total>=$dk) {
+				$table3='xephangthanhvien';
+				$id=$user;
+				$class -> updateXepHangTV($key,$id);
+				//echo $key;
+				//echo $id;
+				break;
+			}		
+		}
 		echo "Đã giao hàng thành công.";
 		exit;
 	}

@@ -12,7 +12,36 @@
 <link href="css/styles.css" rel="stylesheet">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script>
-		function confirmbefore()
+		
+		function confirmbefore1()
+		{
+			if(confirm('Bạn có chắc muốn ẩn thành viên này.'))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}                
+		}
+		function hidenquyen(user){
+			if(confirmbefore1()){
+				$.ajax({
+					type:"POST",
+					url: "xulyanthanhvien.php",
+					dataType: 'html',
+					data:{
+						username:user
+					},
+					success: function(data){
+						alert(data);
+						$("#content").load("danhsachthanhvien.php");
+					}
+				});
+			}
+		}
+		
+		/* function confirmbefore()
 		{
 			if(confirm('Bạn có chắc muốn xóa tài khoản này'))
 			{
@@ -22,8 +51,8 @@
 			{
 				return false;
 			}                
-		}
-		function deleteuser(user){
+		} */
+		/* function deleteuser(user){
 			if(confirmbefore()){
 				$.ajax({
 					type:"POST",
@@ -68,7 +97,9 @@
 				  'show' :true,
 				  'focus' : false
 			}
-		}
+		} */
+		
+		
 	</script>
 </head>
 <body>
@@ -114,7 +145,7 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Danh sách thành viên</div>
 					<div class="panel-body">
-						<button type="button" class="btn btn-warning" id="adduser" onClick="adduser()">Thêm thành viên mới</button>
+						<!--<button type="button" class="btn btn-warning" id="adduser" onClick="adduser()">Thêm thành viên mới</button>-->
 						<table data-toggle="table" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
@@ -127,21 +158,23 @@
 								<th data-sortable="true">Địa chỉ</th>
 								<th data-sortable="true">Ngày tạo</th>
 								<th data-sortable="true">Loại khách hàng</th>
+								<th data-sortable="true"></th>
 						    </tr>
 							</thead>
 								<?php
 									include('../connect.php');
 			  						$class1=new Database();
-									$sqluser="select * from user where position='Khách hàng'";
+									$sqluser="select username, password, phonenumber, name, gioitinh, email,address, created,tenlkh";
+									$sqluser=$sqluser." from user, loaikhachhang, xephangthanhvien where position ='Khách hàng' and username = matv and loaikhachhang.malkh = xephangthanhvien.malkh";
 									$dataluser=$class1->query($sqluser);
 									foreach($dataluser as $key=>$value){
 											//Lấy thông tin loại thành viên
-											$matv=$value['username'];
-											$sqlloaikhachhang="select tenlkh from loaikhachhang,xephangthanhvien where matv='$matv' and loaikhachhang.malkh=xephangthanhvien.malkh";
+											/* $matv=$value['username'];
+											//$sqlloaikhachhang="select tenlkh from loaikhachhang,xephangthanhvien where matv='".$matv."' and loaikhachhang.malkh=xephangthanhvien.malkh";
 											$datalloaikhachhang=$class1->query($sqlloaikhachhang);
 											foreach($datalloaikhachhang as $key=>$value2){
 												$lkh=$value2['tenlkh'];
-											}
+											} */
 											print_r('<tr>
 												<td data-sortable="true">'.$value['username'].'</td>
 												<td data-sortable="true">'.md5($value['password']).'</td>
@@ -151,7 +184,11 @@
 												<td data-sortable="true">'.$value['email'].'</td>
 												<td data-sortable="true">'.$value['address'].'</td>
 												<td data-sortable="true">'.$value['created'].'</td>
-												<td data-sortable="true">'.$lkh.'</td>
+												<td data-sortable="true">'.$value['tenlkh'].'</td>
+												<td data-sortable="true">
+													
+													<button class="btn btn-danger btn-sm" name="delete" title="Ẩn thành viên" onClick="hidenquyen(\''.$value['username'].'\')"><i class="fa fa-trash-o"></i></button> 
+												</td>
 											</tr>');
 									}
 									

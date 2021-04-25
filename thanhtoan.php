@@ -14,6 +14,13 @@ $db=new Database();
 //$db2 = mysqli_connect("localhost","root","","csdl_ban_hang") or die ();
 $key = $_SESSION['username'];
 $user = $db->fetchuser("user",$key);
+$sqlloaikh="select * from loaikhachhang,xephangthanhvien where loaikhachhang.malkh=xephangthanhvien.malkh and matv='".$_SESSION['username']."'";
+$data=$db->query($sqlloaikh);
+foreach ($data as $value){
+	$loai=$value['tenlkh'];
+	$giam=$value['sotiengian'];
+	break;
+}
 ?>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/chart.min.js"></script>
@@ -72,11 +79,26 @@ $user = $db->fetchuser("user",$key);
 					<!--thông báo -->
 			</div>
 			<div class="form-group">
-				<label for="exampleInputEmail1" >Tổng số tiền</label>
+				<label for="exampleInputEmail1"  >Loại khách hàng</label>
+					<input type="text" readonly=""  class="form-control"  name="loaikh" value="<?php echo $loai ?>">
+					<!--thông báo -->
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1" >Tạm tính</label>
 					<input type="text" readonly="" class="form-control"  value="<?php echo  number_format($_SESSION['tongtien'])?>" >
 					<!--thông báo -->
 			</div>
-			<input type="hidden" readonly="" id="total" class="form-control"  value="<?php echo $_SESSION['tongtien']?>">
+			<div class="form-group">
+				<label for="exampleInputEmail1" >Giảm ( <?php echo $giam ?>% )</label>
+					<input type="text" readonly="" class="form-control"  value="<?php echo  number_format($_SESSION['tongtien']*$giam/100)?>" >
+					<!--thông báo -->
+			</div>
+			<div class="form-group">
+				<label for="exampleInputEmail1" ><b>Tổng tiền</b></label>
+					<input type="text" readonly="" class="form-control"  value="<?php echo  number_format($_SESSION['tongtien']*(100-$giam)/100)?>" >
+					<!--thông báo -->
+			</div>
+			<input type="hidden" readonly="" id="total" class="form-control"  value="<?php echo ($_SESSION['tongtien']*(100-$giam)/100)?>">
 			<input type="hidden" id="user" class="form-control"  name="name" value="<?php echo $key ?>">
 
 			

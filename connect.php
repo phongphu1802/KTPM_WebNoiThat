@@ -169,6 +169,13 @@
 			return mysqli_query($this->link,$sql);
 		}
 		//------------------------------------------------------------------------------------------------------------
+		public function updateXepHangTV($data='', $id ='')
+		{
+			$sql = 'UPDATE xephangthanhvien SET malkh="'.$data.'" WHERE matv="' . $id.'"' ;
+			//echo($sql);
+			return mysqli_query($this->link,$sql);
+		}
+		//------------------------------------------------------------------------------------------------------------
 		 public function fetchuser($table , $user )
         {
             $sql = "SELECT * FROM {$table} WHERE username = '$user' ";
