@@ -1,10 +1,9 @@
 <?php
 	include('kiemtrasession.php');
 	include('connect.php');
-	if(isset($_SESSION['useradmin']))
+	if(isset($_SESSION['username']))
 	{
-		$useradmin=$_SESSION['useradmin'];
-		echo('<script>alert("ok");</script>');
+		$username=$_SESSION['username'];
 	}
 ?>
 <script>
@@ -38,11 +37,33 @@
 				});
 	}
 	function GuiBl(obk){
-		var makh = document.getElementById("makh123").value;
-		var binhluan = document.getElementById("binhluan").value;
-		alert(makh);
-		alert(binhluan);
-		alert(obk);
+//		var matk = document.getElementById("mataikhoan").value;
+//		var masp = document.getElementById("masanpham").value;
+//		var binhluan = document.getElementById("binhluan").value;
+//		alert(matk);
+//		alert(binhluan);
+//		alert(masp);
+		$.ajax({
+				type:"POST",
+				url: "xulythembinhluan.php",
+				dataType: 'html',
+				data:{
+					txtuser:$("#mataikhoan").val(),
+					txtmasp:$("#masanpham").val(),
+					txtcmt:$("#binhluan").val(),
+					txtdanhgia:5
+				},
+				success: function(data){
+					{ 
+                           if(data == 'Đã gửi bình luận') 
+                           {
+                             	location.reload();
+                           }else{
+                             	alert(data);
+                           }
+                      }
+				}
+			})
 	}
 </script>
 <?php 
@@ -76,7 +97,11 @@
                         <button id="<?php echo $value['id']?>" onClick="themgiohang(this)" class="btn btn-default" style="background-color:#E25D33;margin-left:50%"> <i class="fa fa-shopping-basket"></i>Thêm vào giỏ hàng</button>
 						<div style="margin-left:5%;margin-right:5%; margin-top: 20px">
 							<div class="container" style=" border:1px solid #E25D33;height:100%; border-radius:15px;background-color:#fff;">
-								<input type="text" id="binhluan" name="binhluan" value="" style="width:95%; border: none; border-bottom: 2px solid purple; margin-top: 10px" placeholder="Mời bạn để lại bình luận..."><button class="btn btn-danger btn-sm" id="<?php echo $value['id']?>" name="Gui" style="background-color:#E25D33" title="Gửi" onClick="GuiBl(this)"><i class="fa fa-check-square-o"></i></button>
+								<input type="hidden" name="mataikhoan" id="mataikhoan" value="<?php echo $username?>">
+								<input type="hidden" name="masanpham" id="masanpham" value="<?php echo $value['id']?>">
+								<input type="text" id="binhluan" name="binhluan" value="" style="width:90%; border: none; border-bottom: 2px solid purple; margin-top: 10px" placeholder="Mời bạn để lại bình luận...">
+								<button class="btn btn-danger btn-sm" id="<?php echo $value['id']?>" name="Gui" style="background-color:#E25D33" title="Gửi" onClick="GuiBl(this)"><i class="fa fa-check-square-o"></i></button>
+<!--								Lấy dữ liệu-->
 							<?php	
 			  						$class2=new Database();
 									$sqlbl="select * from binhluan, user where binhluan.mauser=user.username";
