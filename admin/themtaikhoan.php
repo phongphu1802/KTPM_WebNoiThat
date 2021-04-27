@@ -11,6 +11,15 @@
 	<link href="css/bootstrap-table.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<script>
+		function anhien(obj){
+			if(obj.value=='admin'){
+				$("#idchucvu").prop('disabled', false);
+			}
+			else{
+				$("#idchucvu").prop('disabled', true);
+				$("#idchucvu").val('cv0');
+			}
+		}
 		//username: /^[a-zA-Z\d\s]+$/ username chấp nhận chữ cái và số, không khoảng trắng, không kí tự đặc biệt
 		//email: /^\w+@[a-zA-Z]{3,8}(\.[a-zA-Z]{3,8})?\.[a-zA-Z]{2,5}$/
 		//tel: /^\d{10,12}$/
@@ -129,6 +138,22 @@
 			else
 				document.getElementById("invalid-phone").style.visibility="hidden";
 		}
+		
+		function checkDate(){
+			var date = document.getElementById("date").value;
+			var today = new Date();
+			var birthday = new Date(date);
+			var age=parseInt(today.getFullYear() - birthday.getFullYear());
+			if(age<18){
+				document.getElementById("invalid-birthday").innerHTML="* Khách hàng chưa đủ 18 tuổi";
+				document.getElementById("invalid-birthday").style.visibility="visible";
+				return false;
+			}
+			else{
+				document.getElementById("invalid-birthday").style.visibility="hidden";
+				return true;
+			}
+		}
 
 
 		function xulysubmitthemtaikhoan()
@@ -141,6 +166,7 @@
 			var address = document.getElementById("idaddress");
 			var tel = document.getElementById("idphone");
 			var accept = document.getElementById("xacnhan");
+			var date = document.getElementById("date");
 			if(name.value == "") //Tên còn rỗng
 			{
 				alert("Tên đang rỗng !!!");
@@ -163,6 +189,7 @@
 				pass1.focus();
 				return false;
 			}
+			
 			if(tel.value == "")
 			{
 				alert("Số điện thoại đang rỗng !!!");
@@ -170,6 +197,13 @@
 				return false;
 			}
 
+			if(date.value == "")
+			{
+				alert("Ngày sinh đang rỗng");
+				date.focus();
+				return false;
+			}
+			
 			if(email.value == "")
 			{
 				alert("Thư điện tử đang rỗng !!!");
@@ -189,9 +223,13 @@
 			document.getElementById("iduser").value="";
 			document.getElementById("idpass").value="";
 			document.getElementById("idphone").value="";
+			document.getElementById("date").value="";
 			document.getElementById("idemail").value="";
 			document.getElementById("idaddress").value="";
+			document.getElementById("idchucvu").value="cv0";
 			document.getElementById("idposition").value="khách hàng";
+			$("#idchucvu").prop('disabled', true);
+			
 		}
 		$(document).ready(function() {
 			$("#btnsubmitthemtaikhoan").click(function(){
@@ -208,7 +246,9 @@
 							email:$("#idemail").val(),
 							address:$("#idaddress").val(),
 							sex:$("#idsex").val(),
-							position:$("#idposition").val()
+							date:$("#date").val(),
+							position:$("#idposition").val(),
+							chucvu:$("#idchucvu").val()
 						},
 						success: function(data){
 							alert(data);
@@ -259,7 +299,12 @@
 									<label>Số điện thoại</label>
 									<input class="form-control" placeholder="Số điện thoại" id="idphone" name="phone" value="" onchange="checkPhone()">
 									<div id="invalid-phone" style="color:red; visibility:hidden;"></div>
-								</div>						
+								</div>
+								<div class="form-group">
+									<label>Ngày sinh</label>
+									<input type="date" name="date" id="date" value="2000-08-28" onchange="checkDate()">
+								    <div id="invalid-birthday" style="color:red; visibility:hidden;"></div>
+								</div>
 							</div>
 							<div class="col-md-6">
 							
@@ -284,11 +329,29 @@
 								
 								<div class="form-group">
 									<label>Quyền truy cập tài khoản</label>
-									<select class="form-control" id="idposition">
+									<select class="form-control" id="idposition" onChange="anhien(this)">
 										<option value="khách hàng">Khách hàng</option>
 										<option value="admin">Admin</option>
 									</select>
 								</div>
+								
+								<div class="form-group">
+									<label>Chức vụ</label>
+									<select class="form-control" id="idchucvu" name="idchucvu" disabled="disabled">
+										<?php
+										include('../connect.php');
+										$class1=new Database();
+										$sqluser="select * from chucvu";
+										$dataluser=$class1->query($sqluser);
+										foreach($dataluser as $key=>$value){
+											if($value['macv']!='cv1'){
+												print_r('<option value="'.$value['macv'].'">'.$value['chucvu'].'</option>');
+											}
+										}
+										?>
+									</select>
+								</div>
+								
 								<button id="btnsubmitthemtaikhoan" value="nut" class="btn btn-primary">Tạo tài khoản</button>
 								<button type="reset" class="btn btn-default" onClick="reset()">Tạo lại</button>
 							</div>

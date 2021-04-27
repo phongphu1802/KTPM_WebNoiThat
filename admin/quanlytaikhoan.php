@@ -123,10 +123,12 @@
 						        <th data-sortable="true">Số điện thoại</th>
 						        <th data-sortable="true">Họ và Tên</th>
 								<th data-sortable="true">Giới tính</th>
+								<th data-sortable="true">Ngày sinh</th>
 								<th data-sortable="true">Email</th>
 								<th data-sortable="true">Địa chỉ</th>
 								<th data-sortable="true">Ngày tạo</th>
 								<th data-sortable="true">Quyền truy cập</th>
+								<th data-sortable="true">Chức vụ</th>
 								<th data-sortable="true"></th>
 						    </tr>
 							</thead>
@@ -142,10 +144,12 @@
 											<td data-sortable="true">'.$value['phonenumber'].'</td>
 											<td data-sortable="true">'.$value['name'].'</td>
 											<td data-sortable="true">'.$value['gioitinh'].'</td>
+											<td data-sortable="true">'.$value['ngaysinh'].'</td>
 											<td data-sortable="true">'.$value['email'].'</td>
 											<td data-sortable="true">'.$value['address'].'</td>
 											<td data-sortable="true">'.$value['created'].'</td>
 											<td data-sortable="true">'.$value['position'].'</td>
+											<td data-sortable="true">'.$value['chucvu'].'</td>
 											<td data-sortable="true">
 											<button class="btn btn-info btn-sm" name="edit" title="Chỉnh sửa thông tin nhân viên" id="'.$value['username'].'" onClick="edituser(this)"><i class="fa fa-edit"></i></button>
 											<button class="btn btn-danger btn-sm" name="delete" title="Xóa nhân viên" onClick="deleteuser(\''.$value['username'].'\')"><i class="fa fa-trash-o"></i></button>
