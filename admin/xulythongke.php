@@ -14,7 +14,7 @@
 	$result1 = mysqli_query($sql,$query1);
 	while($row1 = mysqli_fetch_array($result1))
 	{
-		$str1.=',"'.$row1[1].'"';
+		$str1.=",''$row1[1]''";
 		$str1a.=','.$row1[3];
 	}
 	$str1=trim($str1,',');

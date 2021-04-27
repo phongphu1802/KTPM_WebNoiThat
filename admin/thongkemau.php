@@ -10,40 +10,249 @@ $date = getdate();
 <title>Lumino - Tables</title>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
-		window.onload = function(){
-			starbarchart1();
-			starbarchart2();
-			starbarchart3();
-		};
+		var today = new Date();
+		var thanggoc = today.getMonth();
+		$(document).ready(function() { 
+			starbarchart1(thanggoc);
+			starbarchart2(thanggoc);
+			starbarchart3(thanggoc);
+		});
+//		document.onload = function() {
+//			starbarchart1(04);
+//			starbarchart2(04);
+//			starbarchart3(04);
+//		}
 	</script>
 </head>
 
 <body>
 	<script>
+		//Khai báo Chart
+		var myChart1;
+		var ctx1 = document.getElementById('myChart1').getContext('2d');
+		var myChart2;
+		var ctx2 = document.getElementById('myChart2').getContext('2d');
+		var myChart3;
+		var ctx3 = document.getElementById('myChart3').getContext('2d');
 		//------------------------------------------------------------------------------------------------------------------------------------------------------------
 		function starbarchart1(obj){
-			var ctx1 = document.getElementById('myChart1').getContext('2d');
 			$.ajax({
-					type:"POST",
-					url: "xulythongke.php",
-					dataType: 'html',
-					data:{
-						thang:obj.value
-					},
-					success: function(data){
-						//alert(data);
-						var s1=data.split("/");
-						var str1= new String(s1[1]);
-						var str1a=s1[2];
-						alert(str1);
-						//alert(str1a);
-						var myChart1 = new Chart(ctx1, {
+				type:"POST",
+				url: "xulythongke.php",
+				dataType: 'html',
+				data:{
+					thang:obj.value
+				},
+				success: function(data){
+					//alert(data);
+					var s1=data.split("/");
+					var str1= new String(s1[1]);
+					var str1a=s1[2];
+					//cắt chuỗi str1
+					var s2=str1.split(",");
+					//Cắt chuỗi str1a
+					var s3=str1a.split(",");
+					if(myChart1==null){
+							myChart1 = new Chart(ctx1, {
+								type: 'bar',
+								data: {
+									labels: s2,//?????????????????????????????????????????????????????????
+									datasets: [{
+										label: 'Sản phẩm',
+										data: s3,
+										backgroundColor: [
+											'rgba(255, 99, 132, 0.2)',
+											'rgba(54, 162, 235, 0.2)',
+											'rgba(255, 206, 86, 0.2)',
+											'rgba(75, 192, 192, 0.2)',
+											'rgba(153, 102, 255, 0.2)',
+											'rgba(255, 159, 64, 0.2)'
+										],
+										borderColor: [
+											'rgba(255, 99, 132, 1)',
+											'rgba(54, 162, 235, 1)',
+											'rgba(255, 206, 86, 1)',
+											'rgba(75, 192, 192, 1)',
+											'rgba(153, 102, 255, 1)',
+											'rgba(255, 159, 64, 1)'
+										],
+										borderWidth: 1
+									}]
+								},
+								options: {
+									scales: {
+										y: {
+											beginAtZero: true
+										}
+									}
+								}
+							});
+						}
+					else{
+							//Phá hủy chart
+							myChart1.destroy();
+							//Tạo lại chrat dữ liệu mới
+							myChart1 = new Chart(ctx1, {
+								type: 'bar',
+								data: {
+									labels: s2,//?????????????????????????????????????????????????????????
+									datasets: [{
+										label: 'Sản phẩm',
+										data: s3,
+										backgroundColor: [
+											'rgba(255, 99, 132, 0.2)',
+											'rgba(54, 162, 235, 0.2)',
+											'rgba(255, 206, 86, 0.2)',
+											'rgba(75, 192, 192, 0.2)',
+											'rgba(153, 102, 255, 0.2)',
+											'rgba(255, 159, 64, 0.2)'
+										],
+										borderColor: [
+											'rgba(255, 99, 132, 1)',
+											'rgba(54, 162, 235, 1)',
+											'rgba(255, 206, 86, 1)',
+											'rgba(75, 192, 192, 1)',
+											'rgba(153, 102, 255, 1)',
+											'rgba(255, 159, 64, 1)'
+										],
+										borderWidth: 1
+									}]
+								},
+								options: {
+									scales: {
+										y: {
+											beginAtZero: true
+										}
+									}
+								}
+							});
+						}
+				}
+			})
+		}
+		//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		function starbarchart2(obj){
+			$.ajax({
+				type:"POST",
+				url: "xulythongke2.php",
+				dataType: 'html',
+				data:{
+					thang:obj.value,
+					loai:$("#selectloai").val()
+				},
+				success: function(data){
+					//alert(data);
+					var s1=data.split("/");
+					var str2= new String(s1[1]);
+					var str2a=s1[2];
+					//cắt chuỗi str1
+					var s2=str2.split(",");
+					//Cắt chuỗi str1a
+					var s3=str2a.split(",");
+					if(myChart2==null){
+						myChart2 = new Chart(ctx2, {
+								type: 'bar',
+								data: {
+									labels: s2,
+									datasets: [{
+										label: 'Sản phẩm',
+										data: s3,
+										backgroundColor: [
+											'rgba(255, 99, 132, 0.2)',
+											'rgba(54, 162, 235, 0.2)',
+											'rgba(255, 206, 86, 0.2)',
+											'rgba(75, 192, 192, 0.2)',
+											'rgba(153, 102, 255, 0.2)',
+											'rgba(255, 159, 64, 0.2)'
+										],
+										borderColor: [
+											'rgba(255, 99, 132, 1)',
+											'rgba(54, 162, 235, 1)',
+											'rgba(255, 206, 86, 1)',
+											'rgba(75, 192, 192, 1)',
+											'rgba(153, 102, 255, 1)',
+											'rgba(255, 159, 64, 1)'
+										],
+										borderWidth: 1
+									}]
+								},
+								options: {
+									scales: {
+										y: {
+											beginAtZero: true
+										}
+									}
+								}
+							});
+					}
+					else{
+						//Phá hủy chart
+						myChart2.destroy();
+						//Tạo lại chrat dữ liệu mới
+						myChart2 = new Chart(ctx2, {
+								type: 'bar',
+								data: {
+									labels: s2,
+									datasets: [{
+										label: 'Sản phẩm',
+										data: s3,
+										backgroundColor: [
+											'rgba(255, 99, 132, 0.2)',
+											'rgba(54, 162, 235, 0.2)',
+											'rgba(255, 206, 86, 0.2)',
+											'rgba(75, 192, 192, 0.2)',
+											'rgba(153, 102, 255, 0.2)',
+											'rgba(255, 159, 64, 0.2)'
+										],
+										borderColor: [
+											'rgba(255, 99, 132, 1)',
+											'rgba(54, 162, 235, 1)',
+											'rgba(255, 206, 86, 1)',
+											'rgba(75, 192, 192, 1)',
+											'rgba(153, 102, 255, 1)',
+											'rgba(255, 159, 64, 1)'
+										],
+										borderWidth: 1
+									}]
+								},
+								options: {
+									scales: {
+										y: {
+											beginAtZero: true
+										}
+									}
+								}
+							});
+					}
+				}
+			})
+		}
+		//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
+		function starbarchart3(obj){
+			$.ajax({
+				type:"POST",
+				url: "xulythongke3.php",
+				dataType: 'html',
+				data:{
+					thang:obj.value,
+				},
+				success: function(data){
+					alert(data);
+					var s1=data.split("/");
+					var str3= new String(s1[1]);
+					var str3a=s1[2];
+					//cắt chuỗi str1
+					var s2=str3.split(",");
+					//Cắt chuỗi str1a
+					var s3=str3a.split(",");
+					if(myChart3==null){
+						myChart3 = new Chart(ctx3, {
 							type: 'bar',
 							data: {
-								labels: [str1],//?????????????????????????????????????????????????????????
+								labels: s2,
 								datasets: [{
 									label: 'Sản phẩm',
-									data: [parseInt(str1a)],
+									data: s3,
 									backgroundColor: [
 										'rgba(255, 99, 132, 0.2)',
 										'rgba(54, 162, 235, 0.2)',
@@ -72,116 +281,47 @@ $date = getdate();
 							}
 						});
 					}
-				})
-		}
-		//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		function starbarchart2(obj){
-			<?php
-			$query2 ="SELECT catalog.id, product.id, product.name, SUM(oder_details.amout), product.price ";
-	   		$query2.="FROM oder, oder_details, product, catalog ";
-	  		$query2.="WHERE oder.id=oder_details.oder_id and oder_details.product_id=product.id and product.catalog_id=catalog.id and catalog.id='1' ";
-	   		$query2.="and oder.created BETWEEN '2021-04-01' AND '2021-04-31' ";
-	   		$query2.="GROUP BY catalog.id, product.id, product.price ";
-	   		$result2 = mysqli_query($sql,$query2);
-			$str2='';
-			$str2a='';
-			while($row2 = mysqli_fetch_array($result2))
-			{
-				$str2.=',"'.$row2[2].'"';
-				$str2a.=','.$row2[3];
-			}
-			$str2=trim($str2,',');
-			$str2a=trim($str2a,',');
-			?>
-			var ctx2 = document.getElementById('myChart2').getContext('2d');
-			var myChart2 = new Chart(ctx2, {
-				type: 'bar',
-				data: {
-					labels: [<?php echo $str2?>],
-					datasets: [{
-						label: 'Sản phẩm',
-						data: [<?php echo $str2a?>],
-						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)'
-						],
-						borderColor: [
-							'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)'
-						],
-						borderWidth: 1
-					}]
-				},
-				options: {
-					scales: {
-						y: {
-							beginAtZero: true
-						}
+					else{
+						//Phá hủy chart
+						myChart3.destroy();
+						//Tạo lại chrat dữ liệu mới
+						myChart3 = new Chart(ctx3, {
+							type: 'bar',
+							data: {
+							labels: s2,
+							datasets: [{
+								label: 'Sản phẩm',
+								data: s3,
+								backgroundColor: [
+									'rgba(255, 99, 132, 0.2)',
+									'rgba(54, 162, 235, 0.2)',
+									'rgba(255, 206, 86, 0.2)',
+									'rgba(75, 192, 192, 0.2)',
+									'rgba(153, 102, 255, 0.2)',
+									'rgba(255, 159, 64, 0.2)'
+								],
+								borderColor: [
+									'rgba(255, 99, 132, 1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)'
+								],
+								borderWidth: 1
+								}]
+							},
+							options: {
+								scales: {
+									y: {
+										beginAtZero: true
+									}
+								}
+							}
+						});
 					}
 				}
-			});
-		}
-		//---------------------------------------------------------------------------------------------------------------------------------------------------------------------
-		function starbarchart3(obj){
-			<?php
-				$query3 = "SELECT catalog.id, catalog.name, SUM(oder_details.amout) ";
-			    $query3.= "FROM oder, oder_details, product, catalog ";
-			    $query3.=" where oder.id=oder_details.oder_id and oder_details.product_id=product.id and product.catalog_id=catalog.id ";
-			    $query3.=" and oder.created BETWEEN '2021-04-01' AND '2021-04-31' ";
-			    $query3.=" GROUP BY catalog.id, catalog.name ";
-			    $result3 = mysqli_query($sql,$query3);
-				$str3='';
-				$str3a='';
-				while($row3 = mysqli_fetch_array($result3)){
-					$str3.=',"'.$row3[1].'"';
-					$str3a.=','.$row3[2];
-				}
-				$str3=trim($str3,',');
-				$str3a=trim($str3a,',');
-			?>
-			var ctx3 = document.getElementById('myChart3').getContext('2d');
-			var myChart3 = new Chart(ctx3, {
-				type: 'bar',
-				data: {
-					labels: [<?php echo $str3?>],
-					datasets: [{
-						label: 'Sản phẩm',
-						data: [<?php echo $str3a?>],
-						backgroundColor: [
-							'rgba(255, 99, 132, 0.2)',
-							'rgba(54, 162, 235, 0.2)',
-							'rgba(255, 206, 86, 0.2)',
-							'rgba(75, 192, 192, 0.2)',
-							'rgba(153, 102, 255, 0.2)',
-							'rgba(255, 159, 64, 0.2)'
-						],
-						borderColor: [
-							'rgba(255, 99, 132, 1)',
-							'rgba(54, 162, 235, 1)',
-							'rgba(255, 206, 86, 1)',
-							'rgba(75, 192, 192, 1)',
-							'rgba(153, 102, 255, 1)',
-							'rgba(255, 159, 64, 1)'
-						],
-						borderWidth: 1
-					}]
-				},
-				options: {
-					scales: {
-						y: {
-							beginAtZero: true
-						}
-					}
-				}
-			});
+			})
 		}
 	</script>
 	<div class="row">
@@ -218,8 +358,7 @@ $date = getdate();
 				<div class="panel-heading">Tình hình kinh doanh của các sản phẩm theo loại</div>
 				<div class="panel-body">
 					<div>Tình hình kinh doanh của các sản phẩm theo loại
-					<select id="selectthang" id="selectthang" onchange="starbarchart2(this);">
-						<option value="">--Loại--</option>
+					<select id="selectloai" id="selectloai">
 					<?php
                          $querycatalog="select * from catalog";
                          $resultcatalog= mysqli_query($sql,$querycatalog);
