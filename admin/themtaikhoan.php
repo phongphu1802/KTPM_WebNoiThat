@@ -158,6 +158,7 @@
 
 		function xulysubmitthemtaikhoan()
 		{
+			alert("ok");
 			var name = document.getElementById("idname");
 			var username = document.getElementById("iduser");
 			var pass1 = document.getElementById("idpass");
@@ -193,7 +194,7 @@
 			if(tel.value == "")
 			{
 				alert("Số điện thoại đang rỗng !!!");
-				email.focus();
+				tel.focus();
 				return false;
 			}
 
@@ -216,6 +217,8 @@
 				address.focus();
 				return false;
 			}
+			if(checkName()==false||checkUsername()==false||checkPass1()==false||checkEmail()==false||checkAddress()==false||checkPhone()==false||checkDate()==false)
+				return false;
 			return true;
 		}
 		function reset(){

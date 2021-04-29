@@ -41,7 +41,7 @@ $date = getdate();
 				url: "xulythongke.php",
 				dataType: 'html',
 				data:{
-					thang:obj.value
+					thang:$("#selectthang_01").val()
 				},
 				success: function(data){
 					//alert(data);
@@ -137,7 +137,7 @@ $date = getdate();
 				url: "xulythongke2.php",
 				dataType: 'html',
 				data:{
-					thang:obj.value,
+					thang:$("#selectthang_02").val(),
 					loai:$("#selectloai").val()
 				},
 				success: function(data){
@@ -234,10 +234,10 @@ $date = getdate();
 				url: "xulythongke3.php",
 				dataType: 'html',
 				data:{
-					thang:obj.value,
+					thang:$("#selectthang_03").val(),
 				},
 				success: function(data){
-					alert(data);
+					//alert(data);
 					var s1=data.split("/");
 					var str3= new String(s1[1]);
 					var str3a=s1[2];
@@ -343,7 +343,7 @@ $date = getdate();
 				<div class="panel-body">
 					<div>Top 10 sản phẩm bán chạy trong tháng 
 					<div name="mon" id="mon"></div>
-					<select id="selectthang" name="selectthang" onchange="starbarchart1(this);">
+					<select id="selectthang_01" name="selectthang_01" onchange="starbarchart1(this);">
 						<option value="01">Tháng 1</option><option value="02">Tháng 2</option><option value="03">Tháng 3</option><option value="04">Tháng 4</option><option value="05">Tháng 5</option><option value="06">Tháng 6</option><option value="07">Tháng 7</option><option value="08">Tháng 8</option><option value="09">Tháng 9</option><option value="10">Tháng 10</option><option value="11">Tháng 11</option><option value="12">Tháng 12</option>
 					</select>
 					</div>
@@ -368,7 +368,7 @@ $date = getdate();
                          }                      
                     ?>
 					</select>
-					Chọn tháng:<select id="selectthang" name="selectthang" onchange="starbarchart2(this);">
+					Chọn tháng:<select id="selectthang_02" name="selectthang_02" onchange="starbarchart2(this);">
 						<option value="01">Tháng 1</option><option value="02">Tháng 2</option><option value="03">Tháng 3</option><option value="04">Tháng 4</option><option value="05">Tháng 5</option><option value="06">Tháng 6</option><option value="07">Tháng 7</option><option value="08">Tháng 8</option><option value="09">Tháng 9</option><option value="10">Tháng 10</option><option value="11">Tháng 11</option><option value="12">Tháng 12</option>
 					</select>
 					</div>
@@ -383,7 +383,7 @@ $date = getdate();
 				<div class="panel-heading">Thống kê mỗi loại bán được bao nhiêu sản phẩm</div>
 				<div class="panel-body">
 				<div>Thống kê loại sản phẩm bán chạy trong tháng <br>
-                	<select id="selectthang" name="selectthang" onchange="starbarchart3(this);">
+                	<select id="selectthang_03" name="selectthang_03" onchange="starbarchart3(this);">
 					<option value="01">Tháng 1</option><option value="02">Tháng 2</option><option value="03">Tháng 3</option><option value="04">Tháng 4</option><option value="05">Tháng 5</option><option value="06">Tháng 6</option><option value="07">Tháng 7</option><option value="08">Tháng 8</option><option value="09">Tháng 9</option><option value="10">Tháng 10</option><option value="11">Tháng 11</option><option value="12">Tháng 12</option>
 					</select>
 				</div>
