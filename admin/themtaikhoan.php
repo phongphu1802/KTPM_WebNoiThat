@@ -158,7 +158,6 @@
 
 		function xulysubmitthemtaikhoan()
 		{
-			alert("ok");
 			var name = document.getElementById("idname");
 			var username = document.getElementById("iduser");
 			var pass1 = document.getElementById("idpass");

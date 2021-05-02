@@ -200,8 +200,10 @@
 							email:$("#idemail").val(),
 							address:$("#idaddress").val(),
 							sex:$("#idsex").val(),
+							date:$("#date").val(),
 							created:$("#idcreated").val(),
-							position:$("#idposition").val()
+							position:$("#idposition").val(),
+							chucvu:$("#idchucvu").val()
 						},
 						success: function(data){
 							alert(data);
@@ -274,6 +276,11 @@
 									<label>Ngày tạo tài khoản</label>
 									<input class="form-control" placeholder="Thư điện tử" id="idcreated" name="created" value="<?php echo $created;?>" readonly>
 								</div>
+								<div class="form-group">
+									<label>Ngày sinh</label>
+									<input type="date" name="date" id="date" value="2000-08-28" onchange="checkDate()">
+								    <div id="invalid-birthday" style="color:red; visibility:hidden;"></div>
+								</div>
 							</div>
 							<div class="col-md-6">
 							
@@ -303,6 +310,22 @@
 										<option value="admin">Admin</option>
 									</select>
 								</div>
+
+								<div class="form-group">
+									<label>Chức vụ</label>
+									<select class="form-control" id="idchucvu" name="idchucvu" disabled="disabled">
+										<?php
+										$sqluser="select * from chucvu";
+										$dataluser=$class->query($sqluser);
+										foreach($dataluser as $key=>$value){
+											if($value['macv']!='cv1'){
+												print_r('<option value="'.$value['macv'].'">'.$value['chucvu'].'</option>');
+											}
+										}
+										?>
+									</select>
+								</div>
+
 								<button id="btnsuataikhoan" value="nut" class="btn btn-primary">Lưu nội dung sửa</button>
 								<button type="reset" class="btn btn-default" data-dismiss="modal">Hủy sửa</button>
 							</div>

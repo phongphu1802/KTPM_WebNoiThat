@@ -15,8 +15,10 @@ function xulysuataikhoan()
 			'gioitinh'=> $_POST['sex'],
 			'email'=> $_POST['email'],
 			'address'=> $_POST['address'],
-			'created'=> $_POST['created'],
-			'position'=>$_POST['position']
+			'created'=> date('y-m-d'),
+			'position'=>$_POST['position'],
+			'ngaysinh'=>$_POST['date'],
+			'chucvu'=>$_POST['chucvu']
 			);
 		$table='user';
 		$class->updateuser($table,$data,$user);
