@@ -31,7 +31,7 @@ xulythemtaikhoan();
 								);
 					$table='user';
 					$class->insert($table,$data);
-					echo "Xin Chào ".$_POST['username']."Bạn đã đăng ký thành công.";
+					echo "Xin Chào ".$_POST['username'].". Bạn đã đăng ký thành công.";
 					exit;
 				}
 			}		

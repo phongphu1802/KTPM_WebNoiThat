@@ -116,6 +116,7 @@
 				$content .= ", $key ='$value'";
 			}
 			$sql = 'UPDATE ' .$table .' SET '.trim($content,',') . ' WHERE ' . $where ;
+			echo $sql;
 			return mysqli_query($this->link,$sql);
 		}
 		//-----------------------------------------------------------------------------------------------------------

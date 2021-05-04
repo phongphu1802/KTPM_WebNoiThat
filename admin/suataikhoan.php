@@ -27,25 +27,30 @@
 			{
 				document.getElementById("invalid-name").innerHTML="*Tên hợp lệ không có số, kí tự đặc biệt, viết hoa đầu từ";
 				document.getElementById("invalid-name").style.visibility="visible";
+				return false;
 			}
 			else
 			{
 				document.getElementById("invalid-name").style.visibility="hidden";
+				return true;
 			} 
 		}
 
 		function checkUsername()
 		{
 			var username = document.getElementById("iduser").value;
-			var patt = /^[a-zA-Z\d]+$/;
+			var patt = /^[a-zA-Z\d\s]+$/;
 			result = patt.test(username);
 			if(result == false)
 			{
 				document.getElementById("invalid-username").innerHTML="*Tên tài khoản hợp lệ không có khoảng trắng, kí tự đặc biệt";
 				document.getElementById("invalid-username").style.visibility="visible";
+				return false;
 			}
-			else
-			document.getElementById("invalid-username").style.visibility="hidden";
+			else{
+				document.getElementById("invalid-username").style.visibility="hidden";
+				return true;
+			}
 
 		}
 
@@ -58,9 +63,12 @@
 			{
 				document.getElementById("invalid-pass").innerHTML="* Mật khẩu chứa ít nhất 1 kí tự thường, 1 kí tự INHOA, ít nhất 1 số ít nhất 8, nhiều nhất 20";
 				document.getElementById("invalid-pass").style.visibility="visible";
+				return false;
 			}
-			else
+			else{
 				document.getElementById("invalid-pass").style.visibility="hidden";
+				return true;
+			}
 
 		}
 
@@ -72,18 +80,21 @@
 			{
 				alert("Mật khẩu chưa nhập");   
 				pass1.focus(); 
-				pass2.value="";  
+				pass2.value="";
+				return false;  
 			}
 			else
 			{
 				if(pass2.value === pass1.value)
 				{
 					document.getElementById("invalid-pass2").style.visibility="hidden";
+					return true;
 				}
 				else
 				{
 					document.getElementById("invalid-pass2").innerHTML="* Mật khẩu nhập lại chưa chính xác";
 					document.getElementById("invalid-pass2").style.visibility="visible";
+					return false;
 				}
 			}    
 		}
@@ -97,9 +108,12 @@
 			{
 				document.getElementById("invalid-email").innerHTML="* Email không hợp lệ";
 				document.getElementById("invalid-email").style.visibility="visible";
+				return false;
 			}
-			else
+			else{
 				document.getElementById("invalid-email").style.visibility="hidden";
+				return true;
+			}
 		}
 
 		function checkAddress()
@@ -111,9 +125,12 @@
 			{
 				document.getElementById("invalid-address").innerHTML="* Địa chỉ không được chứa các kí tự đặc biệt";
 				document.getElementById("invalid-address").style.visibility="visible";
+				return false;
 			}
-			else
+			else{
 				document.getElementById("invalid-address").style.visibility="hidden";
+				return true;
+			}
 		}
 
 		function checkPhone()
@@ -125,9 +142,12 @@
 			{
 				document.getElementById("invalid-phone").innerHTML="* Số điện thoại không hợp lệ";
 				document.getElementById("invalid-phone").style.visibility="visible";
+				return false;
 			}     
-			else
+			else{
 				document.getElementById("invalid-phone").style.visibility="hidden";
+				return true;
+			}
 		}
 
 
@@ -233,10 +253,12 @@
 					$name=$value['name'];
 					$phone=$value['phonenumber'];
 					$gioitinh=$value['gioitinh'];
+					$date=$value['ngaysinh'];
 					$email=$value['email'];
 					$address=$value['address'];
 					$created=$value['created'];
 					$position=$value['position'];
+					$chucvu=$value['chucvu'];
 				}
 			}
 		?>
@@ -278,7 +300,7 @@
 								</div>
 								<div class="form-group">
 									<label>Ngày sinh</label>
-									<input type="date" name="date" id="date" value="2000-08-28" onchange="checkDate()">
+									<input type="date" name="date" id="date" value="<?php echo $date ?>" onchange="checkDate()">
 								    <div id="invalid-birthday" style="color:red; visibility:hidden;"></div>
 								</div>
 							</div>
@@ -306,24 +328,38 @@
 								<div class="form-group">
 									<label>Quyền truy cập tài khoản</label>
 									<select class="form-control" id="idposition" value="<?php echo $position;?>">
-										<option value="khách hàng">Khách hàng</option>
-										<option value="admin">Admin</option>
+									<?php 
+										if($position=="khách hàng"){
+											echo '<option value="khách hàng" selected=\'selected\'>Khách hàng</option>';
+											echo '<option value="admin">Admin</option>';
+										}else{
+											echo '<option value="khách hàng">Khách hàng</option>';
+											echo '<option value="admin" selected=\'selected\'>Admin</option>';
+										}
+									?>
 									</select>
 								</div>
 
 								<div class="form-group">
 									<label>Chức vụ</label>
-									<select class="form-control" id="idchucvu" name="idchucvu" disabled="disabled">
-										<?php
-										$sqluser="select * from chucvu";
-										$dataluser=$class->query($sqluser);
-										foreach($dataluser as $key=>$value){
-											if($value['macv']!='cv1'){
-												print_r('<option value="'.$value['macv'].'">'.$value['chucvu'].'</option>');
+									<?php
+										if($position == "admin"){
+											print_r('<select class="form-control" id="idchucvu" name="idchucvu" value="">');
+											$sqluser="select * from chucvu";
+											$dataluser=$class->query($sqluser);
+											foreach($dataluser as $key=>$value){
+												if($value['macv']==$chucvu){
+													print_r('<option value="'.$value['macv'].'" selected="selected">'.$value['chucvu'].'</option>');
+												}else{
+													print_r('<option value="'.$value['macv'].'">'.$value['chucvu'].'</option>');
+												}
 											}
+										}else{
+											print_r('<select class="form-control" id="idchucvu" disabled="disabled" name="idchucvu" value="">');
+											print_r('<option value="cv0" selected="selected">NULL</option>');
 										}
-										?>
-									</select>
+										print_r('</select>');
+									?>
 								</div>
 
 								<button id="btnsuataikhoan" value="nut" class="btn btn-primary">Lưu nội dung sửa</button>
