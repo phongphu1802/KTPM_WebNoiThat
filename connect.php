@@ -120,6 +120,17 @@
 			return mysqli_query($this->link,$sql);
 		}
 		//-----------------------------------------------------------------------------------------------------------
+		public function updatenhaccungcap($table = '',$data = [], $nhaccungcap ='')
+		{
+			$content = '';
+				$where = "mancc = '$nhaccungcap'";
+			foreach ($data as $key => $value) {
+				$content .= ", $key ='$value'";
+			}
+			$sql = 'UPDATE ' .$table .' SET '.trim($content,',') . ' WHERE ' . $where ;
+			return mysqli_query($this->link,$sql);
+		}
+		//------------------------------------------------------------------------------------------------------------
 		public function updatequyen($table = '',$data = [], $maq ='')
 		{
 			$content = '';
