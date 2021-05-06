@@ -248,7 +248,7 @@
 						email:$("#idemail").val(),
 						address:$("#idaddress").val(),
 						sex:$("#idsex").val(),
-						position:'Khách hàng',
+						position:'khách hàng',
 					},
 					
 					success: function(data){

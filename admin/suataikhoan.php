@@ -327,12 +327,13 @@
 								
 								<div class="form-group">
 									<label>Quyền truy cập tài khoản</label>
-									<select class="form-control" id="idposition" value="<?php echo $position;?>">
 									<?php 
 										if($position=="khách hàng"){
+											echo '<select class="form-control" id="idposition" value="'.$position.'" disabled="disabled">';
 											echo '<option value="khách hàng" selected=\'selected\'>Khách hàng</option>';
 											echo '<option value="admin">Admin</option>';
 										}else{
+											echo '<select class="form-control" id="idposition" value="'.$position.'" disabled="disabled">';
 											echo '<option value="khách hàng">Khách hàng</option>';
 											echo '<option value="admin" selected=\'selected\'>Admin</option>';
 										}
@@ -348,10 +349,12 @@
 											$sqluser="select * from chucvu";
 											$dataluser=$class->query($sqluser);
 											foreach($dataluser as $key=>$value){
-												if($value['macv']==$chucvu){
-													print_r('<option value="'.$value['macv'].'" selected="selected">'.$value['chucvu'].'</option>');
-												}else{
-													print_r('<option value="'.$value['macv'].'">'.$value['chucvu'].'</option>');
+												if($value['macv']!='cv1'&&$value['macv']!='cv0'){
+													if($value['macv']==$chucvu){
+														print_r('<option value="'.$value['macv'].'" selected="selected">'.$value['chucvu'].'</option>');
+													}else{
+														print_r('<option value="'.$value['macv'].'">'.$value['chucvu'].'</option>');
+													}
 												}
 											}
 										}else{

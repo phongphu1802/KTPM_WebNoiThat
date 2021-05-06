@@ -21,11 +21,11 @@
 		function checkQuyen()
 		{
 			var name = document.getElementById("idtenq").value;
-			var namepattern = /[A-Z][a-zA-Z][^#&<>\"~;$^%{}?\d]{1,}$/;
+			var namepattern = /[a-zA-Z][^#&<>\"@!*()~;$^%{}?\d]{1,}$/;
 			result = namepattern.test(name);
 			if(result == false)
 			{
-				document.getElementById("invalid-quyen").innerHTML="*Quyền hợp lệ không có số, kí tự đặc biệt, viết hoa đầu từ";
+				document.getElementById("invalid-quyen").innerHTML="*Quyền hợp lệ không có số, kí tự đặc biệt, quyền không được rỗng";
 				document.getElementById("invalid-quyen").style.visibility="visible";
 			}
 			else
@@ -75,6 +75,9 @@
 			});
 		});
 		
+		function addquyen(){
+			location.reload();
+		}
 	</script>
 </head>
 
@@ -119,7 +122,7 @@
 									<input class="form-control" placeholder="Mã quyền" id="idtrangthai" name="trangthai" value="<?php if($trangthai==1){echo("Hiển thị");}?>" readonly="">
 								</div>
 								<button id="btnsubmitsuaquyen" value="nut" class="btn btn-primary">Sửa quyền</button>
-								<button type="reset" class="btn btn-default" onClick="reset()">Hủy</button>
+								<button type="reset" id="close" class="btn btn-default" onClick="addquyen()">Hủy</button>
 						</div>
 						
 					</div>

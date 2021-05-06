@@ -21,11 +21,11 @@
 		function checkQuyen()
 		{
 			var name = document.getElementById("idquyen").value;
-			var namepattern = /[A-Z][a-zA-Z][^#&<>\"~;$^%{}?\d]{1,}$/;
+			var namepattern = /[a-zA-Z][^#&<>\"@!*()~;$^%{}?\d]{1,}$/;
 			result = namepattern.test(name);
 			if(result == false)
 			{
-				document.getElementById("invalid-quyen").innerHTML="*Quyền hợp lệ không có số, kí tự đặc biệt, viết hoa đầu từ";
+				document.getElementById("invalid-quyen").innerHTML="*Quyền hợp lệ không có số, kí tự đặc biệt, quyền không được rỗng";
 				document.getElementById("invalid-quyen").style.visibility="visible";
 				return false;
 			}
@@ -42,7 +42,7 @@
 			
 			if(quyen.value == "") //Tên còn rỗng
 			{
-				alert("Tên đang rỗng !!!");
+				alert("Quyền đang rỗng !!!");
 				document.getElementById("invalid-quyen").innerHTML=" Quyền đang trống";
 				document.getElementById("invalid-quyen").style.visibility="visible";
 				quyen.focus();
@@ -53,9 +53,7 @@
 			}
 			return true;
 		}
-		function reset(){
-			document.getElementById("idquyen").value="";
-		}
+
 		$(document).ready(function() {
 			$("#btnsubmitthemquyen").click(function(){
 				if(xulysubmitthemquyen()==true){
@@ -77,7 +75,9 @@
 				}
 			});
 		});
-		
+		function addquyen(){
+			location.reload();
+		}
 	</script>
 </head>
 
@@ -94,7 +94,7 @@
 			<div class="col-lg-12">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<div class="col-md-12">
+						<div class="col-md-12" id="click">
 					
 								<div class="form-group">
 									<label>Quyền cần thêm</label>
@@ -102,7 +102,7 @@
 									<div id="invalid-quyen" style="color:red; visibility:hidden;"></div>
 								</div>
 								<button id="btnsubmitthemquyen" value="nut" class="btn btn-primary">Tạo quyền mới</button>
-								<button type="reset" class="btn btn-default" onClick="reset()">Tạo lại</button>
+								<button type="reset" id="close" class="btn btn-default" onClick="addquyen()">Hủy tạo</button>
 						</div>
 						
 					</div>
