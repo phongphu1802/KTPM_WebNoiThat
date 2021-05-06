@@ -61,7 +61,7 @@
 						data:{
 							maq:$("#idmaq").val(),
 							tenq:$("#idtenq").val(),
-							trangthai:$("#idtrangthai").val()
+							trangthai:1
 						},
 						success: function(data){
 							alert(data);

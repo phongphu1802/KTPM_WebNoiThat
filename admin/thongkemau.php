@@ -8,6 +8,12 @@ $date = getdate();
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lumino - Tables</title>
+			<script src="js/bootstrap.min.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/datepicker3.css" rel="stylesheet">
+		<link href="css/bootstrap-table.css" rel="stylesheet">
+		<link href="css/styles.css" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	<script>
 		var today = new Date();

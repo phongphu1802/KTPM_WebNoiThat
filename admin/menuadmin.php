@@ -2,8 +2,8 @@
 	if(isset($_SESSION['quyenuser']))
 	{
 		$quyenuser=$_SESSION['quyenuser'];
-		include('../connect.php');
 		$sql="SELECT maq FROM nhomquyen WHERE macv ='$quyenuser'";
+		include('../connect.php');
 		$class=new Database();
 		$sq=$class->connect();
 		$query=mysqli_query($sq,$sql);

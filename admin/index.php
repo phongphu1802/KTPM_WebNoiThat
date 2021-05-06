@@ -11,6 +11,8 @@
 				?>
 				</script>
 			<?php
+	}else{
+		header("LOCATION: ../error.php");
 	}
 ?>
 <html>
@@ -26,10 +28,21 @@
 <link href="css/styles.css" rel="stylesheet">
 <link href="css/bootstrap-table.css" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script>
-	
+<?php
+	if($_SESSION['quyenuser']=='cv1'){
+		print_r('$(document).ready(function(){
+					$("#content").load("quanlyquyen.php");
+				});');
+	}else{
+		print_r('$(document).ready(function(){
+					$("#content").load("thongkemau.php");
+				});');
+	}
+?>
 $(document).ready(function(){
-	$("#content").load("thongkemau.php");
+	//$("#content").load("thongkemau.php");
 	$("#q1").click(function(){
 		$("#content").load("thongkemau.php");
 	});

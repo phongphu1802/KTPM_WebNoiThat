@@ -116,7 +116,6 @@
 				$content .= ", $key ='$value'";
 			}
 			$sql = 'UPDATE ' .$table .' SET '.trim($content,',') . ' WHERE ' . $where ;
-			echo $sql;
 			return mysqli_query($this->link,$sql);
 		}
 		//-----------------------------------------------------------------------------------------------------------
@@ -139,7 +138,6 @@
 				$content .= ", $key ='$value'";
 			}
 			$sql = 'UPDATE ' .$table .' SET '.trim($content,',') . ' WHERE ' . $where ;
-			echo $sql;
 			return mysqli_query($this->link,$sql);
 		}
 		//-----------------------------------------------------------------------------------------------------------
@@ -177,7 +175,6 @@
 			$where = 'idbinhluan = '.$idsp;
 			$data ='trangthaibl = '.$trangthai;
 			$sql = 'UPDATE binhluan SET '.$data.' WHERE ' . $where ;
-			echo($sql);
 			return mysqli_query($this->link,$sql);
 		}
 		//------------------------------------------------------------------------------------------------------------

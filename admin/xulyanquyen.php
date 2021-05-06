@@ -9,7 +9,7 @@ xulyanquyen();
 			$class=new Database();
 			$sq1=$class->connect();
 			$sql="select * from dsquyen where maq = '$quyen'";
-			echo($sql);
+			//echo($sql);
 			$query=mysqli_query($sq1,$sql);
 			foreach($query as $key=>$value){
 				$data=array('maq' =>$value['maq'],
