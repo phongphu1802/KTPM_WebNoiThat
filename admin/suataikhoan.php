@@ -136,7 +136,7 @@
 		function checkPhone()
 		{
 			var phone = document.getElementById("idphone");
-			var patt = /^0[0-9]{9,10}$/;
+			var patt = /^0(\d{9}|\d{8})$/;
 			var result = patt.test(phone.value);
 			if(result == false)
 			{
