@@ -27,10 +27,12 @@
 			{
 				document.getElementById("invalid-quyen").innerHTML="*Quyền hợp lệ không có số, kí tự đặc biệt, viết hoa đầu từ";
 				document.getElementById("invalid-quyen").style.visibility="visible";
+				return false;
 			}
 			else
 			{
 				document.getElementById("invalid-quyen").style.visibility="hidden";
+				return true;
 			} 
 		}
 
@@ -45,6 +47,9 @@
 				document.getElementById("invalid-quyen").style.visibility="visible";
 				quyen.focus();
 				return false;
+			}
+			if(checkQuyen()==false){
+				return false;		
 			}
 			return true;
 		}

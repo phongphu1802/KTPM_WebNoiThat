@@ -11,15 +11,15 @@
 	<link href="css/bootstrap-table.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<script>
-		function anhien(obj){
-			if(obj.value=='admin'){
-				$("#idchucvu").prop('disabled', false);
-			}
-			else{
-				$("#idchucvu").prop('disabled', true);
-				$("#idchucvu").val('cv0');
-			}
-		}
+//		function anhien(obj){
+//			if(obj.value=='admin'){
+//				$("#idchucvu").prop('disabled', false);
+//			}
+//			else{
+//				$("#idchucvu").prop('disabled', true);
+//				$("#idchucvu").val('cv0');
+//			}
+//		}
 		//username: /^[a-zA-Z\d\s]+$/ username chấp nhận chữ cái và số, không khoảng trắng, không kí tự đặc biệt
 		//email: /^\w+@[a-zA-Z]{3,8}(\.[a-zA-Z]{3,8})?\.[a-zA-Z]{2,5}$/
 		//tel: /^\d{10,12}$/
@@ -273,7 +273,7 @@
 							address:$("#idaddress").val(),
 							sex:$("#idsex").val(),
 							date:$("#date").val(),
-							position:$("#idposition").val(),
+							position:"admin",
 							chucvu:$("#idchucvu").val()
 						},
 						success: function(data){
@@ -353,6 +353,7 @@
 									</select>
 								</div>
 								
+<!--
 								<div class="form-group">
 									<label>Quyền truy cập tài khoản</label>
 									<select class="form-control" id="idposition" onChange="anhien(this)">
@@ -360,10 +361,11 @@
 										<option value="admin">Admin</option>
 									</select>
 								</div>
+-->
 								
 								<div class="form-group">
 									<label>Chức vụ</label>
-									<select class="form-control" id="idchucvu" name="idchucvu" disabled="disabled">
+									<select class="form-control" id="idchucvu" name="idchucvu">
 										<?php
 										include('../connect.php');
 										$class1=new Database();
