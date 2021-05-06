@@ -190,7 +190,7 @@
 			if(name.value == "") //Tên còn rỗng
 			{
 				alert("Tên đang rỗng !!!");
-				document.getElementById("invalid-name").innerHTML=" Tên khách hàng đang trống";
+				document.getElementById("invalid-name").innerHTML="Tên khách hàng đang trống";
 				document.getElementById("invalid-name").style.visibility="visible";
 				name.focus();
 				return false;
@@ -198,14 +198,18 @@
 
 			if(username.value == "")
 			{
-				alert("Tên tài khoản đang rỗng !!!");
+				alert("Tên tài khoản đang rỗng");
+				document.getElementById("invalid-username").innerHTML="Tên tài khoản đang rỗng";
+				document.getElementById("invalid-username").style.visibility="visible";
 				username.focus();
 				return false;
 			}
 
 			if(pass1.value == "")
 			{
-				alert("Mật khẩu đang rỗng !!!");
+				alert("Mật khẩu đang rỗng");
+				document.getElementById("invalid-pass").innerHTML="Mật khẩu đang rỗng";
+				document.getElementById("invalid-pass").style.visibility="visible";
 				pass1.focus();
 				return false;
 			}
