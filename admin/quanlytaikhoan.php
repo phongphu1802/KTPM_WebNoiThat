@@ -152,7 +152,7 @@
 											<td data-sortable="true">'.$value['chucvu'].'</td>
 											<td data-sortable="true">
 											<button class="btn btn-info btn-sm" name="edit" title="Chỉnh sửa thông tin nhân viên" id="'.$value['username'].'" onClick="edituser(this)"><i class="fa fa-edit"></i></button>
-											<button class="btn btn-danger btn-sm" name="delete" title="Xóa nhân viên" onClick="deleteuser(\''.$value['username'].'\')"><i class="fa fa-trash-o"></i></button>
+											<button class="btn btn-danger btn-sm" id="btn'.$value['username'].'" name="delete" title="Xóa nhân viên" onClick="deleteuser(\''.$value['username'].'\')"><i class="fa fa-trash-o"></i></button>
 											</td>
 										</tr>');
 									}
