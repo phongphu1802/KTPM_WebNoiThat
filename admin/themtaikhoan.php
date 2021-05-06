@@ -366,7 +366,7 @@
 										$sqluser="select * from chucvu";
 										$dataluser=$class1->query($sqluser);
 										foreach($dataluser as $key=>$value){
-											if($value['macv']!='cv1'){
+											if($value['macv']!='cv1'&&$value['macv']!='cv0'){
 												print_r('<option value="'.$value['macv'].'">'.$value['chucvu'].'</option>');
 											}
 										}

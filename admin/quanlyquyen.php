@@ -228,9 +228,7 @@
 										if($value['trangthai']==1){
 											print_r('<tr><td data-sortable="true">
 											<button class="btn btn-info btn-sm" name="edit" title="Chỉnh sửa thông tin quyền" id="'.$value['maq'].'" onClick="editquyen(this)"><i class="fa fa-edit"></i></button>
-											<button class="btn btn-danger btn-sm" name="delete" title="Ẩn quyền" onClick="hidenquyen(\''.$value['maq'].'\')"><i class="fa fa-trash-o"></i></button> 
-											' .$value['tenq'].'
-											</td>');
+											<button class="btn btn-danger btn-sm" id="btnan'.$value['maq'].'" name="delete" title="Ẩn quyền" onClick="hidenquyen(\''.$value['maq'].'\')"><i class="fa fa-trash-o"></i></button>' .$value['tenq'].'</td>');
 											$bien1=$value['maq'];
 											$temp2=1;
 											foreach($datalchucvu as $key=>$value2){
