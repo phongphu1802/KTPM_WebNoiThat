@@ -27,10 +27,12 @@
 			{
 				document.getElementById("invalid-quyen").innerHTML="*Quyền hợp lệ không có số, kí tự đặc biệt, quyền không được rỗng";
 				document.getElementById("invalid-quyen").style.visibility="visible";
+				return false;
 			}
 			else
 			{
 				document.getElementById("invalid-quyen").style.visibility="hidden";
+				return true;
 			} 
 		}
 
@@ -46,6 +48,8 @@
 				quyen.focus();
 				return false;
 			}
+			if(checkQuyen()==false)
+				return false
 			return true;
 		}
 		function reset(){

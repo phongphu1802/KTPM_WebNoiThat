@@ -75,23 +75,23 @@
 				$result = mysqli_query($con,$sql);
 				//echo $sql;
                 // Đếm số đong trả về trong sql.
-                $num = mysqli_num_rows($result);
-				if($num>0 && $num != 0){
-						 while ($row = mysqli_fetch_assoc($result)) {?>
-							<div onClick="chitietsanpham2(this)" id="<?php echo $row["id"]; ?>" data-toggle="modal" data-target="#myModalctsp">
-								<div style="width:19%; height:400px;float:left; border:1px solid #E25D33;padding:0px;text-align:center;margin:-1px 10px 10px -1px;border-radius:15px;" >
-									<img src="<?php echo $row["image"];?>" width="80%" height="200px">
-									<h2> <?php echo  $row['name']?> </h2>
-									<h3 style="color:red">Giá: <?php echo number_format($row['price'])?> Đ</h3>
-									<input type="submit" name="add_to_cart" style="margin-top:5px;background-color:#E25D33; color:#000;height:30px;width:70%;border-radius:15px;border:2px solid #E25D33;" value="Thêm vào giỏ hàng"/>
-								</div>
+				if(empty($result)){
+					echo "<script>alert('Không tìm thấy kết quả');</script>";
+				}else{
+					$num = mysqli_num_rows($result);
+					if($num>0 && $num != 0){
+						echo '<script>alert("Kết quả tìm theo giá trong khoảng ('.$min.', '.$max.')");</script>';
+						while ($row = mysqli_fetch_assoc($result)) {?>
+						<div onClick="chitietsanpham2(this)" id="<?php echo $row["id"]; ?>" data-toggle="modal" data-target="#myModalctsp">
+							<div style="width:19%; height:400px;float:left; border:1px solid #E25D33;padding:0px;text-align:center;margin:-1px 10px 10px -1px;border-radius:15px;" >
+								<img src="<?php echo $row["image"];?>" width="80%" height="200px">
+								<h2> <?php echo  $row['name']?> </h2>
+								<h3 style="color:red">Giá: <?php echo number_format($row['price'])?> Đ</h3>
+								<input type="submit" name="add_to_cart" style="margin-top:5px;background-color:#E25D33; color:#000;height:30px;width:70%;border-radius:15px;border:2px solid #E25D33;" value="Thêm vào giỏ hàng"/>
 							</div>
+						</div>
 						<?php }
-					} 
-					else 
-					{
-						echo "Khong tim thay ket qua!";
-					
+					}
 				}
 ?>
 			<div class="pagination" style="clear: both">
