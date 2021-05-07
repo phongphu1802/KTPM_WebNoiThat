@@ -30,7 +30,7 @@
 		function checkName()
 		{
 			var name = document.getElementById("idname").value;
-			var namepattern = /[A-Z][a-zA-Z][^#&<>\"~;$^%{}?\d]{1,}$/;
+			var namepattern = /[A-Z][a-zA-Z][^#&<>\"@!*()~;$^%{}?\d]{1,}$/;
 			var result = namepattern.test(name);
 			if(result == false)
 			{

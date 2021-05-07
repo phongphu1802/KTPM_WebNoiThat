@@ -21,7 +21,7 @@
 		function checkName()
 		{
 			var name = document.getElementById("idname").value;
-			var namepattern = /[A-Z][a-zA-Z][^#&<>\"~;$^%{}?\d]{1,}$/;
+			var namepattern = /[A-Z][a-zA-Z][^#&<>\"@!*()~;$^%{}?\d]{1,}$/;
 			result = namepattern.test(name);
 			if(result == false)
 			{
@@ -70,33 +70,6 @@
 				return true;
 			}
 
-		}
-
-		function checkPassAgain()
-		{
-			var pass1 = document.getElementById("idpass");
-			var pass2 = document.getElementById("idpass2");
-			if(pass1.value == "")
-			{
-				alert("Mật khẩu chưa nhập");   
-				pass1.focus(); 
-				pass2.value="";
-				return false;  
-			}
-			else
-			{
-				if(pass2.value === pass1.value)
-				{
-					document.getElementById("invalid-pass2").style.visibility="hidden";
-					return true;
-				}
-				else
-				{
-					document.getElementById("invalid-pass2").innerHTML="* Mật khẩu nhập lại chưa chính xác";
-					document.getElementById("invalid-pass2").style.visibility="visible";
-					return false;
-				}
-			}    
 		}
 
 		function checkEmail()
@@ -156,11 +129,9 @@
 			var name = document.getElementById("idname");
 			var username = document.getElementById("iduser");
 			var pass1 = document.getElementById("idpass");
-			var pass2 = document.getElementById("idpass2");
 			var email = document.getElementById("idemail");
 			var address = document.getElementById("idaddress");
 			var tel = document.getElementById("idphone");
-			var accept = document.getElementById("xacnhan");
 			if(name.value == "") //Tên còn rỗng
 			{
 				alert("Tên đang rỗng !!!");
@@ -187,7 +158,7 @@
 			if(tel.value == "")
 			{
 				alert("Số điện thoại đang rỗng !!!");
-				pass2.focus();
+				tel.focus();
 				return false;
 			}
 			if(email.value == "")
@@ -200,6 +171,10 @@
 			{
 				alert("Địa chỉ đang rỗng");
 				address.focus();
+				return false;
+			}
+			if(checkName()==false||checkPass1()==false||checkEmail()==false||checkAddress()==false||checkPhone()==false)
+			{
 				return false;
 			}
 			return true;
@@ -281,7 +256,7 @@
 								</div>
 								<div class="form-group" id="user">
 									<label for="exampleInputEmail1" >Tên tài khoản</label>
-									<input type="text" id="iduser" readonly=""  class="form-control"  name="phone" value="<?php echo $user;?>">
+									<input type="text" id="iduser" readonly=""  class="form-control"  name="username" value="<?php echo $user;?>">
 									
 								</div>
 								<div class="form-group">
