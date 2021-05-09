@@ -264,7 +264,7 @@
 												}
 												?>
 												<?php if($value['status']<3){//Chưa xác nhận và Đang giao thì được Hủy đơn?>
-													<button class="btn btn-danger btn-sm" name="save" title="Hủy đơn hàng" id="<?php echo $value['id']?>" onClick="deleteoder(this)"><i class="fa fa-times" aria-hidden="true"></i></button>
+													<button class="btn btn-danger btn-sm" name="delete" title="Hủy đơn hàng" id="<?php echo $value['id']?>" onClick="deleteoder(this)"><i class="fa fa-times" aria-hidden="true"></i></button>
 												<?php
 												}
 												?>
