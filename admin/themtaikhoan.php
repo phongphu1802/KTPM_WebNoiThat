@@ -318,7 +318,7 @@
 								</div>
 								<div class="form-group">
 									<label>Mật khẩu</label>
-									<input type="password" class="form-control" id="idpass" name="password" value="" onchange="checkPass1()">
+									<input type="password" placeholder="Mật khẩu" class="form-control" id="idpass" name="password" value="" onchange="checkPass1()">
 									<div id="invalid-pass" style="color:red; visibility:hidden;"></div>
 								</div>
 								<div class="form-group">

@@ -123,6 +123,22 @@
 			}
 		}
 
+		function checkDate(){
+			var date = document.getElementById("date").value;
+			var today = new Date();
+			var birthday = new Date(date);
+			var age=parseInt(today.getFullYear() - birthday.getFullYear());
+			if(age<18){
+				document.getElementById("invalid-birthday").innerHTML="* Khách hàng chưa đủ 18 tuổi";
+				document.getElementById("invalid-birthday").style.visibility="visible";
+				return false;
+			}
+			else{
+				document.getElementById("invalid-birthday").style.visibility="hidden";
+				return true;
+			}
+		}
+
 
 		function xulysubmitsuataikhoan()
 		{
@@ -130,6 +146,7 @@
 			var username = document.getElementById("iduser");
 			var pass1 = document.getElementById("idpass");
 			var email = document.getElementById("idemail");
+			var date = document.getElementById("date");
 			var address = document.getElementById("idaddress");
 			var tel = document.getElementById("idphone");
 			if(name.value == "") //Tên còn rỗng
@@ -161,6 +178,14 @@
 				tel.focus();
 				return false;
 			}
+
+			if(date.value == "")
+			{
+				alert("Ngày sinh đang rỗng");
+				date.focus();
+				return false;
+			}
+
 			if(email.value == "")
 			{
 				alert("Thư điện tử đang rỗng !!!");
@@ -173,7 +198,7 @@
 				address.focus();
 				return false;
 			}
-			if(checkName()==false||checkPass1()==false||checkEmail()==false||checkAddress()==false||checkPhone()==false)
+			if(checkName()==false||checkPass1()==false||checkEmail()==false||checkAddress()==false||checkPhone()==false|| checkDate()==false)
 			{
 				return false;
 			}
@@ -256,12 +281,12 @@
 								</div>
 								<div class="form-group" id="user">
 									<label for="exampleInputEmail1" >Tên tài khoản</label>
-									<input type="text" id="iduser" readonly=""  class="form-control"  name="username" value="<?php echo $user;?>">
+									<input type="text" placeholder="Tên tài khoản" id="iduser" readonly=""  class="form-control"  name="username" value="<?php echo $user;?>">
 									
 								</div>
 								<div class="form-group">
 									<label>Mật khẩu</label>
-									<input type="password" class="form-control" id="idpass" name="password" value="<?php echo $password;?>" onchange="checkPass1()">
+									<input type="password" placeholder="Mật khẩu" class="form-control" id="idpass" name="password" value="<?php echo $password;?>" onchange="checkPass1()">
 									<div id="invalid-pass" style="color:red; visibility:hidden;"></div>
 								</div>
 								<div class="form-group">
@@ -275,7 +300,7 @@
 								</div>
 								<div class="form-group">
 									<label>Ngày sinh</label>
-									<input type="date" name="date" id="date" value="<?php echo $date ?>" onchange="checkDate()">
+									<input type="date" name="date" id="date" value="2000-08-28" onchange="checkDate()">
 								    <div id="invalid-birthday" style="color:red; visibility:hidden;"></div>
 								</div>
 							</div>
@@ -283,7 +308,7 @@
 							
 								<div class="form-group">
 									<label>Email</label>
-									<input class="form-control" placeholder="Thư điện tử" id="idemail" name="email" value="<?php echo $email;?>" onchange="checkEmail()">
+									<input type="text" class="form-control" placeholder="Thư điện tử" id="idemail" name="email" value="<?php echo $email;?>" onchange="checkEmail()">
 									<div id="invalid-email" style="color:red; visibility:hidden;"></div>
 								</div>
 								<div class="form-group">
@@ -294,9 +319,16 @@
 								
 								<div class="form-group">
 									<label>Giới tính</label>
-									<select class="form-control" id="idsex" value="<?php echo $gioitinh;?>">
-										<option value="male">Nam</option>
-										<option value="female">Nữ</option>
+									<select class="form-control" id="idsex" value=""3>
+										<?php
+											if($gioitinh=="male"){
+												print_r('<option value="male" selected="selected">Nam</option>
+												<option value="female">Nữ</option>');
+											}else{
+												print_r('<option value="male">Nam</option>
+												<option value="female" selected="selected">Nữ</option>');
+											}
+										?>
 									</select>
 								</div>
 								
