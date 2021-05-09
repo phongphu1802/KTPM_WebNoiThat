@@ -199,8 +199,6 @@
 			if(username.value == "")
 			{
 				alert("Tên tài khoản đang rỗng");
-				document.getElementById("invalid-username").innerHTML="Tên tài khoản đang rỗng";
-				document.getElementById("invalid-username").style.visibility="visible";
 				username.focus();
 				return false;
 			}
@@ -208,8 +206,6 @@
 			if(pass1.value == "")
 			{
 				alert("Mật khẩu đang rỗng");
-				document.getElementById("invalid-pass").innerHTML="Mật khẩu đang rỗng";
-				document.getElementById("invalid-pass").style.visibility="visible";
 				pass1.focus();
 				return false;
 			}
