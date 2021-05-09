@@ -8,7 +8,7 @@
 		$data="status = 1";
 		$trangthai='2';
 		$class->updateBinhluan($idbl,$trangthai);
-		echo "Bạn đã lưu thành công.";
+		echo "Bạn đã ẩn thành công.";
 		exit;
 	}
 ?>

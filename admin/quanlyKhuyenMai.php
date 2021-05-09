@@ -75,12 +75,13 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
+				<li class="active">Chi tiết khuyến mãi theo loại khách hàng</li>
 			</ol>
 		</div><!--/.row-->	
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Chi tiết khuyến mãi theo  loại khách hàng</div>
+					<div class="panel-heading">Chi tiết khuyến mãi theo loại khách hàng</div>
 					<div class="panel-body">
 						<table data-toggle="table" data-show-refresh="true" data-show-toggle="true"
 						data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">

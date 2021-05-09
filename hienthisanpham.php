@@ -62,7 +62,7 @@
 					<input type="hidden" name="hidden_name" value="<?php echo $value["name"];?>"/>
 					<input type="hidden" name="hidden_price" value=" <?= number_format($value["price"],0);?>" />
 					<br>
-					<input type="submit" name="add_to_cart" style="margin-top:5px;background-color:#E25D33; color:#000;height:30px;width:70%;border-radius:15px;border:2px solid #E25D33;" value="Thêm vào giỏ hàng"/>
+					<input type="submit" id="btnsp<?php echo $value["id"]; ?>" name="add_to_cart" style="margin-top:5px;background-color:#E25D33; color:#000;height:30px;width:70%;border-radius:15px;border:2px solid #E25D33;" value="Thêm vào giỏ hàng"/>
 					</div>
 				</div>
 			<?php
@@ -76,7 +76,7 @@
 					<input type="hidden" name="hidden_name" value="<?php echo $value["name"];?>"/>
 					<input type="hidden" name="hidden_price" value=" <?= number_format($value["price"],0);?>" />
 					<br>
-					<input type="button" name="het_hang" style="margin-top:5px;background-color:#ffffff; color:#FF0000;height:30px;width:70%;border-radius:15px;border:2px solid #FF0000;" value="Hết hàng"/>
+					<input type="button" id="btnsp<?php echo $value["id"]; ?>" name="het_hang" style="margin-top:5px;background-color:#ffffff; color:#FF0000;height:30px;width:70%;border-radius:15px;border:2px solid #FF0000;" value="Hết hàng"/>
 				</div>
 				
 			<?php

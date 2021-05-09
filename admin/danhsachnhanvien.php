@@ -110,13 +110,7 @@
 				<li class="active">Danh sách nhân viên</li>
 			</ol>
 		</div><!--/.row-->
-		
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách nhân viên</h1>
-			</div>
-		</div><!--/.row-->
-		
+	
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">

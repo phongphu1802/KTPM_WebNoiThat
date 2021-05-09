@@ -117,10 +117,10 @@
                            </select>
 					</label>
 				<label style="margin-left: 2%"><h5>Giá thấp nhất:</h5>
-					<input type="text" value="" name="min" id="minnc" style="height:50%"></input>
+					<input type="number" value="" name="min" id="minnc" style="height:50%"></input>
 				</label>
 				<label style="margin-left: 2%"><h5>Giá cao nhất:</h5>
-					<input type="text" value="" name="max" id="maxnc" style="height:50%"></input>
+					<input type="number" value="" name="max" id="maxnc" style="height:50%"></input>
 				</label>
 				<label style="margin-top: 22.5px;">
 					<span class="input-group-text" id="nangcao"><i class="fa fa-search"></i></span> 

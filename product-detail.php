@@ -54,16 +54,12 @@
 					txtdanhgia:5
 				},
 				success: function(data){
-					{ 
-                           if(data == 'Đã gửi bình luận') 
-                           {
-                             	location.reload();
-                           }else{
                              	alert(data);
-                           }
-                      }
+								if(data!="Vui lòng ghi thông tin bình luận"){
+								location.reload();
+							}	
 				}
-			})
+			})		
 	}
 </script>
 <?php 
@@ -100,7 +96,7 @@
 								<input type="hidden" name="mataikhoan" id="mataikhoan" value="<?php echo $username?>">
 								<input type="hidden" name="masanpham" id="masanpham" value="<?php echo $value['id']?>">
 								<input type="text" id="binhluan" name="binhluan" value="" style="width:90%; border: none; border-bottom: 2px solid purple; margin-top: 10px" placeholder="Mời bạn để lại bình luận...">
-								<button class="btn btn-danger btn-sm" id="<?php echo $value['id']?>" name="Gui" style="background-color:#E25D33" title="Gửi" onClick="GuiBl(this)"><i class="fa fa-check-square-o"></i></button>
+								<button class="btn btn-danger btn-sm" data-target="#myModalgui" id="<?php echo $value['id']?>" name="Gui" style="background-color:#E25D33" title="Gửi" onClick="GuiBl(this)"><i class="fa fa-check-square-o"></i></button>
 <!--								Lấy dữ liệu-->
 							<?php	
 			  						$class2=new Database();
