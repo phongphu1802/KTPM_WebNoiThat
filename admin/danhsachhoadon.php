@@ -116,6 +116,12 @@
 				<li class="active">Bảng hóa đơn</li>
 			</ol>
 		</div><!--/.row-->
+	
+		<div class="row">
+			<div class="col-lg-12">
+				<h1 class="page-header">Bảng hóa đơn</h1>
+			</div>
+		</div><!--/.row-->
 		
 		<div class="row">
 			<div class="col-lg-12">

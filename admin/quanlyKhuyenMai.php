@@ -75,7 +75,6 @@
 		<div class="row">
 			<ol class="breadcrumb">
 				<li><a href="#"><span class="glyphicon glyphicon-home"></span></a></li>
-				<li class="active">Chi tiết khuyến mãi theo loại khách hàng</li>
 			</ol>
 		</div><!--/.row-->	
 		<div class="row">
