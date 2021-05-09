@@ -170,6 +170,14 @@
 			return mysqli_query($this->link,$sql);
 		}
 		//------------------------------------------------------------------------------------------------------------
+		public function updatecart($table='',$data='', $idcart ='')
+		{
+			$content = '';
+			$where = 'idcart = '.$idcart;
+			$sql = 'UPDATE ' .$table .' SET '.$data.' WHERE ' . $where ;
+			return mysqli_query($this->link,$sql);
+		}
+		//------------------------------------------------------------------------------------------------------------
 		public function updateBinhluan($idsp ='', $trangthai='')
 		{
 			$where = 'idbinhluan = '.$idsp;

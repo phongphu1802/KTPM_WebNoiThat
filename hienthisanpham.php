@@ -47,7 +47,7 @@
 			$page=1;
 		}
 		$start_from=($page-1)*$record_per_page;
-		$sql="SELECT * FROM product WHERE catalog_id=$Id LIMIT $start_from,$record_per_page";		
+		$sql="SELECT * FROM product WHERE status=1 AND catalog_id=$Id LIMIT $start_from,$record_per_page ";		
 		$query=mysqli_query($sqd,$sql);
 		$datal=$class->query($sql);
 		echo '<br>';

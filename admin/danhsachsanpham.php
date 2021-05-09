@@ -38,6 +38,28 @@
                 return false;
             }                
         }
+		function confirmShow()
+        {
+            if(confirm('Bạn có chắc muốn hiện sản phẩm này'))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }                
+		}
+		function confirmHide()
+        {
+            if(confirm('Bạn có chắc muốn ẩn sản phẩm này'))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }                
+        }
 		function deleteproduct(id){
 			if(confirmdelete()){
 				$.ajax({
@@ -60,6 +82,50 @@
 				})
 			}
 		}
+		function setStatusSanPhamHide(id){
+			if(confirmHide()){
+				$.ajax({
+					type:"POST",
+					url: "xuLyAnSP.php",
+					dataType: 'html',
+					data:{
+						id:id
+					},
+					success: function(data){
+						{ 
+							   if(data == 'false') 
+							   {
+								 alert('Không có sản phẩm');
+							   }else{
+								 alert(data);
+							   }
+						  }
+					}
+				})
+			}
+		}
+		function setStatusSanPhamShow(id){
+			if(confirmShow()){
+				$.ajax({
+					type:"POST",
+					url: "xuLyHienSP.php",
+					dataType: 'html',
+					data:{
+						id:id
+					},
+					success: function(data){
+						{ 
+							   if(data == 'false') 
+							   {
+								 alert('Không có sản phẩm');
+							   }else{ 
+								 alert(data);
+							   }
+						  }
+					}
+				})
+			}
+		}
 		/*function editproduct(user){
 			if(confirmedit()){
 				$.ajax({
@@ -73,7 +139,7 @@
 						{ 
 							   if(data == 'false') 
 							   {
-								 alert('Không có người dùng');
+								 alert('Không có sản phẩm');
 							   }else{
 								 alert(data);
 							   }
@@ -106,7 +172,7 @@
 						{ 
 							   if(data == 'false') 
 							   {
-								 alert('Không có người dùng');
+								 alert('Không có sản phẩm');
 							   }else{
 								 $("#suasanpham").html(data);
 								 $("#myModalEditProduct").modal(options2);
@@ -143,6 +209,7 @@
             <div class="modal-content">
                <!-- Modal Header -->
                <!-- Modal body -->
+               <!-- Modal body -->
                <div class="modal-body">
 				  <di id="suasanpham"></di>
                </div>
@@ -159,23 +226,24 @@
 		</div><!--/.row-->	
 		<div class="row">
 			<div class="col-lg-12">
-				<div class="panel panel-default">
-					<div class="panel-heading">Bảng sản phẩm</div>
+				<div class="panel panel-default" id="productsTittle">
+					<h1 class="panel-heading" id="products";>Bảng sản phẩm</h1>
 					<div class="panel-body">
-					<button type="button" class="btn btn-warning" id="addproduct" onClick="addproduct()">Thêm sản phẩm mới</button>
+					<button type="button" class="btn btn-warning" id="addproduct" onClick="addproduct()" name="addpro">Thêm sản phẩm mới</button>
 						<table data-toggle="table" data-show-refresh="true" data-show-toggle="true"
 						data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
-								<th data-sortable="true" >Mã sản phẩm</th>
+								<th data-sortable="true" id="idid">Mã sản phẩm</th>
 						        <th data-sortable="true">Loại</th>
-						        <th data-sortable="true">Tên sản phẩm</th>
-						        <th data-sortable="true">Số lượng</th>
-								<th data-sortable="true">Giá</th>
-								<th data-sortable="true">Màu sắc</th>
-								<th data-sortable="true">Hình ảnh</th>
-								<th data-sortable="true">Lượt xem</th>
-								<th data-sortable="true">Thao tác</th>
+						        <th data-sortable="true" id="name">Tên sản phẩm</th>
+						        <th data-sortable="true" id="quantity">Số lượng</th>
+								<th data-sortable="true" id="price">Giá</th>
+								<th data-sortable="true" id="color">Màu sắc</th>
+								<th data-sortable="true" id="img">Hình ảnh</th>
+								<th data-sortable="true" id="watch">Lượt xem</th>
+								<th data-sortable="true" id="status">Trạng thái</th>
+								<th data-sortable="true" id="operate">Thao tác</th>
 						    </tr>
 							</thead>
 								<?php
@@ -194,23 +262,40 @@
 												break;
 											}
 										}
-										print_r('<tr>
-											<td data-sortable="true">'.$value['id'].'</td>
-											<td data-sortable="true">'.$loai.'</td>
-											<td data-sortable="true">'.$value['name'].'</td>
-											<td data-sortable="true">'.$value['amout'].'</td>
-											<td data-sortable="true">'.number_format($value['price']).'</td>
-											<td data-sortable="true">'.$value['color'].'</td>
-											<td data-sortable="true"><img src="../'.$value['image'].'" width="50px" height="50px"></td>
-											<td data-sortable="true">'.$value['view'].'</td>
+										if ($value['status']==1){
+											$status="Hiện";
+										}
+										else $status="Ẩn";?>
+										
+										<tr>
+											<td data-sortable="true"> <?php echo $value['id'] ?></td>
+											<td data-sortable="true"> <?php echo $loai ?></td>
+											<td data-sortable="true"> <?php echo $value['name'] ?></td>
+											<td data-sortable="true"> <?php echo $value['amout'] ?></td>
+											<td data-sortable="true"> <?php echo number_format($value['price'])?></td>
+											<td data-sortable="true"> <?php echo $value['color'] ?></td>
+											<td data-sortable="true"><img src="../<?php echo $value['image'] ?>" width="50px" height="50px"></td>
+											<td data-sortable="true"> <?php echo $value['view'] ?></td>
+											<td data-sortable="true"> <?php echo $status ?></td>
 											<td data-sortable="true">
-											<button class="btn btn-info btn-sm" name="edit" title="Chỉnh sửa thông tin sản phẩm" id="'.$value['id'].'" onClick="editproduct(this)"><i class="fa fa-edit"></i></button>
-											<button class="btn btn-danger btn-sm" name="delete" title="Xóa sản phẩm" onClick="deleteproduct(\''.$value['id'].'\')"><i class="fa fa-trash-o"></i></button>
+											
+											<?php if ($value['status']==1){?>
+											<button class="btn btn-dark btn-sm" name="print" title="Ẩn sản phẩm" onClick="setStatusSanPhamHide(<?php echo $value['id']?>)"><i class="fa fa-eye-slash" aria-hidden="true"></i></button>
+											<?php
+											}
+											?>
+											<?php if ($value['status']==0){?>
+											<button class="btn btn-dark btn-sm" name="print" title="Hiện sản phẩm" onClick="setStatusSanPhamShow(<?php echo $value['id']?>)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+											<?php
+											}
+											?>
+											<button class="btn btn-info btn-sm" name="edit" title="Chỉnh sửa thông tin sản phẩm" id="<?php echo $value['id']?>" onClick="editproduct(this)"><i class="fa fa-edit"></i></button>
+											<button class="btn btn-danger btn-sm" name="delete" title="Xóa sản phẩm" onClick="deleteproduct(<?php echo $value['id']?>)"><i class="fa fa-trash-o"></i></button>
 											</td>
-										</tr>');
-									}
-								?>
-						    
+										</tr>
+											<?php 
+											}
+											?>
 						</table>
 					</div>
 				</div>

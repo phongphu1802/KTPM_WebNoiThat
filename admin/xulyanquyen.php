@@ -18,7 +18,7 @@ xulyanquyen();
 							);
 				$table='dsquyen';
 				$class->updatequyen($table,$data,$quyen);
-				echo "Bạn đã sửa thành công.";
+				echo "Bạn đã ẩn quyền thành công.";
 				exit;
 			}
 		}
