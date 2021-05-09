@@ -2,16 +2,18 @@
 function checkTypeName()
 {
     var name = document.getElementById('idname');
-    var patt =/^[a-zA-Z0-9\s][^#&<>\"~;$^%{}?!]+$/;
+    var patt =/^[a-zA-Z0-9\s][^^*_+=#@&<>\"~;()$^%{}\[\]?.,\-:;`|'"\/\\!]+$/;
     var result = patt.test(name.value)
     if(result==false)
     {
-        document.getElementById('invalid-name').innerHTML="Tên loại khách không được chứa ký tự đặc biệt";
-        document.getElementById('invalid-name').style.visibility="visible";
+		if(name.value=="")
+			document.getElementById('invalid-name').innerHTML="Tên loại khách rỗng";
+		else 
+			document.getElementById('invalid-name').innerHTML="Tên loại khách không được chứa ký tự đặc biệt";
+		document.getElementById('invalid-name').style.visibility="visible";
     }
     else
         document.getElementById('invalid-name').style.visibility="hidden";
-
 }
 
 function checkDk()
@@ -21,8 +23,11 @@ function checkDk()
     var result = patt.test(dk.value);
     if(result==false)
     {
-        document.getElementById('invalid-dk').innerHTML="Chỉ được nhập số";
-        document.getElementById('invalid-dk').style.visibility="visible";
+		if(dk.value=="")
+			document.getElementById('invalid-dk').innerHTML="Tổng giá trị TT tối thiểu rỗng";
+		else
+			document.getElementById('invalid-dk').innerHTML="Chỉ được nhập số";
+		document.getElementById('invalid-dk').style.visibility="visible";
     }
     else
         document.getElementById('invalid-dk').style.visibility="hidden";
@@ -35,8 +40,11 @@ function checkGiam()
     var result = patt.test(giam.value);
     if(result==false)
     {
-        document.getElementById('invalid-discount').innerHTML="Chỉ được nhập số";
-        document.getElementById('invalid-discount').style.visibility="visible";
+		if(giam.value=="")
+			document.getElementById('invalid-discount').innerHTML="Tỉ lệ được giảm rỗng";
+		else
+			document.getElementById('invalid-discount').innerHTML="Chỉ được nhập số";
+		document.getElementById('invalid-discount').style.visibility="visible";
     }
     else
         document.getElementById('invalid-discount').style.visibility="hidden";
@@ -123,29 +131,29 @@ echo 'Chưa nhận được yêu cầu';
 <form role="form" name='editform' id="ideditform" method="POST" enctype="multipart/form-data">
 	<div class="col-lg-6">
 		<div class="form-group">
-			<label>Mã loại KH</label>
+			<label id="id">Mã loại KH</label>
 			<input type="text" class="form-control" id="idid" name="id" value="<?php echo($malkh)?>" readonly>
 		</div>
 		
 		<div class="form-group">
-			<label>Tổng giá trị thanh toán tối thiểu (đồng)</label>
+			<label id="dieukien">Tổng giá trị thanh toán tối thiểu (đồng)</label>
 			<input type="text" class="form-control" id="iddk" name="dk" value="<?php echo($dieukien)?>" onchange="checkDk()">
 			<div id="invalid-dk" style="color:red; visibility:hidden;"></div>
 		</div>
 	</div>
 	<div class="col-lg-6">
 		<div class="form-group">
-			<label>Tên loại KH</label>
+			<label id="name">Tên loại KH</label>
 			<input type="text" class="form-control" id="idname" name="name" value="<?php echo($tenlkh)?>" onchange="checkTypeName()">
 			<div id="invalid-name" style="color:red; visibility:hidden;"></div>
 		</div>
 		<div class="form-group">
-			<label>Tỉ lệ được giảm (%)</label>
+			<label id="giam">Tỉ lệ được giảm (%)</label>
 			<input type="text" class="form-control" id="iddiscount" name="discount" value="<?php echo($giam)?>" onchange="checkGiam()">
 			<div id="invalid-discount" style="color:red; visibility:hidden;"></div>
 		</div>
 			<input type="submit" class="btn btn-primary" id="editsubmit" name="submit" value='Lưu'>
-			<input type="reset" class="btn btn-default" value='Hủy' onclick="refresh()">
+			<input type="reset" class="btn btn-default" id="cancel" value='Hủy' onclick="refresh()">
 	</div>
 	
 		
