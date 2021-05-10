@@ -134,13 +134,12 @@
 			</ol>
 		</div><!--/.row-->
 		
-				
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách nhân viên</h1>
+			<!--	<h1 class="page-header">Danh sách thành viên</h1>  -->
 			</div>
-		</div>
-	
+		</div><!--/.row-->
+		
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
@@ -159,7 +158,7 @@
 								<th data-sortable="true">Địa chỉ</th>
 								<th data-sortable="true">Ngày tạo</th>
 								<th data-sortable="true">Loại khách hàng</th>
-								<th data-sortable="true"></th>
+								<th data-sortable="true">Thao tác</th>
 						    </tr>
 							</thead>
 								<?php

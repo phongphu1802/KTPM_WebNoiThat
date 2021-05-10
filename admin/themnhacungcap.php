@@ -19,6 +19,23 @@
 		//password: /^[\w]{8,20}/ 
 		//password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$/ mật khẩu chứ ít nhất 1 kí tự thường, 1 kí tự INHOA, ít nhất 1 số ít nhất 8, nhiều nhất 20
 		//
+		
+		
+		function checkUsername()
+		{
+			var username = document.getElementById("iduser").value;
+			var patt = /^[a-zA-Z\d]+$/;
+			result = patt.test(username);
+			if(result == false)
+			{
+				document.getElementById("invalid-username").innerHTML="*Mã hợp lệ không có khoảng trắng, kí tự đặc biệt";
+				document.getElementById("invalid-username").style.visibility="visible";
+			}
+			else
+			document.getElementById("invalid-username").style.visibility="hidden";
+
+		}
+
 		function checkName()
 		{
 			var name = document.getElementById("idname").value;
@@ -35,22 +52,8 @@
 			} 
 		}
 
-		function checkUsername()
-		{
-			var username = document.getElementById("iduser").value;
-			var patt = /^[a-zA-Z\d]+$/;
-			result = patt.test(username);
-			if(result == false)
-			{
-				document.getElementById("invalid-username").innerHTML="*Tên tài khoản hợp lệ không có khoảng trắng, kí tự đặc biệt";
-				document.getElementById("invalid-username").style.visibility="visible";
-			}
-			else
-			document.getElementById("invalid-username").style.visibility="hidden";
-
-		}
-
-		function checkPass1()
+		
+		/* function checkPass1()
 		{
 			var pass1 = document.getElementById("idpass").value;
 			var patt =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$/;
@@ -87,20 +90,22 @@
 					document.getElementById("invalid-pass2").style.visibility="visible";
 				}
 			}    
-		}
+		} */
 
-		function checkEmail()
+		
+		
+		function checkPhone()
 		{
-			var email = document.getElementById("idemail").value;
-			var patt= /^\w+@[a-zA-Z]{3,8}(\.[a-zA-Z]{3,8})?\.[a-zA-Z]{2,5}$/;
-			var result = patt.test(email);
+			var phone = document.getElementById("idphone");
+			var patt = /^[0-9]{10,13}$/;
+			var result = patt.test(phone.value);
 			if(result == false)
 			{
-				document.getElementById("invalid-email").innerHTML="* Email không hợp lệ";
-				document.getElementById("invalid-email").style.visibility="visible";
-			}
+				document.getElementById("invalid-phone").innerHTML="* Số điện thoại không hợp lệ";
+				document.getElementById("invalid-phone").style.visibility="visible";
+			}     
 			else
-				document.getElementById("invalid-email").style.visibility="hidden";
+				document.getElementById("invalid-phone").style.visibility="hidden";
 		}
 
 		function checkAddress()
@@ -116,20 +121,22 @@
 			else
 				document.getElementById("invalid-address").style.visibility="hidden";
 		}
-
-		function checkPhone()
+		
+		function checkEmail()
 		{
-			var phone = document.getElementById("idphone");
-			var patt = /^[0-9]{10,13}$/;
-			var result = patt.test(phone.value);
+			var email = document.getElementById("idemail").value;
+			var patt= /^\w+@[a-zA-Z]{3,8}(\.[a-zA-Z]{3,8})?\.[a-zA-Z]{2,5}$/;
+			var result = patt.test(email);
 			if(result == false)
 			{
-				document.getElementById("invalid-phone").innerHTML="* Số điện thoại không hợp lệ";
-				document.getElementById("invalid-phone").style.visibility="visible";
-			}     
+				document.getElementById("invalid-email").innerHTML="* Email không hợp lệ";
+				document.getElementById("invalid-email").style.visibility="visible";
+			}
 			else
-				document.getElementById("invalid-phone").style.visibility="hidden";
+				document.getElementById("invalid-email").style.visibility="hidden";
 		}
+
+		
 		
 	
 		function xulysubmitthemnhacungcap()
@@ -143,39 +150,76 @@
 			
 			if(username.value == "")
 			{
-				alert("Mã NCC đang rỗng !!!");
+				alert("Mã nhà cung cấp đang trống");
+				document.getElementById("invalid-username").innerHTML=" Mã nhà cung cấp đang trống";
+				document.getElementById("invalid-username").style.visibility="visible";
 				username.focus();
 				return false;
 			}
-			
+			var usernamex = document.getElementById("invalid-username").style.visibility;
+			if(usernamex == "visible")
+			{
+				alert("Mã không hợp lệ, vui lòng nhập lại");
+				return false;
+			}
 			
 			if(name.value == "") //Tên còn rỗng
 			{
-				alert("Tên nhà cung cấp rỗng !!!");
+				alert("Tên nhà cung cấp đang trống");
 				document.getElementById("invalid-name").innerHTML=" Tên nhà cung cấp đang trống";
 				document.getElementById("invalid-name").style.visibility="visible";
 				name.focus();
 				return false;
 			}
+			var namex = document.getElementById("invalid-name").style.visibility;
+			if(namex == "visible")
+			{
+				alert("Tên không hợp lệ, vui lòng nhập lại");
+				return false;
+			}
 
 			if(tel.value == "")
 			{
-				alert("Số điện thoại đang rỗng !!!");
+				alert("Số điện thoại đang trống");
+				document.getElementById("invalid-phone").innerHTML=" Số điện thoại đang trống";
+				document.getElementById("invalid-phone").style.visibility="visible";
 				tel.focus();
+				return false;
+			}
+			var phonex = document.getElementById("invalid-phone").style.visibility;
+			if(phonex == "visible")
+			{
+				alert("Số điện thoại không hợp lệ, vui lòng nhập lại");
 				return false;
 			}
 
 			if(address.value == "")
 			{
-				alert("Địa chỉ đang rỗng");
+				alert("Địa chỉ đang trống");
+				document.getElementById("invalid-address").innerHTML=" Địa chỉ đang trống";
+				document.getElementById("invalid-address").style.visibility="visible";
 				address.focus();
+				return false;
+			}
+			var addressx = document.getElementById("invalid-address").style.visibility;
+			if(addressx == "visible")
+			{
+				alert("Địa chỉ không hợp lệ, vui lòng nhập lại");
 				return false;
 			}
 			
 			if(email.value == "")
 			{
-				alert("Thư điện tử đang rỗng !!!");
+				alert("Thư điện tử đang trống");
+				document.getElementById("invalid-email").innerHTML=" Thư điện tử đang trống";
+				document.getElementById("invalid-email").style.visibility="visible";
 				email.focus();
+				return false;
+			}
+			var emailx = document.getElementById("invalid-email").style.visibility;
+			if(emailx == "visible")
+			{
+				alert("Thư điện tử không hợp lệ, vui lòng nhập lại");
 				return false;
 			}
 			
@@ -204,8 +248,8 @@
 						},
 						success: function(data){
 							alert(data);
-							if(data!="Mã ncc đã tồn tại vui lòng đổi tên tài khoản khác."){
-								location.reload();
+							if(data="Bạn đã thêm thành công."){
+								//location.reload();
 							}
 						}
 
@@ -233,19 +277,19 @@
 						<div class="col-md-6">
 					
 								<div class="form-group">
-									<label>Mã NCC</label>
-									<input class="form-control" placeholder="Tên tài khoản" id="iduser" name="username" value="" onchange="checkUsername()">
+									<label id="id">Mã NCC</label>
+									<input class="form-control" placeholder="Mã nhà cung cấp" id="iduser" name="username" value="" onchange="checkUsername()">
 									<div id="invalid-username" style="color:red; visibility:hidden;"></div>
 								</div>
 								
 								<div class="form-group">
-									<label>Tên NCC</label>
-									<input class="form-control" placeholder="Họ và tên của chủ tài khoản" id="idname" name="name" value="" onchange="checkName()">
+									<label id="name">Tên NCC</label>
+									<input class="form-control" placeholder="Tên nhà cung cấp" id="idname" name="name" value="" onchange="checkName()">
 									<div id="invalid-name" style="color:red; visibility:hidden;"></div>
 								</div>
 								
 								<div class="form-group">
-									<label>Số điện thoại</label>
+									<label id="phone">Số điện thoại</label>
 									<input class="form-control" placeholder="Số điện thoại" id="idphone" name="phone" value="" onchange="checkPhone()">
 									<div id="invalid-phone" style="color:red; visibility:hidden;"></div>
 								</div>	
@@ -255,19 +299,19 @@
 						<div class="col-md-6">
 							
 								<div class="form-group">
-									<label>Địa chỉ</label>
-									<input class="form-control" placeholder="Địa chỉ của tài khoản" id="idaddress" name="address" value="" onchange="checkAddress()">
+									<label id="address">Địa chỉ</label>
+									<input class="form-control" placeholder="Địa chỉ của nhà cung cấp" id="idaddress" name="address" value="" onchange="checkAddress()">
 									<div id="invalid-address" style="color:red; visibility:hidden;"></div>
 								</div>
 								
 								<div class="form-group">
-									<label>Email</label>
+									<label id="email">Email</label>
 									<input class="form-control" placeholder="Thư điện tử" id="idemail" name="email" value="" onchange="checkEmail()">
 									<div id="invalid-email" style="color:red; visibility:hidden;"></div>
 								</div>
 								
-								<button id="btnsubmitthemnhacungcap" value="nut" class="btn btn-primary">Thêm </button>
-								<button type="reset" class="btn btn-default" onClick="reset()">Làm mới</button>
+								<button id="btnsubmitthemnhacungcap"  name="btnAdd" value="nut" class="btn btn-primary">Thêm </button>
+								<button id="idreset" name="reset" type="reset" class="btn btn-default" onClick="reset()">Làm mới</button>
 							</div>
 						</form>
 					</div>

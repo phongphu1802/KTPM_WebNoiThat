@@ -14,7 +14,7 @@
 	<script>
 		function confirmbefore()
 		{
-			if(confirm('Bạn có chắc muốn xóa tài khoản này'))
+			if(confirm('Bạn có chắc muốn ẩn NCC này.'))
 			{
 				return true;
 			}
@@ -27,7 +27,7 @@
 			if(confirmbefore()){
 				$.ajax({
 					type:"POST",
-					url: "deletencc.php",
+					url: "deletenccc.php",
 					dataType: 'html',
 					data:{
 						nhaccungcap:nhaccungcap
@@ -107,17 +107,16 @@
 		
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Danh sách nhà cung cấp</h1>
+			<!--	<h1 class="page-header">Danh sách nhà cung cấp</h1>  style="background:#ffffff ; color:#5f6468  ; border-bottom:#eeeeee"-->
 			</div>
 		</div><!--/.row-->
-		
 		
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="panel panel-default">
-					<div class="panel-heading">Danh sách nhà cung cấp</div>
+					<div class="panel-heading" id="myStyle" name="myStyle" >Danh sách nhà cung cấp</div>
 					<div class="panel-body">
-						<button type="button" class="btn btn-warning" id="adduser" onClick="adduser()">Thêm nhà cung cấp mới</button>
+						<button type="button" class="btn btn-warning" id="adduser" name="addncc" onClick="adduser()">Thêm nhà cung cấp mới</button>
 						<table data-toggle="table" data-show-refresh="true" data-show-toggle="true" data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
 						    <tr>
@@ -126,7 +125,7 @@
 						        <th data-sortable="true">Số điện thoại NCC</th>
 								<th data-sortable="true">Địa chỉ</th>
 								<th data-sortable="true">Email</th>
-								<th data-sortable="true"></th>
+								<th data-sortable="true">Thao tác</th>
 						    </tr>
 							</thead>
 								<?php
@@ -143,7 +142,7 @@
 											<td data-sortable="true">'.$value['gmail'].'</td>
 											<td data-sortable="true">
 											<button class="btn btn-info btn-sm" name="edit" title="Chỉnh sửa nhà cung cấp" id="'.$value['mancc'].'" onClick="edituser(this)"><i class="fa fa-edit"></i></button>
-											<button class="btn btn-danger btn-sm" name="delete" title="Xóa nhà cung câp" onClick="deleteuser(\''.$value['mancc'].'\')"><i class="fa fa-trash-o"></i></button>
+											<button class="btn btn-danger btn-sm" name="delete" title="Ẩn nhà cung câp" onClick="deleteuser(\''.$value['mancc'].'\')"><i class="fa fa-trash-o"></i></button>
 											</td>
 										</tr>');
 									}

@@ -11,7 +11,7 @@ xulythemnhacungcap();
 			$sql="SELECT mancc FROM nhaccungcap WHERE mancc='$nhaccungcap'";
 			$query=mysqli_query($sq1,$sql);
 			if(mysqli_num_rows($query)==1){
-				echo "Mã ncc đã tồn tại vui lòng đổi tên tài khoản khác.";
+				echo " Nhà cung cấp đã tồn tại vui lòng đổi khác.";
 				exit;
 			}
 			else{
@@ -25,7 +25,7 @@ xulythemnhacungcap();
 								);
 					$table='nhaccungcap';
 					$class->insert($table,$data);
-					echo "Xin Chào ".$_POST['username']." Bạn đã thêm thành công.";
+					echo " Bạn đã thêm thành công.";//"Xin Chào ".$_POST['username'].
 					exit;
 				}
 			}		

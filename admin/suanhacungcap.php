@@ -18,6 +18,23 @@
 		//address: /^[a-zA-Z0-9\s][^#&<>\"~;$^%{}?]+$/
 		//password: /^[\w]{8,20}/ 
 		//password: /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$/ mật khẩu chứ ít nhất 1 kí tự thường, 1 kí tự INHOA, ít nhất 1 số ít nhất 8, nhiều nhất 20
+		
+
+		function checkUsername()
+		{
+			var username = document.getElementById("iduser").value;
+			var patt = /^[a-zA-Z\d]+$/;
+			result = patt.test(username);
+			if(result == false)
+			{
+				document.getElementById("invalid-username").innerHTML="*Mã hợp lệ không có khoảng trắng, kí tự đặc biệt";
+				document.getElementById("invalid-username").style.visibility="visible";
+			}
+			else
+			document.getElementById("invalid-username").style.visibility="hidden";
+
+		}
+		
 		function checkName()
 		{
 			var name = document.getElementById("idname").value;
@@ -34,22 +51,7 @@
 			} 
 		}
 
-		function checkUsername()
-		{
-			var username = document.getElementById("iduser").value;
-			var patt = /^[a-zA-Z\d]+$/;
-			result = patt.test(username);
-			if(result == false)
-			{
-				document.getElementById("invalid-username").innerHTML="*Mã NCC hợp lệ không có khoảng trắng, kí tự đặc biệt";
-				document.getElementById("invalid-username").style.visibility="visible";
-			}
-			else
-			document.getElementById("invalid-username").style.visibility="hidden";
-
-		}
-
-		function checkPass1()
+		/* function checkPass1()
 		{
 			var pass1 = document.getElementById("idpass").value;
 			var patt =  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$/;
@@ -86,20 +88,22 @@
 					document.getElementById("invalid-pass2").style.visibility="visible";
 				}
 			}    
-		}
+		} */
 
-		function checkEmail()
+		
+		
+		function checkPhone()
 		{
-			var email = document.getElementById("idemail").value;
-			var patt= /^\w+@[a-zA-Z]{3,8}(\.[a-zA-Z]{3,8})?\.[a-zA-Z]{2,5}$/;
-			var result = patt.test(email);
+			var phone = document.getElementById("idphone");
+			var patt = /^[0-9]{10,13}$/;
+			var result = patt.test(phone.value);
 			if(result == false)
 			{
-				document.getElementById("invalid-email").innerHTML="* Email không hợp lệ";
-				document.getElementById("invalid-email").style.visibility="visible";
-			}
+				document.getElementById("invalid-phone").innerHTML="* Số điện thoại không hợp lệ";
+				document.getElementById("invalid-phone").style.visibility="visible";
+			}     
 			else
-				document.getElementById("invalid-email").style.visibility="hidden";
+				document.getElementById("invalid-phone").style.visibility="hidden";
 		}
 
 		function checkAddress()
@@ -115,21 +119,22 @@
 			else
 				document.getElementById("invalid-address").style.visibility="hidden";
 		}
-
-		function checkPhone()
+		
+		function checkEmail()
 		{
-			var phone = document.getElementById("idphone");
-			var patt = /^[0-9]{10,13}$/;
-			var result = patt.test(phone.value);
+			var email = document.getElementById("idemail").value;
+			var patt= /^\w+@[a-zA-Z]{3,8}(\.[a-zA-Z]{3,8})?\.[a-zA-Z]{2,5}$/;
+			var result = patt.test(email);
 			if(result == false)
 			{
-				document.getElementById("invalid-phone").innerHTML="* Số điện thoại không hợp lệ";
-				document.getElementById("invalid-phone").style.visibility="visible";
-			}     
+				document.getElementById("invalid-email").innerHTML="* Email không hợp lệ";
+				document.getElementById("invalid-email").style.visibility="visible";
+			}
 			else
-				document.getElementById("invalid-phone").style.visibility="hidden";
+				document.getElementById("invalid-email").style.visibility="hidden";
 		}
 
+	
 
 		function xulysubmitsuancc()
 		{
@@ -141,34 +146,65 @@
 			var accept = document.getElementById("xacnhan");
 			if(username.value == "")
 			{
-				alert("Mã NCC đang rỗng !!!");
+				alert("Mã NCC đang trống !!!");
 				username.focus();
 				return false;
 			}
 			if(name.value == "") //Tên còn rỗng
 			{
-				alert("Tên NCC đang rỗng !!!");
+				alert("Tên NCC đang trống");
 				document.getElementById("invalid-name").innerHTML=" Tên NCC đang trống";
 				document.getElementById("invalid-name").style.visibility="visible";
 				name.focus();
 				return false;
 			}
+			var namex = document.getElementById("invalid-name").style.visibility;
+			if(namex == "visible")
+			{
+				alert("Tên không hợp lệ, vui lòng nhập lại");
+				return false;
+			}
 			if(tel.value == "")
 			{
-				alert("Số điện thoại đang rỗng !!!");
+				alert("Số điện thoại đang trống");
+				document.getElementById("invalid-phone").innerHTML="Số điện thoại đang trống";
+				document.getElementById("invalid-phone").style.visibility="visible";
 				tel.focus();
 				return false;
 			}
+			var phonex = document.getElementById("invalid-phone").style.visibility;
+			if(phonex == "visible")
+			{
+				alert("Số điện thoại không hợp lệ, vui lòng nhập lại");
+				return false;
+			}
+			
 			if(address.value == "")
 			{
-				alert("Địa chỉ đang rỗng");
+				alert("Địa chỉ đang trống");
+				document.getElementById("invalid-address").innerHTML="Địa chỉ đang trống";
+				document.getElementById("invalid-address").style.visibility="visible";
 				address.focus();
+				return false;
+			}
+			var addressx = document.getElementById("invalid-address").style.visibility;
+			if(addressx == "visible")
+			{
+				alert("Địa chỉ không hợp lệ, vui lòng nhập lại");
 				return false;
 			}
 			if(email.value == "")
 			{
-				alert("Thư điện tử đang rỗng !!!");
+				alert("Thư điện tử đang trống");
+				document.getElementById("invalid-email").innerHTML="Thư điện tử đang trống";
+				document.getElementById("invalid-email").style.visibility="visible";
 				email.focus();
+				return false;
+			}
+			var emailx = document.getElementById("invalid-email").style.visibility;
+			if(emailx == "visible")
+			{
+				alert("Thư điện tử không hợp lệ, vui lòng nhập lại");
 				return false;
 			}
 			
@@ -234,20 +270,20 @@
 						<div class="col-md-6">
 								
 								<div class="form-group" id="user">
-									<label  >Mã NCC</label><!--for="exampleInputEmail1"-->
+									<label id="id" >Mã NCC</label><!--for="exampleInputEmail1"-->
 									<input type="text"  readonly=""  class="form-control" id="iduser" name="username" value="<?php echo $user;?>" onchange="checkUsername">
 									
 								</div>
 								
 								<div class="form-group">
-									<label>Tên NCC</label>
-									<input class="form-control" placeholder="Họ và tên của chủ tài khoản" id="idname" name="name" value="<?php echo $name;?>" onchange="checkName()">
+									<label id="name">Tên NCC</label>
+									<input class="form-control" placeholder="Tên nhà cung cấp" id="idname" name="name" value="<?php echo $name;?>" onchange="checkName()">
 									<div id="invalid-name" style="color:red; visibility:hidden;"></div>
 								</div>
 								
 								<div class="form-group">
-									<label>Số điện thoại NCC</label>
-									<input class="form-control" placeholder="Số điện thoại" id="idphone" name="phone" value="0<?php echo $phone;?>" onchange="checkPhone()">
+									<label id="phone">Số điện thoại NCC</label>
+									<input class="form-control" placeholder="Số điện thoại nhà cung cấp" id="idphone" name="phone" value="0<?php echo $phone;?>" onchange="checkPhone()">
 									<div id="invalid-phone" style="color:red; visibility:hidden;"></div>
 								</div>
 							
@@ -255,19 +291,19 @@
 							<div class="col-md-6">
 							
 								<div class="form-group">
-									<label>Địa chỉ</label>
-									<input class="form-control" placeholder="Địa chỉ của tài khoản" id="idaddress" name="address" value="<?php echo $address;?>" onchange="checkAddress()">
+									<label id="address">Địa chỉ</label>
+									<input class="form-control" placeholder="Địa chỉ nhà cung cấp" id="idaddress" name="address" value="<?php echo $address;?>" onchange="checkAddress()">
 									<div id="invalid-address" style="color:red; visibility:hidden;"></div>
 								</div>
 								
 								<div class="form-group">
-									<label>Email</label>
-									<input class="form-control" placeholder="Thư điện tử" id="idemail" name="email" value="<?php echo $email;?>" onchange="checkEmail()">
+									<label id="email">Email</label>
+									<input class="form-control" placeholder="Thư điện tử nhà cung cấp" id="idemail" name="email" value="<?php echo $email;?>" onchange="checkEmail()">
 									<div id="invalid-email" style="color:red; visibility:hidden;"></div>
 								</div>
 								
-								<button id="btnsuancc" value="nut" class="btn btn-primary">Lưu nội dung sửa</button>
-								<button type="reset" class="btn btn-default" data-dismiss="modal">Hủy sửa</button>
+								<button id="btnsuancc" name="save" value="nut" class="btn btn-primary">Lưu nội dung sửa</button>
+								<button id="idhuy" name="cancel" type="reset" class="btn btn-default" data-dismiss="modal">Hủy sửa</button>
 							</div>
 						</form>
 					</div>
