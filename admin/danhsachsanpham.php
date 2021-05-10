@@ -229,7 +229,7 @@
 				<div class="panel panel-default" id="productsTittle">
 					<h1 class="panel-heading" id="products";>Bảng sản phẩm</h1>
 					<div class="panel-body">
-					<button type="button" class="btn btn-warning" id="addproduct" onClick="addproduct()" name="addpro">Thêm sản phẩm mới</button>
+					<button type="button" name="addpro" class="btn btn-warning" id="addproduct" onClick="addproduct()">Thêm sản phẩm mới</button>
 						<table data-toggle="table" data-show-refresh="true" data-show-toggle="true"
 						data-show-columns="true" data-search="true" data-select-item-name="toolbar1" data-pagination="true" data-sort-name="name" data-sort-order="desc">
 						    <thead>
@@ -285,7 +285,7 @@
 											}
 											?>
 											<?php if ($value['status']==0){?>
-											<button class="btn btn-dark btn-sm" name="print" title="Hiện sản phẩm" onClick="setStatusSanPhamShow(<?php echo $value['id']?>)"><i class="fa fa-eye" aria-hidden="true"></i></button>
+											<button class="btn btn-dark btn-sm" name="print1" title="Hiện sản phẩm" onClick="setStatusSanPhamShow(<?php echo $value['id']?>)"><i class="fa fa-eye" aria-hidden="true"></i></button>
 											<?php
 											}
 											?>

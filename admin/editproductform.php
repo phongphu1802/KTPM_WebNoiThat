@@ -159,16 +159,16 @@ echo 'Chưa nhận được yêu cầu';
 <form role="form" name='editform' id="ideditform" method="POST" enctype="multipart/form-data">
 <div class="col-md-6">
     <div class="form-group">
-        <label>Mã sản phẩm</label>
+        <label id="idid">Mã sản phẩm</label>
         <input type="text" class="form-control" id="idid" name="id" value="<?php echo($idproduct)?>" readonly>
     </div>
     <div class="form-group">
-        <label>Tên sản phẩm</label>
+        <label id="idname">Tên sản phẩm</label>
         <input type="text" class="form-control" id="idname" name="name" value="<?php echo($name)?>" onchange="checkProductName()">
         <div id="invalid-name" style="color:red; visibility:hidden;"></div>
     </div>
     <div class="form-group">
-        <label>Loại sản phẩm</label>
+        <label id="idtype">Loại sản phẩm</label>
         <select id="idtype" name="type">
         <?php
         mysqli_query($conn,"SET NAMES UTF8");
@@ -190,17 +190,17 @@ echo 'Chưa nhận được yêu cầu';
         </select>
     </div>
     <div class="form-group">
-        <label>Giá</label>
+        <label id="idprice">Giá</label>
         <input type="text" class="form-control" id="idprice" name="price" value="<?php echo($price)?>" onchange="checkPrice()">
         <div id="invalid-price" style="color:red; visibility:hidden;"></div>
     </div>
     <div class="form-group">
-        <label>Số lượng</label>
+        <label id="idamount">Số lượng</label>
         <input type="text" id="idamount" class="form-control" name="amount" value="<?php echo($amount)?>" onchange="checkAmount()">
         <div id="invalid-amount" style="color:red; visibility:hidden;"></div>
     </div>
     <div class="form-group">
-        <label>Màu</label>
+        <label id="idcolor">Màu</label>
         <select  id="idcolor" name="color">
         <?php 
         $colorlist = array('yellow','brown','black','white','gray','blue','red');
@@ -220,24 +220,24 @@ echo 'Chưa nhận được yêu cầu';
 </div>
 <div class="col-md-6">  
     <div class="form-group">
-        <label>Chi tiết sản phẩm</label>
+        <label id="iddetail">Chi tiết sản phẩm</label>
         <textarea class="form-control" placeholder="Chi tiết sản phẩm"  id="iddetail" name="detail" rows="5" cols="33">
         <?php echo $detail ?>
         </textarea>
     </div>
     <div>
-    <label>Hình ảnh sản phẩm</label>
+    <label id="img">Hình ảnh sản phẩm</label>
     <br/>
     <img src="../<?php echo $image ?>" width="200px" height="200px" class="img-thumbnail">
     </div>
 
     <div class="form-group">
-        <label>Bạn muốn thay đổi hình</label>
+        <label id="idimage">Bạn muốn thay đổi hình</label>
         <input type="file" id="idimage" name="HinhAnh" value="<?php echo $image ?>">
     </div>
     <br/>
     <input type="submit" class="btn btn-primary" id="editsubmit" name="submit" value='Chỉnh sửa thông tin'>
-    <input type="reset" class="btn btn-default" value='Làm lại' onclick="refresh()">
+    <input type="reset" class="btn btn-default" id="resume" value='Làm lại' onclick="refresh()">
 </div>
 </form>
 </div>

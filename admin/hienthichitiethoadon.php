@@ -15,7 +15,7 @@
 	<link href="css/bootstrap-table.css" rel="stylesheet">
 	<link href="css/styles.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<h2 style="color: black; margin-left: 35%;">Chi tiết hóa đơn</h2>
+	<h2 style="color: black; margin-left: 35%;" id="billDetail">Chi tiết hóa đơn</h2>
 	<?php
 			//lấy tên tài khoản địa chỉ
 			include('../connect.php');
@@ -52,10 +52,10 @@
 	<table data-toggle="table">
 		<thead>
 			<tr>
-				<th data-sortable="true">Tên sản phẩm</th>
-				<th data-sortable="true">Số lượng</th>
-				<th data-sortable="true">Giá một sản phẩm</th>
-				<th data-sortable="true">Tổng giá</th>
+				<th data-sortable="true" name="name">Tên sản phẩm</th>
+				<th data-sortable="true" id="amount">Số lượng</th>
+				<th data-sortable="true" id="price">Giá một sản phẩm</th>
+				<th data-sortable="true" id="total">Tổng giá</th>
 			</tr>
 		</thead>
 		<?php
